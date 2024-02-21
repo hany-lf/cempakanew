@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">CempakaNew</string>
+     <string name="facebook_app_id">2421637338051404</string>
+    <string name="fb_login_protocol_scheme">fb2421637338051404</string>
+    <string name="google_maps_key" templateMergeStrategy="preserve" translatable="false">AIzaSyDob2sgyF1CMvdN3dv-ZaIN4939EzQ6YVU</string>
+</resources>
