@@ -80,7 +80,8 @@ export default class Profile extends React.Component {
 
             dataProfile: [],
             fotoProfil: require("@Asset/images/1.png"),
-            fotoHeader: require("@Asset/images/header.png")
+            fotoHeader: require("@Asset/images/header.png"),
+            cons: []
         };
 
         this.renderAccordionHeader = this.renderAccordionHeader.bind(this);
@@ -91,6 +92,8 @@ export default class Profile extends React.Component {
         this.renderAccordionContentSocial = this.renderAccordionContentSocial.bind(
             this
         );
+
+        console.log('get __Props', props);
     }
 
     async componentDidMount() {
@@ -100,12 +103,15 @@ export default class Profile extends React.Component {
             name: await _getData("@Name"),
             group: await _getData("@Group"),
             token: await _getData("@Token"),
-            hp: await _getData("@Handphone")
+            hp: await _getData("@Handphone"),
+            cons: await _getData("@UserProject")
         };
 
         this.setState(data, () => {
             this.getProfile();
         });
+
+        console.log('getkwkwkw', data.cons);
     }
 
     componentWillUnmount() {
@@ -153,14 +159,15 @@ export default class Profile extends React.Component {
     };
 
     save = () => {
-        const { email, name, hp, gender } = this.state;
+        const { email, name, hp, gender, cons } = this.state;
 
         const formData = {
             UserName: email,
             Name: name,
             Handphone: hp,
             Gender: gender,
-            wherename: name
+            wherename: name,
+            cons: cons
         };
 
         fetch(urlApi + "c_profil/save/", {
@@ -174,11 +181,13 @@ export default class Profile extends React.Component {
         })
             .then(response => response.json())
             .then(res => {
+                // const resp = JSON.parse(res.data);
                 if (!res.Error) {
                     alert(res.Pesan);
                     _storeData("@Name", name);
                     _storeData("@Handphone", hp);
                     _storeData("@ProfileUpdate", true);
+                    Actions.pop();
                 }
                 console.log("save profile", res);
             })
@@ -278,7 +287,7 @@ export default class Profile extends React.Component {
                         this.setState({ name: val });
                     }}
                 />
-                {Platform.OS == "ios" ? (
+                {Platform.OS == "android" ? (
                     <TouchableOpacity onPress={() => this.showActionSheet()}>
                         <View pointerEvents="none">
                             <TextInput
@@ -480,7 +489,7 @@ export default class Profile extends React.Component {
     logout = () => {
         Alert.alert(
             "",
-            "Are you want to Logout",
+            "Do you want to logout?",
             [
                 {
                     text: "Cancel",
@@ -514,7 +523,7 @@ export default class Profile extends React.Component {
         return (
             <Container style={Style.bgMain}>
                 <StatusBar
-                    backgroundColor={Colors.statusBarOrange}
+                    backgroundColor={Colors.brownTuansing}
                     animated
                     barStyle="light-content"
                 />
@@ -561,17 +570,86 @@ export default class Profile extends React.Component {
                                 }}
                             >
                                 <Icon
-                                    active
-                                    name="arrow-left"
-                                    style={Style.textWhite}
-                                    type="MaterialCommunityIcons"
-                                />
+                                active
+                                name="chevron-left"
+                                style={Style.textWhite}
+                                type="FontAwesome5"
+                            />
                             </Button>
                         </View>
                     </View>
 
                     <View style={Styles.formBg}>
-                        <Accordion
+                    <TextInput
+                    style={Styles.textInput}
+                    placeholder={"Email"}
+                    value={this.state.email}
+                    />
+                <TextInput
+                    style={Styles.textInput}
+                    placeholder={"Group"}
+                    value={this.state.group}
+                    />
+                <TextInput
+                    style={Styles.textInput}
+                    placeholder={"First Name"}
+                    value={this.state.name}
+                    onChangeText={val => {
+                        this.setState({ name: val });
+                    }}
+                />
+                {Platform.OS == "android" ? (
+                    <TouchableOpacity onPress={() => this.showActionSheet()}>
+                        <View pointerEvents="none">
+                            <TextInput
+                                style={Styles.textInput}
+                                placeholder={"Gender"}
+                                value={this.state.gender}
+                                />
+                        </View>
+                    </TouchableOpacity>
+                ) : (
+                    <View style={{ paddingHorizontal: 12 }}>
+                        <Picker
+                            placeholder="Gender"
+                            selectedValue={this.state.gender}
+                            onValueChange={val =>
+                                this.setState({ gender: val })
+                            }
+                            textStyle={{ fontSize: 12 }}
+                        >
+                            <Item label="Male" value="Male" />
+                            <Item label="Female" value="Female" />
+                        </Picker>
+                    </View>
+                )}
+
+                <TextInput
+                    style={Styles.textInput}
+                    placeholder={"Handphone"}
+                    value={this.state.hp}
+                    onChangeText={val => {
+                        this.setState({ hp: val });
+                    }}
+                />
+                {/* <TextInput style={Styles.textInputMulti} multiline={true} numberOfLines={8} placeholder={'About You'} /> */}
+                <Button
+                    style={Styles.btn}
+                    onPress={() => {
+                        this.save();
+                    }}
+                >
+                    <Text style={Styles.formBtnText}>
+                        {"Save".toUpperCase()}
+                    </Text>
+                    <Icon
+                        active
+                        name="arrow-right"
+                        type="FontAwesome5"
+                        style={Styles.formBtnIcon}
+                    />
+                </Button>
+                        {/* <Accordion
                             style={Styles.accordion}
                             dataArray={[
                                 {
@@ -587,7 +665,43 @@ export default class Profile extends React.Component {
                             expanded={-1}
                             renderHeader={this.renderAccordionHeader}
                             renderContent={this.renderAccordionContent}
-                        />
+                        /> */}
+                         <View>
+                <TextInput
+                    style={Styles.textInput}
+                    placeholder={"Current Password"}
+                    onChangeText={val => this.setState({ curPass: val })}
+                    value={this.state.curPass}
+                />
+                <TextInput
+                    style={Styles.textInput}
+                    placeholder={"New Password"}
+                    onChangeText={val => this.setState({ newPass: val })}
+                    value={this.state.newPass}
+                />
+                <TextInput
+                    style={Styles.textInput}
+                    placeholder={"Confirm Password"}
+                    onChangeText={val => this.setState({ conPass: val })}
+                    value={this.state.conPass}
+                />
+                <Button
+                    style={Styles.btn}
+                    onPress={() => {
+                        this.changePassPress();
+                    }}
+                >
+                    <Text style={Styles.formBtnText}>
+                        {"Save".toUpperCase()}
+                    </Text>
+                    <Icon
+                        active
+                        name="arrow-right"
+                        type="FontAwesome5"
+                        style={Styles.formBtnIcon}
+                    />
+                </Button>
+            </View>
                     </View>
 
                     <View

@@ -335,7 +335,7 @@ export default class extends React.Component {
               </View>
 
               <Right style={{ position: "absolute", right: 10 }}>
-                <Icon name="ios-arrow-dropright" style={{ fontSize: 30 }} />
+              <Icon name="chevron-right" style={{fontSize: 30}} fontSize={5} type="MaterialIcons" />
               </Right>
             </ListItem>
             <ListItem

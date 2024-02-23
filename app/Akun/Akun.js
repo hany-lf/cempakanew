@@ -138,7 +138,7 @@ export default class Akun extends React.Component {
                                         </View>
 
                                         <Right style={{position:'absolute',right:10}}>
-                                            <Icon name="ios-arrow-dropright" style={{fontSize: 30,}} />
+                                            <Icon name="arrow-forward" style={{fontSize: 30,}} />
                                         </Right>
                                     </ListItem>
                                 )}

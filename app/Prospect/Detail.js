@@ -288,7 +288,7 @@ class DetailProspect extends Component {
                             }} 
                         
                             > */}
-                            <View style={{flexDirection: "row"}}>
+                            {/* <View style={{flexDirection: "row"}}>
                                 <View style={{ alignSelf: "center",width: '100%'}}>
                                     <View style={{flexDirection: 'row', justifyContent:'center', alignItems:'center'}}>
                                         <Label style={{paddingHorizontal: 5, bottom: 0}}>
@@ -316,7 +316,7 @@ class DetailProspect extends Component {
                                         </TouchableHighlight>
                                     </View>
                                 </View>
-                            </View>
+                            </View> */}
                             {/* </Card> */}
                         {/* </TouchableOpacity> */}
                     </LinearGradient>

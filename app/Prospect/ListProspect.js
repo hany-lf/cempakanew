@@ -61,7 +61,8 @@ import Shimmer from '@Component/Shimmer';
 
 
 class ListProspect extends Component {
-    
+    // isMount = false;
+
 
     constructor(props){
         super(props)
