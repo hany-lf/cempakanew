@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, {Component} from 'react';
 import {
   Platform,
   ScrollView,
@@ -10,7 +10,7 @@ import {
   ActivityIndicator,
   FlatList,
   Alert,
-} from "react-native";
+} from 'react-native';
 import {
   Container,
   Header,
@@ -35,36 +35,33 @@ import {
   Fab,
   Form,
   Label,
-} from "native-base";
-import LinearGradient from "react-native-linear-gradient";
-import Carousel, {
-  Pagination,
-  ParallaxImage,
-} from "react-native-snap-carousel";
-import { sliderWidth, itemWidth } from "./styles/SliderEntry";
-import SliderEntry from "../components/SlideEntry";
-import styles, { colors } from "./styles/index";
-import { ENTRIES1, ENTRIES2 } from "./static/entries";
-import { scrollInterpolators, animatedStyles } from "./utils/animations";
-import CardSlide from "../components/CardSlide";
-const { height, width } = Dimensions.get("window");
-import { urlApi } from "@Config/services";
-import { _storeData, _getData } from "@Component/StoreAsync";
-import { Actions } from "react-native-router-flux";
-import Styles from "./Style";
-const IS_ANDROID = Platform.OS === "android";
+} from 'native-base';
+import LinearGradient from 'react-native-linear-gradient';
+import Carousel, {Pagination, ParallaxImage} from 'react-native-snap-carousel';
+import {sliderWidth, itemWidth} from './styles/SliderEntry';
+import SliderEntry from '../components/SlideEntry';
+import styles, {colors} from './styles/index';
+import {ENTRIES1, ENTRIES2} from './static/entries';
+import {scrollInterpolators, animatedStyles} from './utils/animations';
+import CardSlide from '../components/CardSlide';
+const {height, width} = Dimensions.get('window');
+import {urlApi} from '@Config/services';
+import {_storeData, _getData} from '@Component/StoreAsync';
+import {Actions} from 'react-native-router-flux';
+import Styles from './Style';
+const IS_ANDROID = Platform.OS === 'android';
 const SLIDER_1_FIRST_ITEM = 0;
-import SIMILAR from "../Property/Similar";
-import ImageResizeMode from "react-native/Libraries/Image/ImageResizeMode";
-import moment from "moment";
+import SIMILAR from '../Property/Similar';
+import ImageResizeMode from 'react-native/Libraries/Image/ImageResizeMode';
+import moment from 'moment';
 
 export default class Home extends Component {
   constructor(props) {
     super(props);
     this.state = {
       slider1ActiveSlide: SLIDER_1_FIRST_ITEM,
-      name: "",
-      email: "",
+      name: '',
+      email: '',
       dataTower: [],
       dataPromo: [],
       dataNews: [],
@@ -77,23 +74,23 @@ export default class Home extends Component {
 
   componentWillMount() {
     this.startHeaderHeight = 80;
-    if (Platform.OS == "android") {
+    if (Platform.OS == 'android') {
       this.startHeaderHeight = 100 + StatusBar.currentHeight;
     }
   }
 
   async componentDidMount() {
     const data = {
-      email: await _getData("@User"),
-      name: await _getData("@Name"),
-      dataTower: await _getData("@UserProject"),
-      attendanceSession: await _getData("@AttendanceSession"),
+      email: await _getData('@User'),
+      name: await _getData('@Name'),
+      dataTower: await _getData('@UserProject'),
+      attendanceSession: await _getData('@AttendanceSession'),
       isCorLoaded: true,
     };
-    console.log("homedata", data);
+    console.log('homedata', data);
 
-    const isAttend = await _getData("@sessAttended");
-    console.log("isAttend", isAttend);
+    const isAttend = await _getData('@sessAttended');
+    console.log('isAttend', isAttend);
 
     this.setState(data, () => {
       this.getPromo();
@@ -104,49 +101,49 @@ export default class Home extends Component {
     });
   }
 
-  checkAttendance = (session) => {
-    const { attendanceSession } = this.state;
+  checkAttendance = session => {
+    const {attendanceSession} = this.state;
 
     for (let i = 0; i < attendanceSession.length; i++) {
       var from = attendanceSession[i].TimeIn;
-      var from_format = moment(new Date(from)).format("H:mm:ss");
+      var from_format = moment(new Date(from)).format('H:mm:ss');
       //console.log("format", from_format);
       //console.log("liatdongfr", from);
       var to = attendanceSession[i + 1]
         ? attendanceSession[i + 1].TimeIn
-        : moment(new Date(2000, 1, 1, 22, 0, 0, 0)).format("H:mm:ss");
-      var to_format = moment(new Date(to)).format("H:mm:ss");
-    //   console.log("to_format", to_format);
+        : moment(new Date(2000, 1, 1, 22, 0, 0, 0)).format('H:mm:ss');
+      var to_format = moment(new Date(to)).format('H:mm:ss');
+      //   console.log("to_format", to_format);
       var sessAttend = attendanceSession[i].Session_Cd;
-    //   console.log("liatdongcd", sessAttend);
+      //   console.log("liatdongcd", sessAttend);
 
       if (
-        moment().format("H:mm:ss") >= from_format &&
-        moment().format("H:mm:ss") <= to_format
+        moment().format('H:mm:ss') >= from_format &&
+        moment().format('H:mm:ss') <= to_format
       ) {
-        _storeData("@currAttended", sessAttend); //Ini sama aja isAttend
-        console.log("liatdong", sessAttend);
+        _storeData('@currAttended', sessAttend); //Ini sama aja isAttend
+        console.log('liatdong', sessAttend);
         if (sessAttend !== session) {
-          console.log("oke", attendanceSession.length);
-        //   this.showAlertAttendance(attendanceSession[i]);
+          console.log('oke', attendanceSession.length);
+          //   this.showAlertAttendance(attendanceSession[i]);
           break;
         }
       }
-      console.log("from_format", from_format);
-      console.log("now", moment().format("H:mm:ss"));
-      console.log("to_format", to_format);
+      console.log('from_format', from_format);
+      console.log('now', moment().format('H:mm:ss'));
+      console.log('to_format', to_format);
     }
   };
 
-  showAlertAttendance = (session) => {
+  showAlertAttendance = session => {
     this.setState({});
     Alert.alert(
-      "Attendance Notification",
+      'Attendance Notification',
       `Let's attend your activity [${session.Session_descs}]`,
       [
         {
-          text: "Ask me later",
-          onPress: () => console.log("Ask me later pressed"),
+          text: 'Ask me later',
+          onPress: () => console.log('Ask me later pressed'),
         },
 
         {
@@ -156,52 +153,48 @@ export default class Home extends Component {
           },
         },
       ],
-      { cancelable: false }
+      {cancelable: false},
     );
   };
 
   getPromo = () => {
     fetch(
-      urlApi +
-        "c_newsandpromo/getDatapromo/IFCAMOBILE/" +
-        this.state.email,
+      urlApi + 'c_newsandpromo/getDatapromo/IFCAMOBILE/' + this.state.email,
       {
-        method: "GET",
-      }
+        method: 'GET',
+      },
     )
-      .then((response) => response.json())
-      .then((res) => {
+      .then(response => response.json())
+      .then(res => {
         if (!res.Error) {
           const resData = res.Data;
 
-          this.setState({ dataPromo: resData });
-          console.log("dataPRopmo", resData);
+          this.setState({dataPromo: resData});
+          console.log('dataPRopmo', resData);
         }
       })
-      .catch((error) => {
+      .catch(error => {
         console.log(error);
       });
   };
 
   getNews = () => {
     fetch(
-      urlApi +
-        "c_newsandpromo/getDatanews/IFCAMOBILE/" +
-        this.state.email,
+      urlApi + 'c_newsandpromo/getDatanews/IFCAMOBILE/' + this.state.email,
       {
-        method: "GET",
-      }
+        method: 'GET',
+      },
     )
-      .then((response) => response.json())
-      .then((res) => {
+      .then(response => response.json())
+      .then(res => {
         if (!res.Error) {
           const resData = res.Data;
 
-          this.setState({ dataNews: resData });
-          console.log("dataNews", resData);
+          this.setState({dataNews: resData});
+          console.log('dataNews', resData);
         }
       })
-      .catch((error) => {
+      .catch(error => {
         console.log(error);
       });
   };
@@ -210,14 +203,13 @@ export default class Home extends Component {
   //   return <SliderEntry data={item} even={(index + 1) % 2 === 0} />;
   // }
 
-  _renderItemPromo({ item, index }, parallaxProps) {
+  _renderItemPromo({item, index}, parallaxProps) {
     return (
       <TouchableOpacity
         style={styles.item}
-        onPress={() => Actions.NewsAndPromoDetail({ items: item })}
-      >
+        onPress={() => Actions.NewsAndPromoDetail({items: item})}>
         <ParallaxImage
-          source={{ uri: item.picture }}
+          source={{uri: item.picture}}
           containerStyle={styles.imageContainer}
           style={styles.image}
           parallaxFactor={0.4}
@@ -227,7 +219,7 @@ export default class Home extends Component {
           <Text style={styles.newsTitleText} numberOfLines={2}>
             {item.subject}
           </Text>
-          <Text style={styles.newsTitleText_small}>{item.descs}</Text>
+          <Text style={styles.newsTitleText_small}></Text>
         </View>
         {/* <View style={styles.newsTitle_small}>
               <Text style={styles.newsTitleText_small} numberOfLines={2}>
@@ -238,51 +230,49 @@ export default class Home extends Component {
     );
   }
 
-  _renderItemWithParallax({ item, index }, parallaxProps) {
+  _renderItemWithParallax({item, index}, parallaxProps) {
     return (
       <SliderEntry
         data={item}
         even={(index + 1) % 2 === 0}
         parallax={true}
         parallaxProps={parallaxProps}
-        onPress={() => Actions.propertydetail({ items: item })}
+        onPress={() => Actions.propertydetail({items: item})}
       />
     );
   }
 
-  _renderLightItem({ item, index }) {
+  _renderLightItem({item, index}) {
     return <SliderEntry data={item} even={false} />;
   }
 
-  _renderDarkItem({ item, index }) {
+  _renderDarkItem({item, index}) {
     return <SliderEntry data={item} even={true} />;
   }
 
   mainExample(number, title) {
-    const { slider1ActiveSlide } = this.state;
+    const {slider1ActiveSlide} = this.state;
 
     return (
       <View style={styles.exampleContainer}>
         {/* //??? Di Matiin Belum nemu Solusi Biar ke refresh */}
         {/* <Text style={styles.title}>Hey {this.state.name}</Text> */}
-        <Text style={styles.title}>Cempaka Group</Text>
+        <Text style={styles.title}>IFCA Property365</Text>
         <Text style={styles.subtitle}>{`This is what you need!`}</Text>
 
         <View
           style={{
-            justifyContent: "flex-end",
-            flexDirection: "row",
+            justifyContent: 'flex-end',
+            flexDirection: 'row',
             flex: 1,
             paddingRight: 16,
             marginTop: -20,
-          }}
-        >
+          }}>
           <Button
             small
             rounded
             style={Styles.sBtnHead}
-            onPress={() => Actions.ListingProjectPage()}
-          >
+            onPress={() => Actions.ListingProjectPage()}>
             <Text style={Styles.sLinkHead}>ALL PROJECT</Text>
           </Button>
         </View>
@@ -292,7 +282,7 @@ export default class Home extends Component {
             <ActivityIndicator size="large" />
           ) : (
             <Carousel
-              ref={(c) => (this._slider1Ref = c)}
+              ref={c => (this._slider1Ref = c)}
               data={this.state.dataTower}
               renderItem={this._renderItemWithParallax}
               sliderWidth={sliderWidth}
@@ -322,8 +312,8 @@ export default class Home extends Component {
     return (
       <LinearGradient
         colors={[colors.background1, colors.background2]}
-        startPoint={{ x: 0, y: 0 }}
-        endPoint={{ x: 0, y: 1 }}
+        startPoint={{x: 0, y: 0}}
+        endPoint={{x: 0, y: 1}}
         style={styles.gradient}
       />
     );
@@ -334,14 +324,14 @@ export default class Home extends Component {
       <TouchableOpacity
         style={Styles.item}
         underlayColor="transparent"
-        onPress={() => Actions.NewsAndPromoDetail({ items: item })}
-      >
+        onPress={() => Actions.NewsAndPromoDetail({items: item})}>
         <View>
           <View>
-            <Image source={{ uri: item.picture }} style={Styles.itemImg} />
+            <Image source={{uri: item.picture}} style={Styles.itemImg} />
           </View>
-          <Text style={Styles.itemPrice}>{item.descs}</Text>
-          <Text style={Styles.itemLocation}>{item.subject}</Text>
+          <Text style={Styles.itemPrice}>{item.subject}</Text>
+          {/* <Text style={Styles.itemPrice}>{item.descs}</Text> */}
+          {/* <Text style={Styles.itemLocation}>{item.subject}</Text> */}
         </View>
       </TouchableOpacity>
     );
@@ -352,13 +342,13 @@ export default class Home extends Component {
       <TouchableOpacity
         style={Styles.item}
         underlayColor="transparent"
-        onPress={() => Actions.NewsAndPromoDetail({ items: item })}
-      >
+        onPress={() => Actions.NewsAndPromoDetail({items: item})}>
         <View>
           <View>
-            <Image source={{ uri: item.picture }} style={Styles.itemImg} />
+            <Image source={{uri: item.picture}} style={Styles.itemImg} />
           </View>
           <Text style={Styles.itemPrice}>{item.descs}</Text>
+          <Text>halo</Text>
           <Text style={Styles.itemLocation}>{item.subject}</Text>
         </View>
       </TouchableOpacity>
@@ -366,7 +356,7 @@ export default class Home extends Component {
   }
 
   render() {
-    const example1 = this.mainExample(1, "");
+    const example1 = this.mainExample(1, '');
     // const example2 = this.momentumExample(2, 'Momentum | Left-aligned | Active animation');
     // const example3 = this.layoutExample(3, '"Stack of cards" layout | Loop', 'stack');
     // const example4 = this.layoutExample(4, '"Tinder-like" layout | Loop', 'tinder');
@@ -379,18 +369,17 @@ export default class Home extends Component {
       <View style={styles.container}>
         <StatusBar
           translucent={true}
-          backgroundColor={"rgba(0, 0, 0, 0.3)"}
-          barStyle={"light-content"}
+          backgroundColor={'rgba(0, 0, 0, 0.3)'}
+          barStyle={'light-content'}
         />
         {this.gradient}
         <ScrollView
           style={styles.scrollview}
           scrollEventThrottle={200}
-          directionalLockEnabled={true}
-        >
+          directionalLockEnabled={true}>
           {example1}
           <ScrollView scrollEventThrottle={16}>
-            <View style={{ flex: 1 }}>
+            <View style={{flex: 1}}>
               {/* <View style={{ height: 130, marginTop: 20 }}>
                 <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
                   {this.state.dataPromo.length != 0 ?
@@ -403,15 +392,14 @@ export default class Home extends Component {
               <View style={Styles.sectionTransparent}>
                 <View style={Styles.headerBg}>
                   <Text style={Styles.sTitleWhite}>
-                    {"Promo".toUpperCase()}
+                    {'Promo'.toUpperCase()}
                   </Text>
                   <Right>
                     <Button
                       small
                       rounded
                       style={Styles.sBtn}
-                      onPress={() => Actions.Feed()}
-                    >
+                      onPress={() => Actions.Feed()}>
                       <Text style={Styles.sLink}>See All</Text>
                     </Button>
                   </Right>
@@ -441,14 +429,13 @@ export default class Home extends Component {
 
               <View style={Styles.sectionTransparent}>
                 <View style={Styles.headerBg}>
-                  <Text style={Styles.sTitleWhite}>{"News".toUpperCase()}</Text>
+                  <Text style={Styles.sTitleWhite}>{'News'.toUpperCase()}</Text>
                   <Right>
                     <Button
                       small
                       rounded
                       style={Styles.sBtn}
-                      onPress={() => Actions.Feed()}
-                    >
+                      onPress={() => Actions.Feed()}>
                       <Text style={Styles.sLink}>See All</Text>
                     </Button>
                   </Right>
@@ -456,9 +443,9 @@ export default class Home extends Component {
                 <FlatList
                   data={this.state.dataNews}
                   contentContainerStyle={Styles.flatList}
-                  keyExtractor={(item) => item.id.toString()}
+                  keyExtractor={item => item.id.toString()}
                   numColumns={2}
-                  renderItem={({ item }) => this.renderItemNews(item)}
+                  renderItem={({item}) => this.renderItemNews(item)}
                 />
               </View>
               {/* <View style={Styles.sectionTransparent}>

@@ -1,136 +1,136 @@
-import React, { Component } from "react";
-import { SafeAreaView, ActivityIndicator } from "react-native";
+import React, {Component} from 'react';
+import {SafeAreaView, ActivityIndicator} from 'react-native';
 import {
   Scene,
   Router,
   Actions,
   Stack,
   ActionConst,
-} from "react-native-router-flux";
-import { Root } from "native-base";
-import Icon from "react-native-vector-icons/FontAwesome";
+} from 'react-native-router-flux';
+import {Root} from 'native-base';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
-import Home from "./Home/Home";
-import Login from "./Intro/Intro";
-import SignupGuest from "./Signup/SignupGuest";
-import SignupAgent from "./Signup/SignupAgent";
-import Reset from "./ResetPass/Reset";
-import Search from "./Find/Search";
-import Calcu from "./Calcu/Calcu";
-import Notif from "./Notif/Notif";
-import Akun from "./Akun/Akun";
-import AkunHome from "./Akun/AkunHome";
-import PDFViewer from "./components/PDFViewer/index";
+import Home from './Home/Home';
+import Login from './Intro/Intro';
+import SignupGuest from './Signup/SignupGuest';
+import SignupAgent from './Signup/SignupAgent';
+import Reset from './ResetPass/Reset';
+import Search from './Find/Search';
+import Calcu from './Calcu/Calcu';
+import Notif from './Notif/Notif';
+import Akun from './Akun/Akun';
+import AkunHome from './Akun/AkunHome';
+import PDFViewer from './components/PDFViewer/index';
 
-import PropertyDetail from "./Property/PropertyDetail";
+import PropertyDetail from './Property/PropertyDetail';
 
-import Categoris from "./Categoris/Categoris";
-import Unitgoris from "./Categoris/Unitgoris";
-import Unittype from "./Categoris/Unittype";
-import UnitDetail from "./Categoris/UnitDetail";
+import Categoris from './Categoris/Categoris';
+import Unitgoris from './Categoris/Unitgoris';
+import Unittype from './Categoris/Unittype';
+import UnitDetail from './Categoris/UnitDetail';
 
-import { Tab } from "native-base";
-import ChouseFloor from "./Categoris/ChouseFloor";
-import ChooseTower from "./Categoris/ChooseTower";
-import ChouseUnit from "./Categoris/ChouseUnit";
-import ChooseZone from "./Categoris/ChooseZone";
-import UnitInfo from "./Categoris/UnitInfo";
-import UnitEnquiry from "./Categoris/UnitEnquiry";
+import {Tab} from 'native-base';
+import ChouseFloor from './Categoris/ChouseFloor';
+import ChooseTower from './Categoris/ChooseTower';
+import ChouseUnit from './Categoris/ChouseUnit';
+import ChooseZone from './Categoris/ChooseZone';
+import UnitInfo from './Categoris/UnitInfo';
+import UnitEnquiry from './Categoris/UnitEnquiry';
 
 //Reservation
-import MyReservationProjectPage from "./Reservation/myReservation";
+import MyReservationProjectPage from './Reservation/myReservation';
 
 //Unit
-import MyUnitPage from "./MyUnit/myUnit";
-import MyUnitDetailPage from "./MyUnit/myUnitDetail";
+import MyUnitPage from './MyUnit/myUnit';
+import MyUnitDetailPage from './MyUnit/myUnitDetail';
 
 //Billing
-import MyBillingPage from "./MyBilling/myBilling";
+import MyBillingPage from './MyBilling/myBilling';
 
 //Profile
-import Profile from "./Profile";
+import Profile from './Profile';
 
 //Feed
-import Feed from "./Feed/Feed";
+import Feed from './Feed/Feed';
 
 //News And Promo
-import NewsPage from "./Feed/Feed";
+import NewsPage from './Feed/Feed';
 
 //Booking
-import BookingPage from "./Booking/Booking";
-import FormPayment from "./Booking/FormPayment";
+import BookingPage from './Booking/Booking';
+import FormPayment from './Booking/FormPayment';
 
 //MyBooking
-import MyBookingProjectPage from "./MyBooking/MyBooking";
+import MyBookingProjectPage from './MyBooking/MyBooking';
 
 //Project
-import Project from "./Project/Search";
+import Project from './Project/Search';
 
 //Download
-import DownloadPage from "./Download/Download";
+import DownloadPage from './Download/Download';
 
 //Download
-import NewsAndPromoDetail from "./NewsAndPromo/NewsAndPromoDetail";
+import NewsAndPromoDetail from './NewsAndPromo/NewsAndPromoDetail';
 
 //Report
-import ReportPage from "./Reports/Reports";
+import ReportPage from './Reports/Reports';
 
 //Report New
-import ReportNew from "./ReportNew/ReportNew";
-import ReportProspect from "./ReportNew/ReportProspect";
-import ReportFollowUp from "./ReportNew/ReportFollowUp";
-import ReportListProspect from "./ReportNew/ReportListProspect";
-import ReportListFollowUp from "./ReportNew/ReportListFollowUp";
+import ReportNew from './ReportNew/ReportNew';
+import ReportProspect from './ReportNew/ReportProspect';
+import ReportFollowUp from './ReportNew/ReportFollowUp';
+import ReportListProspect from './ReportNew/ReportListProspect';
+import ReportListFollowUp from './ReportNew/ReportListFollowUp';
 //Comission
-import Comission from "./Comission/Comission";
+import Comission from './Comission/Comission';
 
 // NUP
-import NUPPage from "./NUP";
-import NUPPay from "./NUP/NUP_Pay";
-import NUPDetail from "./NUP/NUPDetail";
-import NUPTerm from "./NUP/NUPTerm";
+import NUPPage from './NUP';
+import NUPPay from './NUP/NUP_Pay';
+import NUPDetail from './NUP/NUPDetail';
+import NUPTerm from './NUP/NUPTerm';
 
-import Dashboard from "./Reports/Dashboard";
+import Dashboard from './Reports/Dashboard';
 
-import { _storeData, _getData } from "@Component/StoreAsync";
+import {_storeData, _getData} from '@Component/StoreAsync';
 
-import Menu from "./Menu/Menu";
+import Menu from './Menu/Menu';
 
 //prospect
-import ProspectPage from "./Prospect/Prospect";
-import AddProspect from "./Prospect/AddProspect";
-import ListProspect from "./Prospect/ListProspect";
+import ProspectPage from './Prospect/Prospect';
+import AddProspect from './Prospect/AddProspect';
+import ListProspect from './Prospect/ListProspect';
 
-import FollowupProspect from "./Prospect/FollowupProspect";
-import DetailProspect from "./Prospect/Detail";
-import DetailPage from "./Prospect/DetailPage";
-import InterestProjectProspect from "./Prospect/InterestProjectProspect";
-import AddProject from "./Prospect/AddProject";
-import AddFollowUp from "./Prospect/AddFollowUp";
-import DetailFollowUp from "./Prospect/DetailFollowUp";
+import FollowupProspect from './Prospect/FollowupProspect';
+import DetailProspect from './Prospect/Detail';
+import DetailPage from './Prospect/DetailPage';
+import InterestProjectProspect from './Prospect/InterestProjectProspect';
+import AddProject from './Prospect/AddProject';
+import AddFollowUp from './Prospect/AddFollowUp';
+import DetailFollowUp from './Prospect/DetailFollowUp';
 
 //interest project
-import AddInterest from "./Interest/AddInterest";
-import DetailInterest from "./Interest/DetailInterest";
+import AddInterest from './Interest/AddInterest';
+import DetailInterest from './Interest/DetailInterest';
 
 //attachment
-import AddAttachment from "./Prospect/AddAttachment";
+import AddAttachment from './Prospect/AddAttachment';
 
 //Attendance
-import AttendancePage from "./Attendance/Attendance";
+import AttendancePage from './Attendance/Attendance';
 
 //Survey
-import SurveyPage from "./Survey/Survey";
-import SurveyDetail from "./Survey/SurveyDetail";
+import SurveyPage from './Survey/Survey';
+import SurveyDetail from './Survey/SurveyDetail';
 
-const TabIcon = ({ focused, iconName }) => {
-  var color = focused ? "#343393" : "#7f8c8d";
+const TabIcon = ({focused, iconName}) => {
+  var color = focused ? '#343393' : '#7f8c8d';
   return (
     <Icon
       name={iconName}
       color={color}
       size={24}
-      style={{ marginTop: 8 }}
+      style={{marginTop: 8}}
       textStyle={color}
     />
   );
@@ -148,15 +148,15 @@ class Routes extends Component {
 
   async componentDidMount() {
     try {
-      const isLogin = await _getData("@isLogin");
-      console.log("isLogin: ", isLogin);
+      const isLogin = await _getData('@isLogin');
+      console.log('isLogin: ', isLogin);
       if (isLogin) {
-        this.setState({ hasLogin: true, isLoaded: true });
+        this.setState({hasLogin: true, isLoaded: true});
       } else {
-        this.setState({ hasLogin: null, isLoaded: true });
+        this.setState({hasLogin: null, isLoaded: true});
       }
     } catch (err) {
-      console.log("error: ", err);
+      console.log('error: ', err);
     }
   }
 
@@ -180,8 +180,7 @@ class Routes extends Component {
                 initial={this.state.hasLogin}
                 hideNavBar
                 translucent={true}
-                tabs={true}
-              >
+                tabs={true}>
                 <Scene
                   key="home"
                   component={Home}
@@ -400,7 +399,7 @@ class Routes extends Component {
                 hideNavBar={true}
                 title=""
               />
-              
+
               <Scene
                 key="ReportProspect"
                 component={ReportProspect}
@@ -413,18 +412,18 @@ class Routes extends Component {
                 hideNavBar={true}
                 title=""
               />
-               <Scene
+              <Scene
                 key="ReportListProspect"
                 component={ReportListProspect}
                 hideNavBar={true}
                 title=""
               />
               <Scene
-               key="ReportListFollowUp"
-               component={ReportListFollowUp}
-               hideNavBar={true}
-               title=""
-             />
+                key="ReportListFollowUp"
+                component={ReportListFollowUp}
+                hideNavBar={true}
+                title=""
+              />
               <Scene
                 key="Dashboard"
                 component={Dashboard}
@@ -596,7 +595,7 @@ class Routes extends Component {
                 hideNavBar={true}
                 title=""
               />
-              
+
               <Scene
                 key="SurveyDetail"
                 component={SurveyDetail}

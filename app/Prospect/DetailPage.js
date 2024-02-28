@@ -1374,7 +1374,9 @@ class DetailPage extends Component {
       .then(res => {
         if (!res.Error) {
           alert(res.Pesan);
-          Actions.ProspectPage();
+          //   Actions.ProspectPage({type: 'reset'});
+          Actions.home();
+
           // _storeData('@Name',name)
           // _storeData('@Handphone',hp)
           // _storeData('@ProfileUpdate',true)

@@ -792,16 +792,35 @@ class AddProspect extends Component {
                       />
                       <Text style={Styles.overviewTitles}>Business Type</Text>
                     </View>
-                    {/* <Item rounded style={{ height: 35 }}> */}
-                    <RNPickerSelect
-                      selectedValue={this.state.category}
-                      onValueChange={cat => this.changeform(cat)}
-                      items={[
-                        {label: 'Choose Business Type'},
-                        {label: 'Individu', value: 'I'},
-                        {label: 'Company', value: 'C'},
-                      ]}
-                    />
+                    <View style={{flex: 1}}>
+                      <RNPickerSelect
+                        placeholder={{
+                          label: 'Choose Business Type...',
+                          value: null,
+                          color: '#9EA0A4',
+                        }}
+                        useNativeAndroidPickerStyle={false}
+                        style={{inputAndroid: {color: 'black'}}}
+                        selectedValue={this.state.category}
+                        onValueChange={cat => this.changeform(cat)}
+                        items={[
+                          //   {label: 'Choose Business Type'},
+                          {label: 'Individu', value: 'I'},
+                          {label: 'Company', value: 'C'},
+                        ]}
+                      />
+                      <Text
+                        style={{
+                          width: '100%',
+                          height: '100%',
+                          position: 'absolute',
+                          bottom: 0,
+                          left: 0,
+                        }}>
+                        {' '}
+                      </Text>
+                    </View>
+
                     {/* <RNPickerSelect 
                                     mode="dropdown"
                                     style={Styles.textInput}
@@ -857,6 +876,11 @@ class AddProspect extends Component {
                     <View style={{flex: 1}}>
                       <RNPickerSelect
                         selectedValue={this.state.class_cd}
+                        placeholder={{
+                          label: 'Choose Class...',
+                          value: null,
+                          color: '#9EA0A4',
+                        }}
                         // style={Styles.textInput}
                         useNativeAndroidPickerStyle={false}
                         style={{inputAndroid: {color: 'black'}}}
@@ -917,16 +941,33 @@ class AddProspect extends Component {
                                                 <Picker.Item label="No" value="N" />
                                             </Picker>
                                         </Item> */}
-
-                    <RNPickerSelect
-                      selectedValue={this.state.vip}
-                      onValueChange={val => this.setState({vip: val})}
-                      items={[
-                        {label: 'Choose One'},
-                        {label: 'Yes', value: 'Y'},
-                        {label: 'No', value: 'N'},
-                      ]}
-                    />
+                    <View style={{flex: 1}}>
+                      <RNPickerSelect
+                        placeholder={{
+                          label: 'Choose VIP...',
+                          value: null,
+                          color: '#9EA0A4',
+                        }}
+                        useNativeAndroidPickerStyle={false}
+                        style={{inputAndroid: {color: 'black'}}}
+                        selectedValue={this.state.vip}
+                        onValueChange={val => this.setState({vip: val})}
+                        items={[
+                          {label: 'Yes', value: 'Y'},
+                          {label: 'No', value: 'N'},
+                        ]}
+                      />
+                      <Text
+                        style={{
+                          width: '100%',
+                          height: '100%',
+                          position: 'absolute',
+                          bottom: 0,
+                          left: 0,
+                        }}>
+                        {' '}
+                      </Text>
+                    </View>
 
                     {this.state.errorvip ? (
                       <Text
@@ -956,28 +997,41 @@ class AddProspect extends Component {
                       />
                       <Text style={Styles.overviewTitles}>Status</Text>
                     </View>
-                    <RNPickerSelect
-                      selectedValue={this.state.status_cd}
-                      useNativeAndroidPickerStyle={false}
-                      style={{inputAndroid: {color: 'black'}}}
-                      onValueChange={val => {
-                        const statuspros = this.state.getstatus.filter(
-                          item => item.value == val,
-                        );
-                        console.log(
-                          'status change',
-                          this.state.getstatus.filter(
+                    <View style={{flex: 1}}>
+                      <RNPickerSelect
+                        selectedValue={this.state.status_cd}
+                        useNativeAndroidPickerStyle={false}
+                        style={{inputAndroid: {color: 'black'}}}
+                        onValueChange={val => {
+                          const statuspros = this.state.getstatus.filter(
                             item => item.value == val,
-                          ),
-                        );
-                        this.setState({status_cd: val, status: statuspros});
-                      }}
-                      items={this.state.getstatus.map((data, key) => ({
-                        itemKey: key,
-                        label: data.label,
-                        value: data.value,
-                      }))}
-                    />
+                          );
+                          console.log(
+                            'status change',
+                            this.state.getstatus.filter(
+                              item => item.value == val,
+                            ),
+                          );
+                          this.setState({status_cd: val, status: statuspros});
+                        }}
+                        items={this.state.getstatus.map((data, key) => ({
+                          itemKey: key,
+                          label: data.label,
+                          value: data.value,
+                        }))}
+                      />
+                      <Text
+                        style={{
+                          width: '100%',
+                          height: '100%',
+                          position: 'absolute',
+                          bottom: 0,
+                          left: 0,
+                        }}>
+                        {' '}
+                      </Text>
+                    </View>
+
                     {/* <Item rounded style={{ height: 35 }}>
                                             <Picker
 
@@ -1063,18 +1117,29 @@ class AddProspect extends Component {
                                                 )}
                                             </Picker>
                                         </Item> */}
-
-                    <RNPickerSelect
-                      selectedValue={this.state.status_cd}
-                      useNativeAndroidPickerStyle={false}
-                      style={{inputAndroid: {color: 'black'}}}
-                      onValueChange={val => this.setState({salutation: val})}
-                      items={this.state.salutationcd.map((data, key) => ({
-                        itemKey: key,
-                        label: data.label,
-                        value: data.value,
-                      }))}
-                    />
+                    <View style={{flex: 1}}>
+                      <RNPickerSelect
+                        selectedValue={this.state.status_cd}
+                        useNativeAndroidPickerStyle={false}
+                        style={{inputAndroid: {color: 'black'}}}
+                        onValueChange={val => this.setState({salutation: val})}
+                        items={this.state.salutationcd.map((data, key) => ({
+                          itemKey: key,
+                          label: data.label,
+                          value: data.value,
+                        }))}
+                      />
+                      <Text
+                        style={{
+                          width: '100%',
+                          height: '100%',
+                          position: 'absolute',
+                          bottom: 0,
+                          left: 0,
+                        }}>
+                        {' '}
+                      </Text>
+                    </View>
                   </View>
                   <View style={Styles.overview}>
                     <View
@@ -1155,19 +1220,31 @@ class AddProspect extends Component {
                                                 )}
                                             </Picker>
                                         </Item> */}
-                    <RNPickerSelect
-                      selectedValue={this.state.province_cd}
-                      useNativeAndroidPickerStyle={false}
-                      style={{inputAndroid: {color: 'black'}}}
-                      onValueChange={zoomprovince =>
-                        this.chooseProv(zoomprovince)
-                      }
-                      items={this.state.prov.map((data, key) => ({
-                        itemKey: key,
-                        label: data.label,
-                        value: data.value,
-                      }))}
-                    />
+                    <View style={{flex: 1}}>
+                      <RNPickerSelect
+                        selectedValue={this.state.province_cd}
+                        useNativeAndroidPickerStyle={false}
+                        style={{inputAndroid: {color: 'black'}}}
+                        onValueChange={zoomprovince =>
+                          this.chooseProv(zoomprovince)
+                        }
+                        items={this.state.prov.map((data, key) => ({
+                          itemKey: key,
+                          label: data.label,
+                          value: data.value,
+                        }))}
+                      />
+                      <Text
+                        style={{
+                          width: '100%',
+                          height: '100%',
+                          position: 'absolute',
+                          bottom: 0,
+                          left: 0,
+                        }}>
+                        {' '}
+                      </Text>
+                    </View>
                   </View>
                   <View style={Styles.overview}>
                     <Text style={Styles.overviewTitle}>City</Text>
@@ -1184,17 +1261,29 @@ class AddProspect extends Component {
                                                 )}
                                             </Picker>
                                         </Item> */}
-                    <RNPickerSelect
-                      selectedValue={this.state.city}
-                      useNativeAndroidPickerStyle={false}
-                      style={{inputAndroid: {color: 'black'}}}
-                      onValueChange={zoomcity => this.chooseCity(zoomcity)}
-                      items={this.state.getcity.map((data, key) => ({
-                        itemKey: key,
-                        label: data.label,
-                        value: data.value,
-                      }))}
-                    />
+                    <View style={{flex: 1}}>
+                      <RNPickerSelect
+                        selectedValue={this.state.city}
+                        useNativeAndroidPickerStyle={false}
+                        style={{inputAndroid: {color: 'black'}}}
+                        onValueChange={zoomcity => this.chooseCity(zoomcity)}
+                        items={this.state.getcity.map((data, key) => ({
+                          itemKey: key,
+                          label: data.label,
+                          value: data.value,
+                        }))}
+                      />
+                      <Text
+                        style={{
+                          width: '100%',
+                          height: '100%',
+                          position: 'absolute',
+                          bottom: 0,
+                          left: 0,
+                        }}>
+                        {' '}
+                      </Text>
+                    </View>
                   </View>
                   <View style={Styles.overview}>
                     <Text style={Styles.overviewTitle}>District</Text>
@@ -1211,19 +1300,31 @@ class AddProspect extends Component {
                                                 )}
                                             </Picker>
                                         </Item> */}
-                    <RNPickerSelect
-                      selectedValue={this.state.district}
-                      useNativeAndroidPickerStyle={false}
-                      style={{inputAndroid: {color: 'black'}}}
-                      onValueChange={zoomdistrict =>
-                        this.chooseDistrict(zoomdistrict)
-                      }
-                      items={this.state.getcity.map((data, key) => ({
-                        itemKey: key,
-                        label: data.label,
-                        value: data.value,
-                      }))}
-                    />
+                    <View style={{flex: 1}}>
+                      <RNPickerSelect
+                        selectedValue={this.state.district}
+                        useNativeAndroidPickerStyle={false}
+                        style={{inputAndroid: {color: 'black'}}}
+                        onValueChange={zoomdistrict =>
+                          this.chooseDistrict(zoomdistrict)
+                        }
+                        items={this.state.getdistrict.map((data, key) => ({
+                          itemKey: key,
+                          label: data.label,
+                          value: data.value,
+                        }))}
+                      />
+                      <Text
+                        style={{
+                          width: '100%',
+                          height: '100%',
+                          position: 'absolute',
+                          bottom: 0,
+                          left: 0,
+                        }}>
+                        {' '}
+                      </Text>
+                    </View>
                   </View>
                   <View style={Styles.overview}>
                     <Text style={Styles.overviewTitle}>Village</Text>
@@ -1240,19 +1341,31 @@ class AddProspect extends Component {
                                                 )}
                                             </Picker>
                                         </Item> */}
-                    <RNPickerSelect
-                      selectedValue={this.state.village}
-                      useNativeAndroidPickerStyle={false}
-                      style={{inputAndroid: {color: 'black'}}}
-                      onValueChange={zoomvillage =>
-                        this.chooseVillage(zoomvillage)
-                      }
-                      items={this.state.getvillage.map((data, key) => ({
-                        itemKey: key,
-                        label: data.label,
-                        value: data.value,
-                      }))}
-                    />
+                    <View style={{flex: 1}}>
+                      <RNPickerSelect
+                        selectedValue={this.state.village}
+                        useNativeAndroidPickerStyle={false}
+                        style={{inputAndroid: {color: 'black'}}}
+                        onValueChange={zoomvillage =>
+                          this.chooseVillage(zoomvillage)
+                        }
+                        items={this.state.getvillage.map((data, key) => ({
+                          itemKey: key,
+                          label: data.label,
+                          value: data.value,
+                        }))}
+                      />
+                      <Text
+                        style={{
+                          width: '100%',
+                          height: '100%',
+                          position: 'absolute',
+                          bottom: 0,
+                          left: 0,
+                        }}>
+                        {' '}
+                      </Text>
+                    </View>
                   </View>
                   <View style={Styles.overview}>
                     <Text style={Styles.overviewTitle}>Post Code</Text>
@@ -1400,19 +1513,31 @@ class AddProspect extends Component {
                                                     )}
                                                 </Picker>
                                             </Item> */}
-                    <RNPickerSelect
-                      selectedValue={this.state.province_cd}
-                      useNativeAndroidPickerStyle={false}
-                      style={{inputAndroid: {color: 'black'}}}
-                      onValueChange={zoomprovince =>
-                        this.chooseProv(zoomprovince)
-                      }
-                      items={this.state.prov.map((data, key) => ({
-                        itemKey: key,
-                        label: data.label,
-                        value: data.value,
-                      }))}
-                    />
+                    <View style={{flex: 1}}>
+                      <RNPickerSelect
+                        selectedValue={this.state.province_cd}
+                        useNativeAndroidPickerStyle={false}
+                        style={{inputAndroid: {color: 'black'}}}
+                        onValueChange={zoomprovince =>
+                          this.chooseProv(zoomprovince)
+                        }
+                        items={this.state.prov.map((data, key) => ({
+                          itemKey: key,
+                          label: data.label,
+                          value: data.value,
+                        }))}
+                      />
+                      <Text
+                        style={{
+                          width: '100%',
+                          height: '100%',
+                          position: 'absolute',
+                          bottom: 0,
+                          left: 0,
+                        }}>
+                        {' '}
+                      </Text>
+                    </View>
                   </View>
                   <View style={Styles.overview}>
                     <Text style={Styles.overviewTitle}>City</Text>
@@ -1429,17 +1554,29 @@ class AddProspect extends Component {
                                                     )}
                                                 </Picker>
                                             </Item> */}
-                    <RNPickerSelect
-                      selectedValue={this.state.city}
-                      useNativeAndroidPickerStyle={false}
-                      style={{inputAndroid: {color: 'black'}}}
-                      onValueChange={zoomcity => this.chooseCity(zoomcity)}
-                      items={this.state.getcity.map((data, key) => ({
-                        itemKey: key,
-                        label: data.label,
-                        value: data.value,
-                      }))}
-                    />
+                    <View style={{flex: 1}}>
+                      <RNPickerSelect
+                        selectedValue={this.state.city}
+                        useNativeAndroidPickerStyle={false}
+                        style={{inputAndroid: {color: 'black'}}}
+                        onValueChange={zoomcity => this.chooseCity(zoomcity)}
+                        items={this.state.getcity.map((data, key) => ({
+                          itemKey: key,
+                          label: data.label,
+                          value: data.value,
+                        }))}
+                      />
+                      <Text
+                        style={{
+                          width: '100%',
+                          height: '100%',
+                          position: 'absolute',
+                          bottom: 0,
+                          left: 0,
+                        }}>
+                        {' '}
+                      </Text>
+                    </View>
                   </View>
                   <View style={Styles.overview}>
                     <Text style={Styles.overviewTitle}>District</Text>
@@ -1456,19 +1593,31 @@ class AddProspect extends Component {
                                                     )}
                                                 </Picker>
                                             </Item> */}
-                    <RNPickerSelect
-                      selectedValue={this.state.district}
-                      useNativeAndroidPickerStyle={false}
-                      style={{inputAndroid: {color: 'black'}}}
-                      onValueChange={zoomdistrict =>
-                        this.chooseDistrict(zoomdistrict)
-                      }
-                      items={this.state.getdistrict.map((data, key) => ({
-                        itemKey: key,
-                        label: data.label,
-                        value: data.value,
-                      }))}
-                    />
+                    <View style={{flex: 1}}>
+                      <RNPickerSelect
+                        selectedValue={this.state.district}
+                        useNativeAndroidPickerStyle={false}
+                        style={{inputAndroid: {color: 'black'}}}
+                        onValueChange={zoomdistrict =>
+                          this.chooseDistrict(zoomdistrict)
+                        }
+                        items={this.state.getdistrict.map((data, key) => ({
+                          itemKey: key,
+                          label: data.label,
+                          value: data.value,
+                        }))}
+                      />
+                      <Text
+                        style={{
+                          width: '100%',
+                          height: '100%',
+                          position: 'absolute',
+                          bottom: 0,
+                          left: 0,
+                        }}>
+                        {' '}
+                      </Text>
+                    </View>
                   </View>
                   <View style={Styles.overview}>
                     <Text style={Styles.overviewTitle}>Village</Text>
@@ -1485,19 +1634,31 @@ class AddProspect extends Component {
                                                     )}
                                                 </Picker>
                                             </Item> */}
-                    <RNPickerSelect
-                      selectedValue={this.state.village}
-                      useNativeAndroidPickerStyle={false}
-                      style={{inputAndroid: {color: 'black'}}}
-                      onValueChange={zoomvillage =>
-                        this.chooseVillage(zoomvillage)
-                      }
-                      items={this.state.getvillage.map((data, key) => ({
-                        itemKey: key,
-                        label: data.label,
-                        value: data.value,
-                      }))}
-                    />
+                    <View style={{flex: 1}}>
+                      <RNPickerSelect
+                        selectedValue={this.state.village}
+                        useNativeAndroidPickerStyle={false}
+                        style={{inputAndroid: {color: 'black'}}}
+                        onValueChange={zoomvillage =>
+                          this.chooseVillage(zoomvillage)
+                        }
+                        items={this.state.getvillage.map((data, key) => ({
+                          itemKey: key,
+                          label: data.label,
+                          value: data.value,
+                        }))}
+                      />
+                      <Text
+                        style={{
+                          width: '100%',
+                          height: '100%',
+                          position: 'absolute',
+                          bottom: 0,
+                          left: 0,
+                        }}>
+                        {' '}
+                      </Text>
+                    </View>
                   </View>
                   <View style={Styles.overview}>
                     <Text style={Styles.overviewTitle}>Post Code</Text>
@@ -1646,17 +1807,29 @@ class AddProspect extends Component {
                                                 <Picker.Item label="No" value="N" />
                                             </Picker>
                                         </Item> */}
-                    <RNPickerSelect
-                      selectedValue={this.state.marital_status}
-                      onValueChange={val =>
-                        this.setState({marital_status: val})
-                      }
-                      items={[
-                        {label: 'Choose One'},
-                        {label: 'Yes', value: 'Y'},
-                        {label: 'No', value: 'N'},
-                      ]}
-                    />
+                    <View style={{flex: 1}}>
+                      <RNPickerSelect
+                        selectedValue={this.state.marital_status}
+                        onValueChange={val =>
+                          this.setState({marital_status: val})
+                        }
+                        items={[
+                          {label: 'Choose One'},
+                          {label: 'Yes', value: 'Y'},
+                          {label: 'No', value: 'N'},
+                        ]}
+                      />
+                      <Text
+                        style={{
+                          width: '100%',
+                          height: '100%',
+                          position: 'absolute',
+                          bottom: 0,
+                          left: 0,
+                        }}>
+                        {' '}
+                      </Text>
+                    </View>
                   </View>
                   <View style={Styles.overview}>
                     <Text style={Styles.overviewTitle}>Sex</Text>
@@ -1672,15 +1845,27 @@ class AddProspect extends Component {
                                                 <Picker.Item label="Female" value="F" />
                                             </Picker>
                                         </Item> */}
-                    <RNPickerSelect
-                      selectedValue={this.state.sex}
-                      onValueChange={val => this.setState({sex: val})}
-                      items={[
-                        {label: 'Choose One'},
-                        {label: 'Male', value: 'M'},
-                        {label: 'Female', value: 'F'},
-                      ]}
-                    />
+                    <View style={{flex: 1}}>
+                      <RNPickerSelect
+                        selectedValue={this.state.sex}
+                        onValueChange={val => this.setState({sex: val})}
+                        items={[
+                          {label: 'Choose One'},
+                          {label: 'Male', value: 'M'},
+                          {label: 'Female', value: 'F'},
+                        ]}
+                      />
+                      <Text
+                        style={{
+                          width: '100%',
+                          height: '100%',
+                          position: 'absolute',
+                          bottom: 0,
+                          left: 0,
+                        }}>
+                        {' '}
+                      </Text>
+                    </View>
                   </View>
                   <View style={Styles.overview}>
                     <Text style={Styles.overviewTitle}>Spouse Name</Text>
@@ -1749,17 +1934,29 @@ class AddProspect extends Component {
                                                 )}
                                             </Picker>
                                         </Item> */}
-                    <RNPickerSelect
-                      selectedValue={this.state.media_cd}
-                      useNativeAndroidPickerStyle={false}
-                      style={{inputAndroid: {color: 'black'}}}
-                      onValueChange={val => this.setState({media_cd: val})}
-                      items={this.state.getmedia.map((data, key) => ({
-                        itemKey: key,
-                        label: data.label,
-                        value: data.value,
-                      }))}
-                    />
+                    <View style={{flex: 1}}>
+                      <RNPickerSelect
+                        selectedValue={this.state.media_cd}
+                        useNativeAndroidPickerStyle={false}
+                        style={{inputAndroid: {color: 'black'}}}
+                        onValueChange={val => this.setState({media_cd: val})}
+                        items={this.state.getmedia.map((data, key) => ({
+                          itemKey: key,
+                          label: data.label,
+                          value: data.value,
+                        }))}
+                      />
+                      <Text
+                        style={{
+                          width: '100%',
+                          height: '100%',
+                          position: 'absolute',
+                          bottom: 0,
+                          left: 0,
+                        }}>
+                        {' '}
+                      </Text>
+                    </View>
                   </View>
                 </ProgressStep>
               ) : (
@@ -1832,17 +2029,29 @@ class AddProspect extends Component {
                     {/* <Icon solid name='star' style={Styles.iconSub} type="FontAwesome5" /> */}
                     <Text style={Styles.overviewTitle}>Media</Text>
                     {/* </View> */}
-                    <RNPickerSelect
-                      selectedValue={this.state.media_cd}
-                      useNativeAndroidPickerStyle={false}
-                      style={{inputAndroid: {color: 'black'}}}
-                      onValueChange={val => this.setState({media_cd: val})}
-                      items={this.state.getmedia.map((data, key) => ({
-                        itemKey: key,
-                        label: data.label,
-                        value: data.value,
-                      }))}
-                    />
+                    <View style={{flex: 1}}>
+                      <RNPickerSelect
+                        selectedValue={this.state.media_cd}
+                        useNativeAndroidPickerStyle={false}
+                        style={{inputAndroid: {color: 'black'}}}
+                        onValueChange={val => this.setState({media_cd: val})}
+                        items={this.state.getmedia.map((data, key) => ({
+                          itemKey: key,
+                          label: data.label,
+                          value: data.value,
+                        }))}
+                      />
+                      <Text
+                        style={{
+                          width: '100%',
+                          height: '100%',
+                          position: 'absolute',
+                          bottom: 0,
+                          left: 0,
+                        }}>
+                        {' '}
+                      </Text>
+                    </View>
                   </View>
                 </ProgressStep>
               )}

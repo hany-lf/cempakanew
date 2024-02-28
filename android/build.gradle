@@ -14,9 +14,24 @@ buildscript {
     }
     dependencies {
         classpath("com.android.tools.build:gradle:4.1.0")
+        
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
     }
+
+//     dependencyResolutionManagement {
+
+//     repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+//     repositories {
+//         google()
+
+//         // If you're using a version of Gradle lower than 4.1, you must instead use:
+//         maven {
+//             url 'https://maven.google.com'
+//         }
+//         // An alternative URL is 'https://dl.google.com/dl/android/maven2/'.
+//     }
+// }
 }
 def REACT_NATIVE_VERSION = new File(['node', '--print',"JSON.parse(require('fs').readFileSync(require.resolve('react-native/package.json'), 'utf-8')).version"].execute(null, rootDir).text.trim())
 
@@ -43,3 +58,5 @@ allprojects {
         }
     }
 }
+
+
