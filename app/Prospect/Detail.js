@@ -52,6 +52,7 @@ import Mailer from 'react-native-mail';
 // import ListProject from './ListProspect';
 import FollowupProspect from './FollowupProspect';
 import DetailPage from './DetailPage';
+import FutureAction from './FutureAction';
 // import styles, { colors } from "./styles/index";
 import {TabView, SceneMap} from 'react-native-tab-view';
 import moment from 'moment';
@@ -61,6 +62,7 @@ const navState = {
   routes: [
     {key: 'detail', title: 'Detail'},
     {key: 'follow', title: 'Follow Up'},
+    {key: 'action', title: 'Future Action'},
   ],
 };
 
@@ -69,6 +71,7 @@ console.log('navstate', navState);
 const navScene = {
   detail: DetailPage,
   follow: FollowupProspect,
+  action: FutureAction,
 };
 const popRoot = () => {
   Actions.popTo('ListProspect');
@@ -84,6 +87,7 @@ class DetailProspect extends Component {
       routes: [
         {key: 'detail', title: 'Detail'},
         {key: 'follow', title: 'Follow Up'},
+        {key: 'action', title: 'Future Action'},
       ],
       // },
 
@@ -232,7 +236,7 @@ class DetailProspect extends Component {
 
           <View style={Style.actionBarMiddle}>
             <Text style={Style.actionBarText}>
-              {'Detail & Follow Up'.toUpperCase()}
+              {'Future Action'.toUpperCase()}
               {/* {dataProspect.descs.toUpperCase()} */}
               {/* {this.state.status_cd.toUpperCase()}
                             {this.state.descs.toUpperCase()} */}

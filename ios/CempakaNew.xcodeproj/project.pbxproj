@@ -8,10 +8,38 @@
 
 /* Begin PBXBuildFile section */
 		00E356F31AD99517003FC87E /* CempakaNewTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* CempakaNewTests.m */; };
+		03D6C92E92FFB0AA65290138 /* libPods-CempakaNew-CempakaNewTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CC5185F07F28414582CF2339 /* libPods-CempakaNew-CempakaNewTests.a */; };
 		13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
+		2F921D57F6FEF4E778703961 /* libPods-CempakaNew.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 601B7984F5791D2A91102DBE /* libPods-CempakaNew.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
+		86D9A2902B999C8E001E95BA /* SFUIDisplay-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 86D9A2712B999C89001E95BA /* SFUIDisplay-Light.ttf */; };
+		86D9A2912B999C8E001E95BA /* SFUIDisplay-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 86D9A2722B999C89001E95BA /* SFUIDisplay-Semibold.otf */; };
+		86D9A2932B999C8E001E95BA /* SF-UI-Display-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 86D9A2742B999C89001E95BA /* SF-UI-Display-Regular.ttf */; };
+		86D9A2942B999C8E001E95BA /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 86D9A2752B999C89001E95BA /* Roboto-Regular.ttf */; };
+		86D9A2962B999C8E001E95BA /* Roboto-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 86D9A2772B999C8A001E95BA /* Roboto-Medium.ttf */; };
+		86D9A2972B999C8E001E95BA /* SF-UI-Text-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 86D9A2782B999C8A001E95BA /* SF-UI-Text-Regular.ttf */; };
+		86D9A2982B999C8E001E95BA /* Myriad Pro Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 86D9A2792B999C8A001E95BA /* Myriad Pro Regular.ttf */; };
+		86D9A2992B999C8E001E95BA /* HelveticaNeue-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 86D9A27A2B999C8A001E95BA /* HelveticaNeue-Bold.ttf */; };
+		86D9A29B2B999C8E001E95BA /* Helvetica.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 86D9A27C2B999C8A001E95BA /* Helvetica.ttf */; };
+		86D9A29C2B999C8E001E95BA /* SFUIDisplay-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 86D9A27D2B999C8A001E95BA /* SFUIDisplay-Semibold.ttf */; };
+		86D9A29D2B999C8E001E95BA /* HelveticaNeue-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 86D9A27E2B999C8A001E95BA /* HelveticaNeue-Light.ttf */; };
+		86D9A29E2B999C8E001E95BA /* SFUIDisplay_thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 86D9A27F2B999C8B001E95BA /* SFUIDisplay_thin.ttf */; };
+		86D9A2A02B999C8E001E95BA /* SFUIDisplay-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 86D9A2812B999C8B001E95BA /* SFUIDisplay-Bold.ttf */; };
+		86D9A2A12B999C8E001E95BA /* PlayfairDisplay-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 86D9A2822B999C8B001E95BA /* PlayfairDisplay-Bold.ttf */; };
+		86D9A2A22B999C8E001E95BA /* SF-UI-Display-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 86D9A2832B999C8B001E95BA /* SF-UI-Display-Semibold.ttf */; };
+		86D9A2A42B999C8E001E95BA /* icomoon.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 86D9A2852B999C8C001E95BA /* icomoon.ttf */; };
+		86D9A2A52B999C8E001E95BA /* SFUIDisplay-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 86D9A2862B999C8C001E95BA /* SFUIDisplay-Thin.ttf */; };
+		86D9A2A62B999C8E001E95BA /* SFUIDisplay-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 86D9A2872B999C8C001E95BA /* SFUIDisplay-Regular.ttf */; };
+		86D9A2A72B999C8E001E95BA /* HelveticaNeue-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 86D9A2882B999C8C001E95BA /* HelveticaNeue-Regular.ttf */; };
+		86D9A2A82B999C8E001E95BA /* PlayfairDisplay-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 86D9A2892B999C8D001E95BA /* PlayfairDisplay-Bold.otf */; };
+		86D9A2A92B999C8E001E95BA /* SF-UI-Display-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 86D9A28A2B999C8D001E95BA /* SF-UI-Display-Bold.ttf */; };
+		86D9A2AA2B999C8E001E95BA /* SFUIDisplay-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 86D9A28B2B999C8D001E95BA /* SFUIDisplay-Medium.ttf */; };
+		86D9A2AB2B999C8E001E95BA /* Montserrat-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 86D9A28C2B999C8D001E95BA /* Montserrat-SemiBold.ttf */; };
+		86D9A2AC2B999C8E001E95BA /* Montserrat-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 86D9A28D2B999C8D001E95BA /* Montserrat-Regular.ttf */; };
+		86D9A2AD2B999C8E001E95BA /* SF-UI-Display-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 86D9A28E2B999C8E001E95BA /* SF-UI-Display-Medium.ttf */; };
+		86D9A2AE2B999C8E001E95BA /* Steelworks_Vintage_Demo.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 86D9A28F2B999C8E001E95BA /* Steelworks_Vintage_Demo.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,7 +62,50 @@
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = CempakaNew/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = CempakaNew/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = CempakaNew/main.m; sourceTree = "<group>"; };
+		32583B925DFA8418AC89945F /* Pods-CempakaNew.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CempakaNew.release.xcconfig"; path = "Target Support Files/Pods-CempakaNew/Pods-CempakaNew.release.xcconfig"; sourceTree = "<group>"; };
+		528DC22ECF689B35A66359C4 /* Pods-CempakaNew-CempakaNewTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CempakaNew-CempakaNewTests.debug.xcconfig"; path = "Target Support Files/Pods-CempakaNew-CempakaNewTests/Pods-CempakaNew-CempakaNewTests.debug.xcconfig"; sourceTree = "<group>"; };
+		601B7984F5791D2A91102DBE /* libPods-CempakaNew.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CempakaNew.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = CempakaNew/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		86D9A2712B999C89001E95BA /* SFUIDisplay-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SFUIDisplay-Light.ttf"; path = "../../assets/fonts/SFUIDisplay-Light.ttf"; sourceTree = "<group>"; };
+		86D9A2722B999C89001E95BA /* SFUIDisplay-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SFUIDisplay-Semibold.otf"; path = "../../assets/fonts/SFUIDisplay-Semibold.otf"; sourceTree = "<group>"; };
+		86D9A2742B999C89001E95BA /* SF-UI-Display-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SF-UI-Display-Regular.ttf"; path = "../../assets/fonts/SF-UI-Display-Regular.ttf"; sourceTree = "<group>"; };
+		86D9A2752B999C89001E95BA /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Roboto-Regular.ttf"; path = "../../assets/fonts/Roboto-Regular.ttf"; sourceTree = "<group>"; };
+		86D9A2772B999C8A001E95BA /* Roboto-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Roboto-Medium.ttf"; path = "../../assets/fonts/Roboto-Medium.ttf"; sourceTree = "<group>"; };
+		86D9A2782B999C8A001E95BA /* SF-UI-Text-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SF-UI-Text-Regular.ttf"; path = "../../assets/fonts/SF-UI-Text-Regular.ttf"; sourceTree = "<group>"; };
+		86D9A2792B999C8A001E95BA /* Myriad Pro Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Myriad Pro Regular.ttf"; path = "../../assets/fonts/Myriad Pro Regular.ttf"; sourceTree = "<group>"; };
+		86D9A27A2B999C8A001E95BA /* HelveticaNeue-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "HelveticaNeue-Bold.ttf"; path = "../../assets/fonts/HelveticaNeue-Bold.ttf"; sourceTree = "<group>"; };
+		86D9A27C2B999C8A001E95BA /* Helvetica.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Helvetica.ttf; path = ../../assets/fonts/Helvetica.ttf; sourceTree = "<group>"; };
+		86D9A27D2B999C8A001E95BA /* SFUIDisplay-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SFUIDisplay-Semibold.ttf"; path = "../../assets/fonts/SFUIDisplay-Semibold.ttf"; sourceTree = "<group>"; };
+		86D9A27E2B999C8A001E95BA /* HelveticaNeue-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "HelveticaNeue-Light.ttf"; path = "../../assets/fonts/HelveticaNeue-Light.ttf"; sourceTree = "<group>"; };
+		86D9A27F2B999C8B001E95BA /* SFUIDisplay_thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = SFUIDisplay_thin.ttf; path = ../../assets/fonts/SFUIDisplay_thin.ttf; sourceTree = "<group>"; };
+		86D9A2812B999C8B001E95BA /* SFUIDisplay-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SFUIDisplay-Bold.ttf"; path = "../../assets/fonts/SFUIDisplay-Bold.ttf"; sourceTree = "<group>"; };
+		86D9A2822B999C8B001E95BA /* PlayfairDisplay-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "PlayfairDisplay-Bold.ttf"; path = "../../assets/fonts/PlayfairDisplay-Bold.ttf"; sourceTree = "<group>"; };
+		86D9A2832B999C8B001E95BA /* SF-UI-Display-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SF-UI-Display-Semibold.ttf"; path = "../../assets/fonts/SF-UI-Display-Semibold.ttf"; sourceTree = "<group>"; };
+		86D9A2852B999C8C001E95BA /* icomoon.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = icomoon.ttf; path = ../../assets/fonts/icomoon.ttf; sourceTree = "<group>"; };
+		86D9A2862B999C8C001E95BA /* SFUIDisplay-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SFUIDisplay-Thin.ttf"; path = "../../assets/fonts/SFUIDisplay-Thin.ttf"; sourceTree = "<group>"; };
+		86D9A2872B999C8C001E95BA /* SFUIDisplay-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SFUIDisplay-Regular.ttf"; path = "../../assets/fonts/SFUIDisplay-Regular.ttf"; sourceTree = "<group>"; };
+		86D9A2882B999C8C001E95BA /* HelveticaNeue-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "HelveticaNeue-Regular.ttf"; path = "../../assets/fonts/HelveticaNeue-Regular.ttf"; sourceTree = "<group>"; };
+		86D9A2892B999C8D001E95BA /* PlayfairDisplay-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "PlayfairDisplay-Bold.otf"; path = "../../assets/fonts/PlayfairDisplay-Bold.otf"; sourceTree = "<group>"; };
+		86D9A28A2B999C8D001E95BA /* SF-UI-Display-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SF-UI-Display-Bold.ttf"; path = "../../assets/fonts/SF-UI-Display-Bold.ttf"; sourceTree = "<group>"; };
+		86D9A28B2B999C8D001E95BA /* SFUIDisplay-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SFUIDisplay-Medium.ttf"; path = "../../assets/fonts/SFUIDisplay-Medium.ttf"; sourceTree = "<group>"; };
+		86D9A28C2B999C8D001E95BA /* Montserrat-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Montserrat-SemiBold.ttf"; path = "../../assets/fonts/Montserrat-SemiBold.ttf"; sourceTree = "<group>"; };
+		86D9A28D2B999C8D001E95BA /* Montserrat-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Montserrat-Regular.ttf"; path = "../../assets/fonts/Montserrat-Regular.ttf"; sourceTree = "<group>"; };
+		86D9A28E2B999C8E001E95BA /* SF-UI-Display-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SF-UI-Display-Medium.ttf"; path = "../../assets/fonts/SF-UI-Display-Medium.ttf"; sourceTree = "<group>"; };
+		86D9A28F2B999C8E001E95BA /* Steelworks_Vintage_Demo.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Steelworks_Vintage_Demo.ttf; path = ../../assets/fonts/Steelworks_Vintage_Demo.ttf; sourceTree = "<group>"; };
+		86D9A2AF2B99BB85001E95BA /* FontAwesome5_Brands.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = FontAwesome5_Brands.ttf; sourceTree = "<group>"; };
+		86D9A2B12B99BB9B001E95BA /* FontAwesome5_Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = FontAwesome5_Regular.ttf; sourceTree = "<group>"; };
+		86D9A2B22B99BBAF001E95BA /* Entypo.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Entypo.ttf; sourceTree = "<group>"; };
+		86D9A2B42B99BBC4001E95BA /* SimpleLineIcons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SimpleLineIcons.ttf; sourceTree = "<group>"; };
+		86D9A2B52B99BBCE001E95BA /* Fontisto.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Fontisto.ttf; sourceTree = "<group>"; };
+		86D9A2B62B99BBD6001E95BA /* FontAwesome5_Solid.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = FontAwesome5_Solid.ttf; sourceTree = "<group>"; };
+		86D9A2B72B99BBD9001E95BA /* Zocial.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Zocial.ttf; sourceTree = "<group>"; };
+		86D9A2BA2B99BBF1001E95BA /* EvilIcons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = EvilIcons.ttf; sourceTree = "<group>"; };
+		86D9A2BB2B99BBF5001E95BA /* Foundation.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Foundation.ttf; sourceTree = "<group>"; };
+		86D9A2BC2B99BBFB001E95BA /* Octicons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Octicons.ttf; sourceTree = "<group>"; };
+		86D9A2BE2B99BC08001E95BA /* Feather.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Feather.ttf; sourceTree = "<group>"; };
+		B31193EFEFF79F7F8FC6FBC2 /* Pods-CempakaNew-CempakaNewTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CempakaNew-CempakaNewTests.release.xcconfig"; path = "Target Support Files/Pods-CempakaNew-CempakaNewTests/Pods-CempakaNew-CempakaNewTests.release.xcconfig"; sourceTree = "<group>"; };
+		BD0BA1B9A90199430DA11D0D /* Pods-CempakaNew.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CempakaNew.debug.xcconfig"; path = "Target Support Files/Pods-CempakaNew/Pods-CempakaNew.debug.xcconfig"; sourceTree = "<group>"; };
+		CC5185F07F28414582CF2339 /* libPods-CempakaNew-CempakaNewTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CempakaNew-CempakaNewTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -43,6 +114,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				03D6C92E92FFB0AA65290138 /* libPods-CempakaNew-CempakaNewTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -50,6 +122,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2F921D57F6FEF4E778703961 /* libPods-CempakaNew.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -90,6 +163,8 @@
 			isa = PBXGroup;
 			children = (
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
+				601B7984F5791D2A91102DBE /* libPods-CempakaNew.a */,
+				CC5185F07F28414582CF2339 /* libPods-CempakaNew-CempakaNewTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -104,11 +179,13 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+				86D9A2702B999C05001E95BA /* Fonts */,
 				13B07FAE1A68108700A75B9A /* CempakaNew */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				00E356EF1AD99517003FC87E /* CempakaNewTests */,
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
+				8DED4EEB4A796AF45D43F952 /* Pods */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -124,6 +201,61 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		86D9A2702B999C05001E95BA /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				86D9A27C2B999C8A001E95BA /* Helvetica.ttf */,
+				86D9A27A2B999C8A001E95BA /* HelveticaNeue-Bold.ttf */,
+				86D9A27E2B999C8A001E95BA /* HelveticaNeue-Light.ttf */,
+				86D9A2882B999C8C001E95BA /* HelveticaNeue-Regular.ttf */,
+				86D9A2852B999C8C001E95BA /* icomoon.ttf */,
+				86D9A28D2B999C8D001E95BA /* Montserrat-Regular.ttf */,
+				86D9A28C2B999C8D001E95BA /* Montserrat-SemiBold.ttf */,
+				86D9A2792B999C8A001E95BA /* Myriad Pro Regular.ttf */,
+				86D9A2892B999C8D001E95BA /* PlayfairDisplay-Bold.otf */,
+				86D9A2822B999C8B001E95BA /* PlayfairDisplay-Bold.ttf */,
+				86D9A2772B999C8A001E95BA /* Roboto-Medium.ttf */,
+				86D9A2752B999C89001E95BA /* Roboto-Regular.ttf */,
+				86D9A28A2B999C8D001E95BA /* SF-UI-Display-Bold.ttf */,
+				86D9A28E2B999C8E001E95BA /* SF-UI-Display-Medium.ttf */,
+				86D9A2742B999C89001E95BA /* SF-UI-Display-Regular.ttf */,
+				86D9A2832B999C8B001E95BA /* SF-UI-Display-Semibold.ttf */,
+				86D9A2782B999C8A001E95BA /* SF-UI-Text-Regular.ttf */,
+				86D9A2B22B99BBAF001E95BA /* Entypo.ttf */,
+				86D9A2BA2B99BBF1001E95BA /* EvilIcons.ttf */,
+				86D9A2BE2B99BC08001E95BA /* Feather.ttf */,
+				86D9A2AF2B99BB85001E95BA /* FontAwesome5_Brands.ttf */,
+				86D9A2B12B99BB9B001E95BA /* FontAwesome5_Regular.ttf */,
+				86D9A2B62B99BBD6001E95BA /* FontAwesome5_Solid.ttf */,
+				86D9A2B52B99BBCE001E95BA /* Fontisto.ttf */,
+				86D9A2BB2B99BBF5001E95BA /* Foundation.ttf */,
+				86D9A2BC2B99BBFB001E95BA /* Octicons.ttf */,
+				86D9A2B42B99BBC4001E95BA /* SimpleLineIcons.ttf */,
+				86D9A2B72B99BBD9001E95BA /* Zocial.ttf */,
+				86D9A27F2B999C8B001E95BA /* SFUIDisplay_thin.ttf */,
+				86D9A2812B999C8B001E95BA /* SFUIDisplay-Bold.ttf */,
+				86D9A2712B999C89001E95BA /* SFUIDisplay-Light.ttf */,
+				86D9A28B2B999C8D001E95BA /* SFUIDisplay-Medium.ttf */,
+				86D9A2872B999C8C001E95BA /* SFUIDisplay-Regular.ttf */,
+				86D9A2722B999C89001E95BA /* SFUIDisplay-Semibold.otf */,
+				86D9A27D2B999C8A001E95BA /* SFUIDisplay-Semibold.ttf */,
+				86D9A2862B999C8C001E95BA /* SFUIDisplay-Thin.ttf */,
+				86D9A28F2B999C8E001E95BA /* Steelworks_Vintage_Demo.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		8DED4EEB4A796AF45D43F952 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				BD0BA1B9A90199430DA11D0D /* Pods-CempakaNew.debug.xcconfig */,
+				32583B925DFA8418AC89945F /* Pods-CempakaNew.release.xcconfig */,
+				528DC22ECF689B35A66359C4 /* Pods-CempakaNew-CempakaNewTests.debug.xcconfig */,
+				B31193EFEFF79F7F8FC6FBC2 /* Pods-CempakaNew-CempakaNewTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -131,9 +263,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "CempakaNewTests" */;
 			buildPhases = (
+				4FC55852A68E83D6CD419DA9 /* [CP] Check Pods Manifest.lock */,
 				00E356EA1AD99517003FC87E /* Sources */,
 				00E356EB1AD99517003FC87E /* Frameworks */,
 				00E356EC1AD99517003FC87E /* Resources */,
+				B13B03AC4CCEC9624C79A93C /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -149,11 +283,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "CempakaNew" */;
 			buildPhases = (
+				C3DE3D3894F8C389B84EE00A /* [CP] Check Pods Manifest.lock */,
 				FD10A7F022414F080027D42C /* Start Packager */,
 				13B07F871A680F5B00A75B9A /* Sources */,
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
+				26AF3B280BA86AB1475E9C4C /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -212,8 +348,34 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				86D9A2912B999C8E001E95BA /* SFUIDisplay-Semibold.otf in Resources */,
+				86D9A2982B999C8E001E95BA /* Myriad Pro Regular.ttf in Resources */,
+				86D9A2992B999C8E001E95BA /* HelveticaNeue-Bold.ttf in Resources */,
+				86D9A2942B999C8E001E95BA /* Roboto-Regular.ttf in Resources */,
+				86D9A2AC2B999C8E001E95BA /* Montserrat-Regular.ttf in Resources */,
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
+				86D9A2902B999C8E001E95BA /* SFUIDisplay-Light.ttf in Resources */,
+				86D9A2AE2B999C8E001E95BA /* Steelworks_Vintage_Demo.ttf in Resources */,
+				86D9A2AD2B999C8E001E95BA /* SF-UI-Display-Medium.ttf in Resources */,
+				86D9A2A12B999C8E001E95BA /* PlayfairDisplay-Bold.ttf in Resources */,
+				86D9A2A22B999C8E001E95BA /* SF-UI-Display-Semibold.ttf in Resources */,
+				86D9A2A62B999C8E001E95BA /* SFUIDisplay-Regular.ttf in Resources */,
+				86D9A2A92B999C8E001E95BA /* SF-UI-Display-Bold.ttf in Resources */,
+				86D9A2A82B999C8E001E95BA /* PlayfairDisplay-Bold.otf in Resources */,
+				86D9A29B2B999C8E001E95BA /* Helvetica.ttf in Resources */,
+				86D9A2972B999C8E001E95BA /* SF-UI-Text-Regular.ttf in Resources */,
+				86D9A29D2B999C8E001E95BA /* HelveticaNeue-Light.ttf in Resources */,
+				86D9A2A52B999C8E001E95BA /* SFUIDisplay-Thin.ttf in Resources */,
+				86D9A2A72B999C8E001E95BA /* HelveticaNeue-Regular.ttf in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+				86D9A2AA2B999C8E001E95BA /* SFUIDisplay-Medium.ttf in Resources */,
+				86D9A2A42B999C8E001E95BA /* icomoon.ttf in Resources */,
+				86D9A2AB2B999C8E001E95BA /* Montserrat-SemiBold.ttf in Resources */,
+				86D9A29E2B999C8E001E95BA /* SFUIDisplay_thin.ttf in Resources */,
+				86D9A2A02B999C8E001E95BA /* SFUIDisplay-Bold.ttf in Resources */,
+				86D9A2932B999C8E001E95BA /* SF-UI-Display-Regular.ttf in Resources */,
+				86D9A29C2B999C8E001E95BA /* SFUIDisplay-Semibold.ttf in Resources */,
+				86D9A2962B999C8E001E95BA /* Roboto-Medium.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -233,6 +395,84 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "set -e\n\nexport NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh\n";
+		};
+		26AF3B280BA86AB1475E9C4C /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CempakaNew/Pods-CempakaNew-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CempakaNew/Pods-CempakaNew-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CempakaNew/Pods-CempakaNew-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4FC55852A68E83D6CD419DA9 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-CempakaNew-CempakaNewTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B13B03AC4CCEC9624C79A93C /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CempakaNew-CempakaNewTests/Pods-CempakaNew-CempakaNewTests-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CempakaNew-CempakaNewTests/Pods-CempakaNew-CempakaNewTests-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CempakaNew-CempakaNewTests/Pods-CempakaNew-CempakaNewTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C3DE3D3894F8C389B84EE00A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-CempakaNew-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
 		};
 		FD10A7F022414F080027D42C /* Start Packager */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -286,6 +526,7 @@
 /* Begin XCBuildConfiguration section */
 		00E356F61AD99517003FC87E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 528DC22ECF689B35A66359C4 /* Pods-CempakaNew-CempakaNewTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -312,6 +553,7 @@
 		};
 		00E356F71AD99517003FC87E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B31193EFEFF79F7F8FC6FBC2 /* Pods-CempakaNew-CempakaNewTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
@@ -335,10 +577,12 @@
 		};
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BD0BA1B9A90199430DA11D0D /* Pods-CempakaNew.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = C99L922ZVC;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = CempakaNew/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -360,10 +604,12 @@
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 32583B925DFA8418AC89945F /* Pods-CempakaNew.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = C99L922ZVC;
 				INFOPLIST_FILE = CempakaNew/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
