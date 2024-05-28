@@ -1,9 +1,9 @@
 PODS:
-  - AppAuth (1.6.2):
-    - AppAuth/Core (= 1.6.2)
-    - AppAuth/ExternalUserAgent (= 1.6.2)
-  - AppAuth/Core (1.6.2)
-  - AppAuth/ExternalUserAgent (1.6.2):
+  - AppAuth (1.7.5):
+    - AppAuth/Core (= 1.7.5)
+    - AppAuth/ExternalUserAgent (= 1.7.5)
+  - AppAuth/Core (1.7.5)
+  - AppAuth/ExternalUserAgent (1.7.5):
     - AppAuth/Core
   - boost-for-react-native (1.63.0)
   - BVLinearGradient (2.8.3):
@@ -422,7 +422,7 @@ PODS:
     - React
   - RNVectorIcons (6.7.0):
     - React
-  - RSKImageCropper (3.0.2)
+  - RSKImageCropper (4.1.1)
   - Yoga (1.14.0)
 
 DEPENDENCIES:
@@ -610,14 +610,14 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/ReactCommon/yoga"
 
 SPEC CHECKSUMS:
-  AppAuth: 3bb1d1cd9340bd09f5ed189fb00b1cc28e1e8570
+  AppAuth: 501c04eda8a8d11f179dbe8637b7a91bb7e5d2fa
   boost-for-react-native: 39c7adb57c4e60d6c5479dd8623128eb5b3f0f2c
   BVLinearGradient: 880f91a7854faff2df62518f0281afb1c60d49a3
   Crashlytics: 9220f5bc89e7a618df411b4f639389dbfb0e03d2
   DoubleConversion: cf9b38bf0b2d048436d9a82ad2abe1404f11e7de
   Fabric: ea977e3cd9c20425516d3dafd3bf8c941c51223f
   FBLazyVector: 7b423f9e248eae65987838148c36eec1dbfe0b53
-  FBReactNativeSpec: 6fbf9393c06e5fd6a154f83bf7446bc233655d6e
+  FBReactNativeSpec: 4ca3ebff0a05736bcde87b06bc4a447d24f33c07
   FBSDKCoreKit: e7dcac0aabcfb09d0166998edd95fe3b05a0ce5d
   FBSDKLoginKit: 1b0cf04df0370b37404213157b060d6666ede814
   FBSDKShareKit: abc29e1bb4f9f59f679adf1ae191006d68455f96
@@ -679,9 +679,9 @@ SPEC CHECKSUMS:
   RNShare: 48cf88cadf9ca2143cdaa557c1ec7f8808040ffc
   RNSVG: 8ba35cbeb385a52fd960fd28db9d7d18b4c2974f
   RNVectorIcons: 368d6d8b8301224e5ffb6254191f4f8876c2be0d
-  RSKImageCropper: 1ac71e9a82e3f41eea3eedfff8eacb0d3821c9ec
+  RSKImageCropper: 5f1100a1e2088c349562c8dd06c632bfc2ea56a7
   Yoga: a7de31c64fe738607e7a3803e3f591a4b1df7393
 
-PODFILE CHECKSUM: 3bcc35b54be23fc25d43ec7f1cf9e07f301844a0
+PODFILE CHECKSUM: 548d31133e1d2852d859da273061e1b7766c83fd
 
-COCOAPODS: 1.15.2
+COCOAPODS: 1.14.3
