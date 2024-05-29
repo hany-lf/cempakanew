@@ -87,7 +87,9 @@ class ProspectPage extends Component {
   getStatus = () => {
     {
       isMount
-        ? fetch(urlApi + 'c_status/getStatus/' + this.state.user_id, {
+        ? 
+        fetch(urlApi + 'c_status/getStatus/' + '123456002', {
+        // fetch(urlApi + 'c_status/getStatus/' + this.state.user_id, {
             method: 'GET',
             //   headers: this.state.hd
           })

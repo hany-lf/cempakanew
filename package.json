@@ -17,7 +17,7 @@
     "@monterosa/react-native-parallax-scroll": "^1.8.0",
     "@react-native-community/async-storage": "^1.2.4",
     "@react-native-community/geolocation": "^2.0.2",
-    "@react-native-picker/picker": "^2.6.1",
+    "@react-native-picker/picker": "2.6.0",
     "add": "^2.0.6",
     "babel-preset-react-native": "4.0.0",
     "moment": "^2.24.0",

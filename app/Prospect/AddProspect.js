@@ -797,7 +797,7 @@ class AddProspect extends Component {
                       <View
                         style={{
                           flex: 1,
-                          height: Platform.OS == 'ios' ? 50 : 0,
+                          // height: Platform.OS == 'ios' ? 50 : 0,
                         }}>
                         <RNPickerSelect
                           placeholder={{
@@ -805,10 +805,12 @@ class AddProspect extends Component {
                             value: null,
                             color: '#9EA0A4',
                           }}
+                          // style={{inputAndroid: {color: 'black'}}}
                           useNativeAndroidPickerStyle={false}
                           style={{
                             inputAndroid: {
-                              backgroundColor: 'transparent',
+                              // backgroundColor: 'transparent',
+                              color: 'black'
                             },
                             iconContainer: {
                               top: 5,
@@ -817,7 +819,7 @@ class AddProspect extends Component {
                           }}
                           selectedValue={this.state.category}
                           onValueChange={cat => this.changeform(cat)}
-                          textInputProps={{underlineColorAndroid: 'cyan'}}
+                          // textInputProps={{underlineColorAndroid: 'cyan'}}
                           items={[
                             //   {label: 'Choose Business Type'},
                             {label: 'Individu', value: 'I'},
@@ -1362,7 +1364,9 @@ class AddProspect extends Component {
                                             </Picker>
                                         </Item> */}
                     <View
-                      style={{flex: 1, height: Platform.OS == 'ios' ? 50 : 0}}>
+                      style={{flex: 1, 
+                      // height: Platform.OS == 'ios' ? 50 : 0
+                      }}>
                       <RNPickerSelect
                         selectedValue={this.state.province_cd}
                         useNativeAndroidPickerStyle={false}
@@ -1406,7 +1410,9 @@ class AddProspect extends Component {
                                             </Picker>
                                         </Item> */}
                     <View
-                      style={{flex: 1, height: Platform.OS == 'ios' ? 50 : 0}}>
+                      style={{flex: 1, 
+                      // height: Platform.OS == 'ios' ? 50 : 0
+                      }}>
                       <RNPickerSelect
                         selectedValue={this.state.city}
                         useNativeAndroidPickerStyle={false}
@@ -1448,7 +1454,9 @@ class AddProspect extends Component {
                                             </Picker>
                                         </Item> */}
                     <View
-                      style={{flex: 1, height: Platform.OS == 'ios' ? 50 : 0}}>
+                      style={{flex: 1, 
+                      // height: Platform.OS == 'ios' ? 50 : 0
+                      }}>
                       <RNPickerSelect
                         selectedValue={this.state.district}
                         useNativeAndroidPickerStyle={false}
@@ -1492,7 +1500,9 @@ class AddProspect extends Component {
                                             </Picker>
                                         </Item> */}
                     <View
-                      style={{flex: 1, height: Platform.OS == 'ios' ? 50 : 0}}>
+                      style={{flex: 1, 
+                      // height: Platform.OS == 'ios' ? 50 : 0
+                      }}>
                       <RNPickerSelect
                         selectedValue={this.state.village}
                         useNativeAndroidPickerStyle={false}
