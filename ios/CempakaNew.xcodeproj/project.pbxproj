@@ -385,6 +385,7 @@
 /* Begin PBXShellScriptBuildPhase section */
 		00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */ = {
 			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
 			buildActionMask = 2147483647;
 			files = (
 			);
@@ -455,6 +456,7 @@
 		};
 		BEDA2DDF2BFDA4B6007F05A3 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
 			buildActionMask = 12;
 			files = (
 			);
@@ -602,6 +604,7 @@
 				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = C99L922ZVC;
 				ENABLE_BITCODE = NO;
+				"EXCLUDED_ARCHS[sdk=*]" = arm64;
 				INFOPLIST_FILE = CempakaNew/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Cempaka Mobile";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.entertainment";
@@ -636,6 +639,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = C99L922ZVC;
+				"EXCLUDED_ARCHS[sdk=*]" = arm64;
 				INFOPLIST_FILE = CempakaNew/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Cempaka Mobile";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.entertainment";
