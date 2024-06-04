@@ -224,6 +224,7 @@ class ProspectPage extends Component {
                   {this.state.status.map((data, key) => (
                     <TouchableOpacity
                       onPress={() => this.ListProspect(data)}
+    
                       key={key}>
                       <Card
                         style={{
@@ -252,8 +253,8 @@ class ProspectPage extends Component {
                             </Text>
                             <View style={Styles.badge}>
                               <Text style={{color: '#fff', fontSize: 15}}>
-                                {' '}
-                                {data.cnt}{' '}
+                           
+                                {data.cnt}
                               </Text>
                             </View>
                           </View>

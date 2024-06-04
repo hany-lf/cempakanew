@@ -11,6 +11,8 @@ import {
   TextInput,
   Platform,
   Linking,
+  ActionSheetIOS,
+  SectionList,
 } from 'react-native';
 import {
   Container,
@@ -67,6 +69,14 @@ var items = [
 class DetailPage extends Component {
   constructor(props) {
     super(props);
+
+    this.inputRefs = {
+      firstTextInput: null,
+      favSport0: null,
+      favSport1: null,
+      lastTextInput: null,
+      favSport5: null,
+    };
 
     this.state = {
       company: true,
@@ -165,6 +175,17 @@ class DetailPage extends Component {
 
       //tab Follow Up
       datafollowup: [],
+
+
+      // ----
+      favSport0: undefined,
+      favSport1: undefined,
+      favSport2: undefined,
+      favSport3: undefined,
+      favSport4: 'baseball',
+      previousFavSport5: undefined,
+      favSport5: null,
+      favNumber: undefined,
     };
     this.renderAccordionHeader = this.renderAccordionHeader.bind(this);
     this.renderAccordionContent = this.renderAccordionContent.bind(this);
@@ -1456,10 +1477,10 @@ class DetailPage extends Component {
           <Icon
             style={Styles.accordionTabIcon}
             name="minus"
-            type="Foundation"
+            type="FontAwesome"
           />
         ) : (
-          <Icon style={Styles.accordionTabIcon} name="plus" type="Foundation" />
+          <Icon style={Styles.accordionTabIcon} name="plus" type="FontAwesome" />
         )}
       </View>
     );
@@ -1489,7 +1510,7 @@ class DetailPage extends Component {
                 style={{width: 30, height: 30}}
               />
 
-              {/* <Icon solid name='edit' style={{color: Colors.twitter, fontSize: 24}} type="FontAwesome5" /> */}
+              {/* <Icon solid name='edit' style={{color: Colors.twitter, fontSize: 24}} type="FontAwesome" /> */}
             </TouchableOpacity>
           ) : (
             <TouchableOpacity
@@ -1497,7 +1518,7 @@ class DetailPage extends Component {
               onPress={() => {
                 this.updateProspectType();
               }}>
-              {/* <Icon solid name='save' style={{color: Colors.statusBarNavy, fontSize: 26}} type="FontAwesome5" /> */}
+              {/* <Icon solid name='save' style={{color: Colors.statusBarNavy, fontSize: 26}} type="FontAwesome" /> */}
               <Image
                 source={require('@Asset/icon/save_file.png')}
                 style={{width: 30, height: 30}}
@@ -1514,7 +1535,7 @@ class DetailPage extends Component {
               style={{paddingVertical: 10}}
               pointerEvents={this.state.disableprospect ? 'none' : 'auto'}>
               {/* <View style={{ flexDirection: 'row', alignItems: 'flex-start' }}>
-                        <Icon solid name='star' style={Styles.iconSub} type="FontAwesome5" />
+                        <Icon solid name='star' style={Styles.iconSub} type="FontAwesome" />
                         <Text style={Styles.overviewTitles}>Name</Text>
                      </View> */}
 
@@ -1523,7 +1544,7 @@ class DetailPage extends Component {
                   solid
                   name="star"
                   style={Styles.iconSub2}
-                  type="FontAwesome5"
+                  type="FontAwesome"
                 />
                 <Text style={Styles.overviewTitles_Small}>Prospect ID</Text>
               </View>
@@ -1543,23 +1564,45 @@ class DetailPage extends Component {
                   solid
                   name="star"
                   style={Styles.iconSub2}
-                  type="FontAwesome5"
+                  type="FontAwesome"
                 />
                 <Text style={Styles.overviewTitles_Small}>Class</Text>
               </View>
               {Platform.OS == 'ios' ? (
-                <TouchableOpacity
-                  onPress={() => this.showActionSheet()}
-                  style={{borderWidth: 1, borderColor: '#333'}}>
-                  <View pointerEvents="none">
-                    <TextInput
-                      style={Styles.textInput}
-                      placeholder={'Class Type'}
-                      value={class_cd}
-                      editable={false}
+                 <View style={{flex: 1}}>
+               
+                  <RNPickerSelect
+                    
+                      items={this.state.classCd.map((data, key) => ({
+                        key: key,
+                        label: data.label,
+                        value: data.value,
+                      }))}
+                      onValueChange={val => {
+                        this.setState({class_cd: val})
+                      }}
+                   
+                      style={{ inputIOS:{
+                         
+                        fontFamily: 'Montserrat-Regular',
+                        borderBottomWidth: 1,
+                        borderColor: '#CCC',
+                        fontSize: 14,
+                        width: '100%',
+                        borderRadius: 5,
+                        textAlignVertical: 'bottom',
+                        paddingVertical: .5,
+                        paddingHorizontal: 20,
+                        color: '#666',
+                        paddingRight: 30,
+                      },}} // to ensure the text is never behind the icon}}
+                      value={this.state.class_cd}
+                     
                     />
-                  </View>
-                </TouchableOpacity>
+                  
+                 </View>
+               
+               
               ) : (
                 <View style={{flex: 1}}>
                   <RNPickerSelect
@@ -1633,22 +1676,47 @@ class DetailPage extends Component {
                   solid
                   name="star"
                   style={Styles.iconSub2}
-                  type="FontAwesome5"
+                  type="FontAwesome"
                 />
                 <Text style={Styles.overviewTitles_Small}>VIP</Text>
               </View>
               {Platform.OS == 'ios' ? (
-                <TouchableOpacity
-                  onPress={() => this.showActionSheet()}
-                  style={{borderWidth: 1, borderColor: '#333'}}>
-                  <View pointerEvents="none">
-                    <TextInput
-                      style={Styles.textInput}
-                      placeholder={'VIP Status'}
-                      value={vip}
-                    />
-                  </View>
-                </TouchableOpacity>
+                 <View style={{flex: 1}}>
+               
+                 <RNPickerSelect
+                   
+                   items={[
+                    {label: 'Yes', value: 'Y'},
+                    {label: 'No', value: 'N'},
+                  ]}
+                     onValueChange={val => {
+                       this.setState({vip: val})
+                     }}
+                  
+                     style={{inputIOS:{
+                         
+                      fontFamily: 'Montserrat-Regular',
+                      borderBottomWidth: 1,
+                      borderColor: '#CCC',
+                      fontSize: 14,
+                      width: '100%',
+                      borderRadius: 5,
+                      textAlignVertical: 'bottom',
+                      paddingVertical: .5,
+                      paddingHorizontal: 20,
+                      color: '#666',
+                      paddingRight: 30,
+                    },}} // to ensure the text is never behind the icon}}
+                     value={this.state.vip}
+                     enabled={
+                      this.state.disableprospect
+                        ? this.state.makafalse
+                        : this.state.makatrue
+                    }
+                   />
+                 
+                </View>
+               
               ) : (
                 <View style={{flex: 1}}>
                   <RNPickerSelect
@@ -1695,22 +1763,47 @@ class DetailPage extends Component {
                   solid
                   name="star"
                   style={Styles.iconSub2}
-                  type="FontAwesome5"
+                  type="FontAwesome"
                 />
                 <Text style={Styles.overviewTitles_Small}>Category</Text>
               </View>
               {Platform.OS == 'ios' ? (
-                <TouchableOpacity
-                  onPress={() => this.showActionSheet()}
-                  style={{borderWidth: 1, borderColor: '#333'}}>
-                  <View pointerEvents="none">
-                    <TextInput
-                      style={Styles.textInput}
-                      placeholder={'Category'}
-                      value={category}
-                    />
-                  </View>
-                </TouchableOpacity>
+                 <View style={{flex: 1}}>
+               
+                 <RNPickerSelect
+                   
+                   items={[
+                    {label: 'Individu', value: 'I'},
+                    {label: 'Company', value: 'C'},
+                  ]}
+                  onValueChange={cat => this.changeform(cat)}
+                  
+                     style={{  inputIOS:{
+                         
+                      fontFamily: 'Montserrat-Regular',
+                      borderBottomWidth: 1,
+                      borderColor: '#CCC',
+                      fontSize: 14,
+                      width: '100%',
+                      borderRadius: 5,
+                      textAlignVertical: 'bottom',
+                      paddingVertical: .5,
+                      paddingHorizontal: 20,
+                      color: '#666',
+                      paddingRight: 30,
+                    },
+                      }} // to ensure the text is never behind the icon}}
+                     value={this.state.category}
+                     enabled={
+                      this.state.disableprospect
+                        ? this.state.makafalse
+                        : this.state.makatrue
+                    }
+                      selectedValue={this.state.category}
+                   />
+                 
+                </View>
+                
               ) : (
                 <View style={{flex: 1}}>
                   <RNPickerSelect
@@ -1755,6 +1848,26 @@ class DetailPage extends Component {
     );
   }
 
+  showActionSheetSalut(item) {
+    console.log('item salut', item);
+    console.log('this item salutation', this.state.salutationcd);
+    const optionsObject = item;
+    const data = optionsObject.map(option => option.label);
+    // const cancelButtonIndex = options.length - 1; // Misalkan tombol cancel adalah opsi terakhir
+    ActionSheetIOS.showActionSheetWithOptions(
+        {
+            options: data,
+            cancelButtonIndex: 0
+        },
+        buttonIndex => {
+            if (buttonIndex !== 0) {
+              console.log('buttonIndex', data[buttonIndex]);
+                this.setState({ salutation: data[buttonIndex] });
+            }
+        }
+    );
+}
+
   renderAccordionContentDetail() {
     let {
       salutation,
@@ -1788,7 +1901,7 @@ class DetailPage extends Component {
                 source={require('@Asset/icon/edit_file.png')}
                 style={{width: 30, height: 30}}
               />
-              {/* <Icon solid name='edit' style={{color: Colors.twitter, fontSize: 24}} type="FontAwesome5" /> */}
+              {/* <Icon solid name='edit' style={{color: Colors.twitter, fontSize: 24}} type="FontAwesome" /> */}
             </TouchableOpacity>
           ) : (
             <TouchableOpacity
@@ -1796,7 +1909,7 @@ class DetailPage extends Component {
               onPress={() => {
                 this.updateDetailInformation();
               }}>
-              {/* <Icon solid name='save' style={{color: Colors.statusBarNavy, fontSize: 26}} type="FontAwesome5" /> */}
+              {/* <Icon solid name='save' style={{color: Colors.statusBarNavy, fontSize: 26}} type="FontAwesome" /> */}
               <Image
                 source={require('@Asset/icon/save_file.png')}
                 style={{width: 30, height: 30}}
@@ -1822,22 +1935,56 @@ class DetailPage extends Component {
                   this.state.disabledetailindividu ? 'none' : 'auto'
                 }>
                 <View style={{flexDirection: 'row', alignItems: 'flex-start'}}>
-                  {/* <Icon solid name='star' style={Styles.iconSub2} type="FontAwesome5" /> */}
+                  {/* <Icon solid name='star' style={Styles.iconSub2} type="FontAwesome" /> */}
                   <Text style={Styles.overviewTitles_Small}>Salutation</Text>
                 </View>
                 {
                   Platform.OS == 'ios' ? (
-                    <TouchableOpacity
-                      onPress={() => this.showActionSheet()}
-                      style={{borderWidth: 1, borderColor: '#333'}}>
-                      <View pointerEvents="none">
-                        <TextInput
-                          style={Styles.textInput}
-                          placeholder={'Salutation'}
-                          value={salutation}
-                        />
-                      </View>
-                    </TouchableOpacity>
+                   
+                    <View style={{flex: 1}}>
+                     
+                    <RNPickerSelect
+                    
+                      onValueChange={val => this.setState({salutation: val})}
+                      
+                         style={{ 
+                          inputIOS:{
+                         
+                            fontFamily: 'Montserrat-Regular',
+                            borderBottomWidth: 1,
+                            borderColor: '#CCC',
+                            fontSize: 14,
+                            width: '100%',
+                            borderRadius: 5,
+                            textAlignVertical: 'bottom',
+                            paddingVertical: .5,
+                            paddingHorizontal: 20,
+                            color: '#666',
+                            backgroundColor: this.state.disabledetailindividu ? '#f3f3f3' :  'white'
+                          },
+                          
+                         }} // to ensure the text is never behind the icon}}
+                         value={this.state.salutation}
+                         enabled={
+                          this.state.disableprospect
+                            ? this.state.makafalse
+                            : this.state.makatrue
+                        }
+                      
+
+                      selectedValue={this.state.salutation}
+                      // style={Styles.textInput}
+                  
+                    
+                      items={this.state.salutationcd.map((data, key) => ({
+                        key: key,
+                        label: data.label,
+                        value: data.value,
+                      }))}
+                     
+                    />
+                  
+                  </View>
                   ) : (
                     // <View>
                     <View style={{flex: 1}}>
@@ -1889,7 +2036,7 @@ class DetailPage extends Component {
                     solid
                     name="star"
                     style={Styles.iconSub2}
-                    type="FontAwesome5"
+                    type="FontAwesome"
                   />
                   {/* <Text style={Styles.overviewTitles_Small}>  {this.state.individu ? <ActivityIndicator /> : "Name Individu" }
                                     {this.state.company ? <ActivityIndicator /> : "Name CompanyYY" } </Text> */}
@@ -1925,7 +2072,7 @@ class DetailPage extends Component {
                     solid
                     name="star"
                     style={Styles.iconSub2}
-                    type="FontAwesome5"
+                    type="FontAwesome"
                   />
                   <Text style={Styles.overviewTitles_Small}>Address</Text>
                 </View>
@@ -1993,17 +2140,51 @@ class DetailPage extends Component {
                   <Text style={{fontSize: 12}}>Province</Text>
                 </Label>
                 {Platform.OS == 'ios' ? (
-                  <TouchableOpacity
-                    onPress={() => this.showActionSheet()}
-                    style={{borderWidth: 1, borderColor: '#333'}}>
-                    <View pointerEvents="none">
-                      <TextInput
-                        style={Styles.textInput}
-                        placeholder={'Province'}
-                        value={province_cd}
-                      />
-                    </View>
-                  </TouchableOpacity>
+                 
+                  <View style={{flex: 1}}>
+                     
+                  <RNPickerSelect
+                  
+                    onValueChange={zoomprovince =>
+                      this.chooseProv(zoomprovince)}
+                    
+                       style={{ 
+                        inputIOS:{
+                       
+                          fontFamily: 'Montserrat-Regular',
+                          borderBottomWidth: 1,
+                          borderColor: '#CCC',
+                          fontSize: 14,
+                          width: '100%',
+                          borderRadius: 5,
+                          textAlignVertical: 'bottom',
+                          paddingVertical: .5,
+                          paddingHorizontal: 20,
+                          color: '#666',
+                          backgroundColor: this.state.disabledetailindividu ? '#f3f3f3' :  'white'
+                        },
+                        
+                       }} // to ensure the text is never behind the icon}}
+                       value={this.state.province_cd}
+                       enabled={
+                        this.state.disableprospect
+                          ? this.state.makafalse
+                          : this.state.makatrue
+                      }
+                    
+
+                    selectedValue={this.state.province_cd}
+                    // style={Styles.textInput}
+                
+                  
+                    items={this.state.prov.map((data, key) => ({
+                      key: key,
+                      label: data.label,
+                      value: data.value,
+                    }))}
+                  />
+                
+                </View>
                 ) : (
                   <View style={{flex: 1}}>
                     <RNPickerSelect
@@ -2059,20 +2240,55 @@ class DetailPage extends Component {
                 </Label>
 
                 {Platform.OS == 'ios' ? (
-                  <TouchableOpacity
-                    onPress={() => this.showActionSheet()}
-                    style={{borderWidth: 1, borderColor: '#333'}}>
-                    <View pointerEvents="none">
-                      <TextInput
-                        style={Styles.textInput}
-                        placeholder={'City'}
-                        value={city}
-                        onChangeText={val => {
-                          this.setState({city: val});
-                        }}
-                      />
-                    </View>
-                  </TouchableOpacity>
+                
+
+                  <View style={{flex: 1}}>
+                     
+                  <RNPickerSelect
+                  
+                    onValueChange={zoomcity => this.chooseCity(zoomcity)}
+                    
+                       style={{ 
+                        inputIOS:{
+                       
+                          fontFamily: 'Montserrat-Regular',
+                          borderBottomWidth: 1,
+                          borderColor: '#CCC',
+                          fontSize: 14,
+                          width: '100%',
+                          borderRadius: 5,
+                          textAlignVertical: 'bottom',
+                          paddingVertical: .5,
+                          paddingHorizontal: 20,
+                          color: '#666',
+                          backgroundColor: this.state.disabledetailindividu ? '#f3f3f3' :  'white'
+                        },
+                        
+                       }} // to ensure the text is never behind the icon}}
+                       value={this.state.city}
+                       enabled={
+                        this.state.disabledetailindividu
+                          ? this.state.makafalse
+                          : this.state.makatrue
+                      }
+                      placeholder={{
+                        label: 'Select a city...',
+                        value: null,
+                        color: '#9EA0A4',
+                      }}
+
+                    selectedValue={this.state.city}
+                    // style={Styles.textInput}
+                
+                  
+                    items={this.state.getcity.map((data, key) => ({
+                      key: key,
+                      label: data.label,
+                      value: data.value,
+                    }))}
+                  />
+                
+                </View>
                 ) : (
                   <View style={{flex: 1}}>
                     <RNPickerSelect
@@ -2127,17 +2343,52 @@ class DetailPage extends Component {
                 </Label>
 
                 {Platform.OS == 'ios' ? (
-                  <TouchableOpacity
-                    onPress={() => this.showActionSheet()}
-                    style={{borderWidth: 1, borderColor: '#333'}}>
-                    <View pointerEvents="none">
-                      <TextInput
-                        style={Styles.textInput}
-                        placeholder={'District'}
-                        value={district}
+                
+                  <View style={{flex: 1}}>   
+                      <RNPickerSelect
+                          onValueChange={zoomdistrict =>
+                            this.chooseDistrict(zoomdistrict)
+                          }
+                          style={{ 
+                            inputIOS:{
+                          
+                              fontFamily: 'Montserrat-Regular',
+                              borderBottomWidth: 1,
+                              borderColor: '#CCC',
+                              fontSize: 14,
+                              width: '100%',
+                              borderRadius: 5,
+                              textAlignVertical: 'bottom',
+                              paddingVertical: .5,
+                              paddingHorizontal: 20,
+                              color: '#666',
+                              backgroundColor: this.state.disabledetailindividu ? '#f3f3f3' :  'white'
+                            },
+                            
+                          }} // to ensure the text is never behind the icon}}
+                          value={this.state.district}
+                          enabled={
+                            this.state.disabledetailindividu
+                              ? this.state.makafalse
+                              : this.state.makatrue
+                          }
+                          placeholder={{
+                            label: 'Select a district...',
+                            value: null,
+                            color: '#9EA0A4',
+                          }}
+
+                          selectedValue={this.state.district}
+                        // style={Styles.textInput}
+                    
+                      
+                          items={this.state.getdistrict.map((data, key) => ({
+                            key: key,
+                            label: data.label,
+                            value: data.value,
+                          }))}
                       />
-                    </View>
-                  </TouchableOpacity>
+                  </View>
                 ) : (
                   <View style={{flex: 1}}>
                     <RNPickerSelect
@@ -2193,17 +2444,51 @@ class DetailPage extends Component {
                   <Text style={{fontSize: 12}}>Village</Text>
                 </Label>
                 {Platform.OS == 'ios' ? (
-                  <TouchableOpacity
-                    onPress={() => this.showActionSheet()}
-                    style={{borderWidth: 1, borderColor: '#333'}}>
-                    <View pointerEvents="none">
-                      <TextInput
-                        style={Styles.textInput}
-                        placeholder={'Village'}
-                        value={village}
+                  
+                  <View style={{flex: 1}}>   
+                      <RNPickerSelect
+                          onValueChange={zoomvillage =>
+                            this.chooseVillage(zoomvillage)
+                          }
+                         
+                          style={{ 
+                            inputIOS:{
+                              fontFamily: 'Montserrat-Regular',
+                              borderBottomWidth: 1,
+                              borderColor: '#CCC',
+                              fontSize: 14,
+                              width: '100%',
+                              borderRadius: 5,
+                              textAlignVertical: 'bottom',
+                              paddingVertical: .5,
+                              paddingHorizontal: 20,
+                              color: '#666',
+                              backgroundColor: this.state.disabledetailindividu ? '#f3f3f3' :  'white'
+                            },
+                          }} // to ensure the text is never behind the icon}}
+                          value={this.state.village}
+                          enabled={
+                            this.state.disabledetailindividu
+                              ? this.state.makafalse
+                              : this.state.makatrue
+                          }
+                          placeholder={{
+                            label: 'Select a village...',
+                            value: null,
+                            color: '#9EA0A4',
+                          }}
+
+                          selectedValue={this.state.village}
+                        // style={Styles.textInput}
+                    
+                      
+                          items={this.state.getvillage.map((data, key) => ({
+                            key: key,
+                            label: data.label,
+                              value: data.value,
+                          }))}
                       />
-                    </View>
-                  </TouchableOpacity>
+                  </View>
                 ) : (
                   <View style={{flex: 1}}>
                     <RNPickerSelect
@@ -2260,17 +2545,18 @@ class DetailPage extends Component {
                 </Label>
                 {
                   Platform.OS == 'ios' ? (
-                    <TouchableOpacity
-                      onPress={() => this.showActionSheet()}
-                      style={{borderWidth: 1, borderColor: '#333'}}>
-                      <View pointerEvents="none">
-                        <TextInput
-                          style={Styles.textInput}
-                          placeholder={'Post Code'}
-                          value={post_cd}
-                        />
-                      </View>
-                    </TouchableOpacity>
+                    <TextInput
+                      keyboardType="number-pad"
+                      // style={Styles.textInput}
+                      style={
+                        this.state.disabledetailindividu
+                          ? Styles.textInput_disable
+                          : Styles.textInput
+                      }
+                      value={this.state.post_cd}
+                      onChangeText={post_cd => this.setState({post_cd})}
+                    />
+                   
                   ) : (
                     <TextInput
                       keyboardType="number-pad"
@@ -2279,24 +2565,7 @@ class DetailPage extends Component {
                       onChangeText={post_cd => this.setState({post_cd})}
                     />
                   )
-                  // <Item rounded style={{height: 35}}>
-                  //     <Picker
-                  //     placeholder="Gender"
-                  //     selectedValue={this.state.post_cd}
-                  //     style={{width: '100%',marginHorizontal:10}}
-                  //     textStyle={{fontFamily:'Montserrat-Regular',fontSize:12,color:'#666'}}
-                  //     enabled={this.state.disabledetailindividu ? this.state.makafalse  : this.state.makatrue}
-                  //     // onValueChange={(val)=>alert({post_cd:val})}
-
-                  //     onValueChange={(val)=>this.setState({post_cd:val})}
-                  //     // onValueChange={(val)=>console.log('post code', val)}
-                  //     >
-                  //         {this.state.getpostcode.map((data, key) =>
-                  //             <Picker.Item key={key} label={data.label} value={data.value} />
-                  //         )}
-                  //     </Picker>
-
-                  // </Item>
+                  
                 }
 
                 {/* <TextInput style={Styles.textInput} placeholder={'Post Code'} value={post_cd} onChangeText={(val)=>{this.setState({post_cd:val})}}/> */}
@@ -2337,7 +2606,7 @@ class DetailPage extends Component {
                     solid
                     name="star"
                     style={Styles.iconSub2}
-                    type="FontAwesome5"
+                    type="FontAwesome"
                   />
                   <Text style={Styles.overviewTitles_Small}>
                     Handphone/Whatsapp
@@ -2423,7 +2692,7 @@ class DetailPage extends Component {
                     solid
                     name="star"
                     style={Styles.iconSub2}
-                    type="FontAwesome5"
+                    type="FontAwesome"
                   />
                   <Text style={Styles.overviewTitles_Small}>Email</Text>
                 </View>
@@ -2482,7 +2751,7 @@ class DetailPage extends Component {
                 source={require('@Asset/icon/edit_file.png')}
                 style={{width: 30, height: 30}}
               />
-              {/* <Icon solid name='edit' style={{color: Colors.twitter, fontSize: 24}} type="FontAwesome5" /> */}
+              {/* <Icon solid name='edit' style={{color: Colors.twitter, fontSize: 24}} type="FontAwesome" /> */}
             </TouchableOpacity>
           ) : (
             <TouchableOpacity
@@ -2490,7 +2759,7 @@ class DetailPage extends Component {
               onPress={() => {
                 this.updateDetailCompany();
               }}>
-              {/* <Icon solid name='save' style={{color: Colors.statusBarNavy, fontSize: 26}} type="FontAwesome5" /> */}
+              {/* <Icon solid name='save' style={{color: Colors.statusBarNavy, fontSize: 26}} type="FontAwesome" /> */}
               <Image
                 source={require('@Asset/icon/save_file.png')}
                 style={{width: 30, height: 30}}
@@ -2522,7 +2791,7 @@ class DetailPage extends Component {
                     solid
                     name="star"
                     style={Styles.iconSub2}
-                    type="FontAwesome5"
+                    type="FontAwesome"
                   />
                   <Text style={Styles.overviewTitles_Small}>Company Name</Text>
                   {/* {this.state.company ? <Text style={Styles.overviewTitles_Small}>Name Company</Text> :  <ActivityIndicator />  } */}
@@ -2555,7 +2824,7 @@ class DetailPage extends Component {
                     solid
                     name="star"
                     style={Styles.iconSub2}
-                    type="FontAwesome5"
+                    type="FontAwesome"
                   />
                   <Text style={Styles.overviewTitles_Small}>
                     Company Address
@@ -2606,7 +2875,7 @@ class DetailPage extends Component {
                       selectedValue={this.state.province_cd}
                       style={{width: '100%', marginHorizontal: 10}}
                       textStyle={{
-                        fontFamily: 'Montserrat-Regular',
+                        // fontFamily: 'Montserrat-Regular',
                         fontSize: 12,
                         color: '#666',
                       }}
@@ -2666,7 +2935,7 @@ class DetailPage extends Component {
                       selectedValue={this.state.city}
                       style={{width: '100%', marginHorizontal: 10}}
                       textStyle={{
-                        fontFamily: 'Montserrat-Regular',
+                        // fontFamily: 'Montserrat-Regular',
                         fontSize: 12,
                         color: '#666',
                       }}
@@ -2719,7 +2988,7 @@ class DetailPage extends Component {
                       selectedValue={this.state.district}
                       style={{width: '100%', marginHorizontal: 10}}
                       textStyle={{
-                        fontFamily: 'Montserrat-Regular',
+                        // fontFamily: 'Montserrat-Regular',
                         fontSize: 12,
                         color: '#666',
                       }}
@@ -2909,7 +3178,7 @@ class DetailPage extends Component {
                     solid
                     name="star"
                     style={Styles.iconSub2}
-                    type="FontAwesome5"
+                    type="FontAwesome"
                   />
                   <Text style={Styles.overviewTitles_Small}>Email</Text>
                 </View>
@@ -2941,7 +3210,7 @@ class DetailPage extends Component {
                     solid
                     name="star"
                     style={Styles.iconSub2}
-                    type="FontAwesome5"
+                    type="FontAwesome"
                   />
                   <Text style={Styles.overviewTitles_Small}>
                     Handphone/Whatsapp
@@ -2998,7 +3267,7 @@ class DetailPage extends Component {
                 source={require('@Asset/icon/edit_file.png')}
                 style={{width: 30, height: 30}}
               />
-              {/* <Icon solid name='edit' style={{color: Colors.twitter, fontSize: 24}} type="FontAwesome5" /> */}
+              {/* <Icon solid name='edit' style={{color: Colors.twitter, fontSize: 24}} type="FontAwesome" /> */}
             </TouchableOpacity>
           ) : (
             <TouchableOpacity
@@ -3006,7 +3275,7 @@ class DetailPage extends Component {
               onPress={() => {
                 this.updateOtherInformation();
               }}>
-              {/* <Icon solid name='save' style={{color: Colors.statusBarNavy, fontSize: 26}} type="FontAwesome5" /> */}
+              {/* <Icon solid name='save' style={{color: Colors.statusBarNavy, fontSize: 26}} type="FontAwesome" /> */}
               <Image
                 source={require('@Asset/icon/save_file.png')}
                 style={{width: 30, height: 30}}
@@ -3050,17 +3319,54 @@ class DetailPage extends Component {
                 <Text style={{fontSize: 12}}>Sex</Text>
               </Label>
               {Platform.OS == 'ios' ? (
-                <TouchableOpacity
-                  onPress={() => this.showActionSheet()}
-                  style={{borderWidth: 1, borderColor: '#333'}}>
-                  <View pointerEvents="none">
-                    <TextInput
-                      style={Styles.textInput}
-                      placeholder={'Province'}
-                      value={sex}
-                    />
-                  </View>
-                </TouchableOpacity>
+                
+                <View style={{flex: 1}}>
+                     
+                <RNPickerSelect
+                
+                  onValueChange={val => this.setState({sex: val})}
+                  
+                     style={{ 
+                      inputIOS:{
+                     
+                        fontFamily: 'Montserrat-Regular',
+                        borderBottomWidth: 1,
+                        borderColor: '#CCC',
+                        fontSize: 14,
+                        width: '100%',
+                        borderRadius: 5,
+                        textAlignVertical: 'bottom',
+                        paddingVertical: .5,
+                        paddingHorizontal: 20,
+                        color: '#666',
+                        backgroundColor: this.state.disableotherdetail ? '#f3f3f3' :  'white'
+                      },
+                      
+                     }} // to ensure the text is never behind the icon}}
+                     value={this.state.sex}
+                     enabled={
+                      this.state.disableotherdetail
+                        ? this.state.makafalse
+                        : this.state.makatrue
+                    }
+                  
+
+                  selectedValue={this.state.sex}
+                  // style={Styles.textInput}
+                  placeholder={{
+                    label: 'Select a sex...',
+                    value: null,
+                    color: '#9EA0A4',
+                  }}
+                
+                  items={[
+                    {label: 'Male', value: 'Male'},
+                    {label: 'Female', value: 'Female'},
+                  ]}
+                 
+                />
+              
+              </View>
               ) : (
                 <View style={{flex: 1}}>
                   <RNPickerSelect
@@ -3191,26 +3497,13 @@ class DetailPage extends Component {
               </Label>
               {
                 Platform.OS == 'ios' ? (
-                  <TouchableOpacity
-                    onPress={() => this.showActionSheet()}
-                    style={{borderWidth: 1, borderColor: '#333'}}>
-                    <View pointerEvents="none">
-                      <TextInput
-                        style={
-                          this.state.disable
-                            ? Styles.textInput_disable
-                            : Styles.textInput
-                        }
-                        enabled={
-                          this.state.disable
-                            ? this.state.makafalse
-                            : this.state.makatrue
-                        }
-                        placeholder={'Occupation'}
-                        value={occupation}
-                      />
-                    </View>
-                  </TouchableOpacity>
+                  <Input
+                  style={Styles.textInput}
+                  value={this.state.occupation}
+                  // placeholder='Occupation'
+                  onChangeText={occupation => this.setState({occupation})}
+                />
+                 
                 ) : (
                   <Input
                     style={Styles.textInput}
@@ -3247,22 +3540,60 @@ class DetailPage extends Component {
                   solid
                   name="star"
                   style={Styles.iconSub2}
-                  type="FontAwesome5"
+                  type="FontAwesome"
                 />
                 <Text style={Styles.overviewTitles_Small}>Media</Text>
               </View>
               {Platform.OS == 'ios' ? (
-                <TouchableOpacity
-                  onPress={() => this.showActionSheet()}
-                  style={{borderWidth: 1, borderColor: '#333'}}>
-                  <View pointerEvents="none">
-                    <TextInput
-                      style={Styles.textInput}
-                      placeholder={'Media'}
-                      value={media}
-                    />
-                  </View>
-                </TouchableOpacity>
+                 <View style={{flex: 1}}>
+                     
+                 <RNPickerSelect
+                 
+                      onValueChange={val => this.setState({media_cd: val})}
+                   
+                      style={{ 
+                       inputIOS:{
+                      
+                         fontFamily: 'Montserrat-Regular',
+                         borderBottomWidth: 1,
+                         borderColor: '#CCC',
+                         fontSize: 14,
+                         width: '100%',
+                         borderRadius: 5,
+                         textAlignVertical: 'bottom',
+                         paddingVertical: .5,
+                         paddingHorizontal: 20,
+                         color: '#666',
+                         backgroundColor: this.state.disableotherdetail ? '#f3f3f3' :  'white'
+                       },
+                       
+                      }} // to ensure the text is never behind the icon}}
+                      value={this.state.media_cd}
+                      enabled={
+                       this.state.disableotherdetail
+                         ? this.state.makafalse
+                         : this.state.makatrue
+                     }
+                   
+ 
+                   selectedValue={this.state.media_cd}
+                   // style={Styles.textInput}
+                   placeholder={{
+                      label: 'Select a media...',
+                      value: null,
+                      color: '#9EA0A4',
+                    }}
+                 
+                    items={this.state.getmedia.map((data, key) => ({
+                      key: key,
+                      label: data.label,
+                      value: data.value,
+                    }))}
+                  
+                 />
+               
+               </View>
+              
               ) : (
                 <View style={{flex: 1}}>
                   <RNPickerSelect
@@ -3328,7 +3659,7 @@ class DetailPage extends Component {
                 source={require('@Asset/icon/edit_file.png')}
                 style={{width: 30, height: 30}}
               />
-              {/* <Icon solid name='edit' style={{color: Colors.twitter, fontSize: 24}} type="FontAwesome5" /> */}
+              {/* <Icon solid name='edit' style={{color: Colors.twitter, fontSize: 24}} type="FontAwesome" /> */}
             </TouchableOpacity>
           ) : (
             <TouchableOpacity
@@ -3336,7 +3667,7 @@ class DetailPage extends Component {
               onPress={() => {
                 this.updateOtherCompany();
               }}>
-              {/* <Icon solid name='save' style={{color: Colors.statusBarNavy, fontSize: 26}} type="FontAwesome5" /> */}
+              {/* <Icon solid name='save' style={{color: Colors.statusBarNavy, fontSize: 26}} type="FontAwesome" /> */}
               <Image
                 source={require('@Asset/icon/save_file.png')}
                 style={{width: 30, height: 30}}
@@ -3465,7 +3796,7 @@ class DetailPage extends Component {
                   solid
                   name="star"
                   style={Styles.iconSub2}
-                  type="FontAwesome5"
+                  type="FontAwesome"
                 />
                 <Text style={Styles.overviewTitles_Small}>Media</Text>
               </View>
@@ -3488,7 +3819,7 @@ class DetailPage extends Component {
                     selectedValue={this.state.media_cd}
                     style={{width: '100%', marginHorizontal: 10}}
                     textStyle={{
-                      fontFamily: 'Montserrat-Regular',
+                      // fontFamily: 'Montserrat-Regular',
                       fontSize: 12,
                       color: '#666',
                     }}
@@ -3546,7 +3877,7 @@ class DetailPage extends Component {
                 {/* <Text style={Styles.sLinkHead}>Add Prospect</Text> */}
                 <Icon
                   name="plus"
-                  type="FontAwesome5"
+                  type="FontAwesome"
                   style={{color: '#fff', fontSize: 13}}
                 />
                 {/* plus */}
@@ -3664,7 +3995,7 @@ class DetailPage extends Component {
                 {/* <Text style={Styles.sLinkHead}>Add Prospect</Text> */}
                 <Icon
                   name="plus"
-                  type="FontAwesome5"
+                  type="FontAwesome"
                   style={{color: '#fff', fontSize: 13}}
                 />
                 {/* plus */}
@@ -3747,7 +4078,7 @@ class DetailPage extends Component {
                 {/* <Text style={Styles.sLinkHead}>Add Prospect</Text> */}
                 <Icon
                   name="plus"
-                  type="FontAwesome5"
+                  type="FontAwesome"
                   style={{color: '#fff', fontSize: 13}}
                 />
                 {/* plus */}
@@ -3891,7 +4222,7 @@ class DetailPage extends Component {
           {this.state.detail.length == 0 ? (
             <ActivityIndicator />
           ) : (
-            <View>
+           <View>
               <ScrollView>
                 <View style={Styles.formBg}>
                   {this.state.individu ? (
@@ -3980,100 +4311,9 @@ class DetailPage extends Component {
             </View>
           )}
           {/* </Content> */}
-          <View>
-            <View
-              style={{
-                borderTopColor: '#333',
-                borderTopWidth: 1,
-                borderStyle: 'solid',
-                borderBottomColor: '#333',
-                borderBottomWidth: 1,
-                borderStyle: 'solid',
-              }}>
-              <CardItem
-                style={{
-                  height: 60,
-                  marginBottom: 4,
-                  borderColor: '#333',
-                  //   backgroundColor: 'pink',
-                  width: '100%',
-                  paddingRight: 0,
-                  marginTop: 2,
-                  borderTopColor: '#333',
-                }}>
-                {/* left title media */}
-                <Left>
-                  <Text style={Styles.positionTextInput}>Prospect Status</Text>
-                </Left>
-                {/* end left title media */}
-
-                {/* right picker media */}
-                <View
-                  style={{
-                    flex: 1,
-                    height: 60,
-                    // backgroundColor: 'yellow',
-                    justifyContent: 'center',
-                  }}>
-                  <Right
-                    style={{
-                      paddingRight: 0,
-                      marginRight: 0,
-                    }}>
-                    <RNPickerSelect
-                      //   placeholder={'cityy'}
-                      placeholder={{
-                        label: 'Choose status...',
-                        value: null,
-                        color: '#9EA0A4',
-                      }}
-                      selectedValue={this.state.status_cd}
-                      // style={Styles.textInput}
-                      useNativeAndroidPickerStyle={false}
-                      style={{inputAndroid: {color: 'black'}}}
-                      onValueChange={val => {
-                        const statuspros = this.state.getstatus.filter(
-                          item => item.value == val,
-                        );
-                        // console.log('status change', this.state.getstatus.filter(item=>item.value==val));
-                        this.setState({status_cd: val});
-                      }}
-                      items={this.state.getstatus.map((data, key) => ({
-                        key: key,
-                        label: data.label,
-                        value: data.value,
-                      }))}
-                    />
-                    <Text
-                      style={{
-                        width: '100%',
-                        height: '100%',
-                        position: 'absolute',
-                        bottom: 0,
-                        left: 0,
-                      }}>
-                      {' '}
-                    </Text>
-
-                    {/* </Item> */}
-                  </Right>
-                </View>
-                {/* end right picker media */}
-              </CardItem>
-            </View>
-          </View>
+        
         </Content>
-        <View>
-          <Button
-            full
-            style={{backgroundColor: Colors.navyUrban}}
-            onPress={() => {
-              this.updateStatus();
-            }}>
-            <Text>Update</Text>
-          </Button>
-        </View>
-
+    
         {/* </Content> */}
       </Container>
     );

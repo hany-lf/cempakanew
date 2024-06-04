@@ -110,8 +110,8 @@ class FutureAction extends Component {
     }
   };
 
-  AddFollowUp() {
-    Actions.AddFollowUp();
+  FutureAction() {
+    Actions.FutureAction();
     // Actions.IndexProspect
     this.setState({click: true});
   }
@@ -151,9 +151,9 @@ class FutureAction extends Component {
                   small
                   rounded
                   style={Styles.sBtnHeadAdd}
-                  onPress={() => Actions.AddFollowUp()}>
+                  onPress={() => Actions.AddFutureAction()}>
                   <Text style={{color: '#fff', fontSize: 12}}>
-                    Add Follow Up
+                    Add Future Action
                   </Text>
                   {/* <Icon name='user-plus' type="FontAwesome5" style={{color: '#fff', fontSize: 18}}/> */}
                   {/* plus */}

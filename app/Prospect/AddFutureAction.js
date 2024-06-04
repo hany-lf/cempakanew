@@ -50,13 +50,7 @@ import Timer from "jest-jasmine2/build/jasmine/Timer";
 
 // import styles, { colors } from "./styles/index";
 
-
-
-    
-   
-
-
-class AddFollowUp extends Component {
+class AddFutureAction extends Component {
     constructor(props){
         super(props);
 
@@ -265,7 +259,7 @@ class AddFollowUp extends Component {
                             {/* {data.descs} */}
                             {/* {this.state.status_cd.toUpperCase()} */}
                             {/* {this.state.descs.toUpperCase()} */}
-                            Add Follow Up
+                            Add Future Action
                         </Text>
                     </View>
                     <View style={Style.actionBarRight} />
@@ -293,26 +287,7 @@ class AddFollowUp extends Component {
                                 />
                             </View>
                         </View>
-                        <View style={{flexDirection: 'row', flex: 1, justifyContent: 'center'}}>
-                            <View style={Styles.subWrap}>
-                                <DateInput
-                                    name="time_prospect"
-                                    label="Time Prospect"
-                                    mode="time"
-                                    onChange={this.handleDateChange}
-                                    value={this.state.time_prospect}
-                                />
-                            </View>
-                            <View style={Styles.subWrap}>
-                                <DateInput
-                                    name="duration"
-                                    label="Duration hr. mn."
-                                    mode="time"
-                                    onChange={this.handleDateChange}
-                                    value={this.state.duration}
-                                />
-                            </View>
-                        </View>
+                      
                         <View style={Styles.overview}  >
                             <View style={{ flexDirection: 'row', alignItems: 'flex-start' }}>
                                 <Icon solid name='star' style={Styles.iconSub} type="FontAwesome" />
@@ -356,7 +331,7 @@ class AddFollowUp extends Component {
         );
     }
 }
-export default AddFollowUp;
+export default AddFutureAction;
 
 const navStyles = StyleSheet.create({
     container: {

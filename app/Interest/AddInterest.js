@@ -156,6 +156,7 @@ class AddInterest extends Component {
     console.log('project_no _getdata', project_no);
     // console.log('this state property', property_cd);
     // const province = this.props.items
+    console.log('urlapi zoomprojek', urlApi + 'c_project/zoomProject/IFCAPB2/');
     {
       isMount
         ? fetch(urlApi + 'c_project/zoomProject/IFCAPB2/', {
@@ -298,6 +299,7 @@ class AddInterest extends Component {
       property_cd: zoomproperty,
       entity_cd: this.state.entity_cd,
     });
+    console.log('url api lotno', urlApi + `c_lot/getLot/IFCAPB2/`);
     {
       isMount
         ? fetch(urlApi + 'c_lot/getLot/IFCAPB2/', {
@@ -541,7 +543,7 @@ class AddInterest extends Component {
                   solid
                   name="star"
                   style={Styles.iconSub}
-                  type="FontAwesome5"
+                  type="FontAwesome"
                 />
                 <Text style={Styles.overviewTitles_regular}>Prospect ID</Text>
               </View>
@@ -562,24 +564,53 @@ class AddInterest extends Component {
                     solid
                     name="star"
                     style={Styles.iconSub}
-                    type="FontAwesome5"
+                    type="FontAwesome"
                   />
                   <Text style={Styles.overviewTitles_regular}>
                     Project Name
                   </Text>
                 </View>
                 {Platform.OS == 'ios' ? (
-                  <TouchableOpacity
-                    onPress={() => this.showActionSheet()}
-                    style={{borderWidth: 1, borderColor: '#333'}}>
-                    <View pointerEvents="none">
-                      <TextInput
-                        style={Styles.textInput}
-                        placeholder={'Project Name'}
-                        value=""
-                      />
-                    </View>
-                  </TouchableOpacity>
+                   <View style={{flex: 1}}>
+                   <RNPickerSelect
+                   style={{ 
+                    inputIOS:{
+                   
+                      fontFamily: 'Montserrat-Regular',
+                      borderBottomWidth: 1,
+                      borderColor: '#CCC',
+                      fontSize: 14,
+                      width: '100%',
+                      borderRadius: 5,
+                      textAlignVertical: 'bottom',
+                      paddingVertical: .5,
+                      paddingHorizontal: 20,
+                      color: '#666',
+                      // backgroundColor: this.state.disabledetailindividu ? '#f3f3f3' :  'white'
+                    },
+                    
+                   }} // to ensure the text is never behind the icon}}
+                     //   placeholder={'cityy'}
+                     placeholder={{
+                       label: 'Choose a project...',
+                       value: null,
+                       color: '#9EA0A4',
+                     }}
+                     value={this.state.salutation}
+                     selectedValue={this.state.project_no}
+                     onValueChange={zoomproject =>
+                       this.chooseProject(zoomproject)
+                     }
+                     items={this.state.getproject.map((data, key) => ({
+                       key: key,
+                       label: data.label,
+                       value: data.value,
+                     }))}
+                   
+                   />
+                 
+                 </View>
+                 
                 ) : (
                   <View style={{flex: 1}}>
                     <RNPickerSelect
@@ -629,22 +660,50 @@ class AddInterest extends Component {
                   solid
                   name="star"
                   style={Styles.iconSub}
-                  type="FontAwesome5"
+                  type="FontAwesome"
                 />
                 <Text style={Styles.overviewTitles_regular}>Property Name</Text>
               </View>
               {Platform.OS == 'ios' ? (
-                <TouchableOpacity
-                  onPress={() => this.showActionSheet()}
-                  style={{borderWidth: 1, borderColor: '#333'}}>
-                  <View pointerEvents="none">
-                    <TextInput
-                      style={Styles.textInput}
-                      placeholder={'Property Name'}
-                      value={this.state.property_cd}
-                    />
-                  </View>
-                </TouchableOpacity>
+                <View style={{flex: 1}}>
+                <RNPickerSelect
+                style={{ 
+                 inputIOS:{
+                
+                   fontFamily: 'Montserrat-Regular',
+                   borderBottomWidth: 1,
+                   borderColor: '#CCC',
+                   fontSize: 14,
+                   width: '100%',
+                   borderRadius: 5,
+                   textAlignVertical: 'bottom',
+                   paddingVertical: .5,
+                   paddingHorizontal: 20,
+                   color: '#666',
+                   // backgroundColor: this.state.disabledetailindividu ? '#f3f3f3' :  'white'
+                 },
+                 
+                }} // to ensure the text is never behind the icon}}
+                  //   placeholder={'cityy'}
+                  placeholder={{
+                    label: 'Choose a property...',
+                    value: null,
+                    color: '#9EA0A4',
+                  }}
+                  value={this.state.property_cd}
+                  selectedValue={this.state.property_cd}
+                  onValueChange={zoomproperty =>
+                    this.chooseProperty(zoomproperty)
+                  }
+                  items={this.state.getproperty.map((data, key) => ({
+                    key: key,
+                    label: data.label,
+                    value: data.value,
+                  }))}
+                
+                />
+              
+              </View>
               ) : (
                 <View style={{flex: 1}}>
                   <RNPickerSelect
@@ -693,7 +752,7 @@ class AddInterest extends Component {
                   solid
                   name="star"
                   style={Styles.iconSub}
-                  type="FontAwesome5"
+                  type="FontAwesome"
                 />
                 <Text style={Styles.overviewTitles_regular}>Lot No</Text>
               </View>
@@ -713,7 +772,7 @@ class AddInterest extends Component {
                     editable={false}
                   />
                   {/* <Right style={{position:'absolute',right:10}}>
-                                            <Icon solid name='sort-down' type="FontAwesome5" style={{fontSize: 15,top: 3,right:1, color: '#666'}} />
+                                            <Icon solid name='sort-down' type="FontAwesome" style={{fontSize: 15,top: 3,right:1, color: '#666'}} />
                                         </Right>     */}
                 </TouchableOpacity>
               </Item>
@@ -793,22 +852,46 @@ class AddInterest extends Component {
                   solid
                   name="star"
                   style={Styles.iconSub}
-                  type="FontAwesome5"
+                  type="FontAwesome"
                 />
                 <Text style={Styles.overviewTitles_regular}>Rent</Text>
               </View>
               {Platform.OS == 'ios' ? (
-                <TouchableOpacity
-                  onPress={() => this.showActionSheet()}
-                  style={{borderWidth: 1, borderColor: '#333'}}>
-                  <View pointerEvents="none">
-                    <TextInput
-                      style={Styles.textInput}
-                      placeholder={'Rent'}
-                      value={this.state.rent_flag}
-                    />
-                  </View>
-                </TouchableOpacity>
+              <View style={{flex: 1}}>
+                  <RNPickerSelect
+                  value={this.state.rent_flag}
+                    placeholder={{
+                      label: 'Choose one...',
+                      value: null,
+                      color: '#9EA0A4',
+                    }}
+                    selectedValue={this.state.rent_flag}
+                    style={{ 
+                      inputIOS:{
+                    
+                        fontFamily: 'Montserrat-Regular',
+                        borderBottomWidth: 1,
+                        borderColor: '#CCC',
+                        fontSize: 14,
+                        width: '100%',
+                        borderRadius: 5,
+                        textAlignVertical: 'bottom',
+                        paddingVertical: .5,
+                        paddingHorizontal: 20,
+                        color: '#666',
+                        // backgroundColor: this.state.disabledetailindividu ? '#f3f3f3' :  'white'
+                      },
+                      
+                    }} // to ensure the text is never behind the icon}}
+                  
+                    onValueChange={val => this.setState({rent_flag: val})}
+                  
+                    items={[
+                      {label: 'Yes', value: 'Y'},
+                      {label: 'No', value: 'N'},
+                    ]}
+                  />
+              </View>
               ) : (
                 <View style={{flex: 1}}>
                   <RNPickerSelect
@@ -854,22 +937,47 @@ class AddInterest extends Component {
                   solid
                   name="star"
                   style={Styles.iconSub}
-                  type="FontAwesome5"
+                  type="FontAwesome"
                 />
                 <Text style={Styles.overviewTitles_regular}>Buy</Text>
               </View>
               {Platform.OS == 'ios' ? (
-                <TouchableOpacity
-                  onPress={() => this.showActionSheet()}
-                  style={{borderWidth: 1, borderColor: '#333'}}>
-                  <View pointerEvents="none">
-                    <TextInput
-                      style={Styles.textInput}
-                      placeholder={'Buy'}
-                      value={this.state.buy_flag}
-                    />
-                  </View>
-                </TouchableOpacity>
+                
+                <View style={{flex: 1}}>
+                  <RNPickerSelect
+                  value={this.state.buy_flag}
+                    placeholder={{
+                      label: 'Choose one...',
+                      value: null,
+                      color: '#9EA0A4',
+                    }}
+                    selectedValue={this.state.buy_flag}
+                    style={{ 
+                      inputIOS:{
+                    
+                        fontFamily: 'Montserrat-Regular',
+                        borderBottomWidth: 1,
+                        borderColor: '#CCC',
+                        fontSize: 14,
+                        width: '100%',
+                        borderRadius: 5,
+                        textAlignVertical: 'bottom',
+                        paddingVertical: .5,
+                        paddingHorizontal: 20,
+                        color: '#666',
+                        // backgroundColor: this.state.disabledetailindividu ? '#f3f3f3' :  'white'
+                      },
+                      
+                    }} // to ensure the text is never behind the icon}}
+                  
+                    onValueChange={val => this.setState({buy_flag: val})}
+                  
+                    items={[
+                      {label: 'Yes', value: 'Y'},
+                      {label: 'No', value: 'N'},
+                    ]}
+                  />
+              </View>
               ) : (
                 <View style={{flex: 1}}>
                   <RNPickerSelect

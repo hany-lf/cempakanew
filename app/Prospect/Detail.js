@@ -236,10 +236,8 @@ class DetailProspect extends Component {
 
           <View style={Style.actionBarMiddle}>
             <Text style={Style.actionBarText}>
-              {'Future Action'.toUpperCase()}
-              {/* {dataProspect.descs.toUpperCase()} */}
-              {/* {this.state.status_cd.toUpperCase()}
-                            {this.state.descs.toUpperCase()} */}
+              {'Prospect'.toUpperCase()}
+           
             </Text>
           </View>
           <View style={Style.actionBarRight} />

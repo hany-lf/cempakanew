@@ -108,6 +108,7 @@ import InterestProjectProspect from './Prospect/InterestProjectProspect';
 import AddProject from './Prospect/AddProject';
 import AddFollowUp from './Prospect/AddFollowUp';
 import DetailFollowUp from './Prospect/DetailFollowUp';
+import AddFutureAction from './Prospect/AddFutureAction';
 
 //interest project
 import AddInterest from './Interest/AddInterest';
@@ -560,6 +561,12 @@ class Routes extends Component {
               <Scene
                 key="DetailFollowUp"
                 component={DetailFollowUp}
+                hideNavBar={true}
+                title=""
+              />
+                <Scene
+                key="AddFutureAction"
+                component={AddFutureAction}
                 hideNavBar={true}
                 title=""
               />

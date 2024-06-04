@@ -18,6 +18,7 @@ import {
   Linking,
   PermissionsAndroid,
   Platform,
+  LogBox
 } from 'react-native';
 import {
   Container,
@@ -75,6 +76,7 @@ class ListProspect extends Component {
   }
 
   async componentDidMount() {
+       LogBox.ignoreLogs(['Animated: `useNativeDriver`']);
     // if(Platform.OS == "android"){
     //     try
     //     {
