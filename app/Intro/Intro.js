@@ -254,6 +254,7 @@ export default class Intro extends React.Component {
   };
 
   signIn = async res => {
+    console.log('api', urlApi);
     console.log('res', res);
     console.log('resAttd', res.AttendanceSession);
     try {
