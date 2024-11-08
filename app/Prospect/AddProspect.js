@@ -9,7 +9,9 @@ import {
   Image,
   Platform,
   ActivityIndicator,
+  // Icon,
 } from 'react-native';
+// import MaterialCommunityIcon from 'react-native-vector-icons/MaterialCommunityIcons';
 import {
   Container,
   Header,
@@ -810,7 +812,7 @@ class AddProspect extends Component {
                           style={{
                             inputAndroid: {
                               // backgroundColor: 'transparent',
-                              color: 'black'
+                              color: 'black',
                             },
                             iconContainer: {
                               top: 5,
@@ -1364,8 +1366,9 @@ class AddProspect extends Component {
                                             </Picker>
                                         </Item> */}
                     <View
-                      style={{flex: 1, 
-                      // height: Platform.OS == 'ios' ? 50 : 0
+                      style={{
+                        flex: 1,
+                        // height: Platform.OS == 'ios' ? 50 : 0
                       }}>
                       <RNPickerSelect
                         selectedValue={this.state.province_cd}
@@ -1410,8 +1413,9 @@ class AddProspect extends Component {
                                             </Picker>
                                         </Item> */}
                     <View
-                      style={{flex: 1, 
-                      // height: Platform.OS == 'ios' ? 50 : 0
+                      style={{
+                        flex: 1,
+                        // height: Platform.OS == 'ios' ? 50 : 0
                       }}>
                       <RNPickerSelect
                         selectedValue={this.state.city}
@@ -1454,8 +1458,9 @@ class AddProspect extends Component {
                                             </Picker>
                                         </Item> */}
                     <View
-                      style={{flex: 1, 
-                      // height: Platform.OS == 'ios' ? 50 : 0
+                      style={{
+                        flex: 1,
+                        // height: Platform.OS == 'ios' ? 50 : 0
                       }}>
                       <RNPickerSelect
                         selectedValue={this.state.district}
@@ -1500,8 +1505,9 @@ class AddProspect extends Component {
                                             </Picker>
                                         </Item> */}
                     <View
-                      style={{flex: 1, 
-                      // height: Platform.OS == 'ios' ? 50 : 0
+                      style={{
+                        flex: 1,
+                        // height: Platform.OS == 'ios' ? 50 : 0
                       }}>
                       <RNPickerSelect
                         selectedValue={this.state.village}

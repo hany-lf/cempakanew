@@ -18,7 +18,7 @@ import {
   Linking,
   PermissionsAndroid,
   Platform,
-  LogBox
+  LogBox,
 } from 'react-native';
 import {
   Container,
@@ -76,7 +76,7 @@ class ListProspect extends Component {
   }
 
   async componentDidMount() {
-       LogBox.ignoreLogs(['Animated: `useNativeDriver`']);
+    LogBox.ignoreLogs(['Animated: `useNativeDriver`']);
     // if(Platform.OS == "android"){
     //     try
     //     {
@@ -360,7 +360,7 @@ class ListProspect extends Component {
                     <View style={{alignSelf: 'flex-start'}}>
                       <Text
                         style={{
-                          fontFamily: 'Montserrat-Regular',
+                          // fontFamily: 'Montserrat-Regular',
                           alignSelf: 'flex-start',
                           color: '#333',
                           marginBottom: 5,
@@ -370,7 +370,7 @@ class ListProspect extends Component {
                       </Text>
                       <Text
                         style={{
-                          fontFamily: 'Montserrat-Regular',
+                          // fontFamily: 'Montserrat-Regular',
                           alignSelf: 'flex-start',
                           color: '#333',
                           marginBottom: 5,
@@ -380,7 +380,7 @@ class ListProspect extends Component {
                       </Text>
                       <Text
                         style={{
-                          fontFamily: 'Montserrat-Regular',
+                          // fontFamily: 'Montserrat-Regular',
                           alignSelf: 'flex-start',
                           color: '#333',
                           marginBottom: 5,
@@ -390,7 +390,7 @@ class ListProspect extends Component {
                       </Text>
                       <Text
                         style={{
-                          fontFamily: 'Montserrat-Regular',
+                          // fontFamily: 'Montserrat-Regular',
                           alignSelf: 'flex-start',
                           color: '#333',
                           marginBottom: 5,

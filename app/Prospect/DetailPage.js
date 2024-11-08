@@ -176,7 +176,6 @@ class DetailPage extends Component {
       //tab Follow Up
       datafollowup: [],
 
-
       // ----
       favSport0: undefined,
       favSport1: undefined,
@@ -1480,7 +1479,11 @@ class DetailPage extends Component {
             type="FontAwesome"
           />
         ) : (
-          <Icon style={Styles.accordionTabIcon} name="plus" type="FontAwesome" />
+          <Icon
+            style={Styles.accordionTabIcon}
+            name="plus"
+            type="FontAwesome"
+          />
         )}
       </View>
     );
@@ -1569,40 +1572,34 @@ class DetailPage extends Component {
                 <Text style={Styles.overviewTitles_Small}>Class</Text>
               </View>
               {Platform.OS == 'ios' ? (
-                 <View style={{flex: 1}}>
-               
+                <View style={{flex: 1}}>
                   <RNPickerSelect
-                    
-                      items={this.state.classCd.map((data, key) => ({
-                        key: key,
-                        label: data.label,
-                        value: data.value,
-                      }))}
-                      onValueChange={val => {
-                        this.setState({class_cd: val})
-                      }}
-                   
-                      style={{ inputIOS:{
-                         
-                        fontFamily: 'Montserrat-Regular',
+                    items={this.state.classCd.map((data, key) => ({
+                      key: key,
+                      label: data.label,
+                      value: data.value,
+                    }))}
+                    onValueChange={val => {
+                      this.setState({class_cd: val});
+                    }}
+                    style={{
+                      inputIOS: {
+                        // fontFamily: 'Montserrat-Regular',
                         borderBottomWidth: 1,
                         borderColor: '#CCC',
                         fontSize: 14,
                         width: '100%',
                         borderRadius: 5,
                         textAlignVertical: 'bottom',
-                        paddingVertical: .5,
+                        paddingVertical: 0.5,
                         paddingHorizontal: 20,
                         color: '#666',
                         paddingRight: 30,
-                      },}} // to ensure the text is never behind the icon}}
-                      value={this.state.class_cd}
-                     
-                    />
-                  
-                 </View>
-               
-               
+                      },
+                    }} // to ensure the text is never behind the icon}}
+                    value={this.state.class_cd}
+                  />
+                </View>
               ) : (
                 <View style={{flex: 1}}>
                   <RNPickerSelect
@@ -1681,42 +1678,38 @@ class DetailPage extends Component {
                 <Text style={Styles.overviewTitles_Small}>VIP</Text>
               </View>
               {Platform.OS == 'ios' ? (
-                 <View style={{flex: 1}}>
-               
-                 <RNPickerSelect
-                   
-                   items={[
-                    {label: 'Yes', value: 'Y'},
-                    {label: 'No', value: 'N'},
-                  ]}
-                     onValueChange={val => {
-                       this.setState({vip: val})
-                     }}
-                  
-                     style={{inputIOS:{
-                         
-                      fontFamily: 'Montserrat-Regular',
-                      borderBottomWidth: 1,
-                      borderColor: '#CCC',
-                      fontSize: 14,
-                      width: '100%',
-                      borderRadius: 5,
-                      textAlignVertical: 'bottom',
-                      paddingVertical: .5,
-                      paddingHorizontal: 20,
-                      color: '#666',
-                      paddingRight: 30,
-                    },}} // to ensure the text is never behind the icon}}
-                     value={this.state.vip}
-                     enabled={
+                <View style={{flex: 1}}>
+                  <RNPickerSelect
+                    items={[
+                      {label: 'Yes', value: 'Y'},
+                      {label: 'No', value: 'N'},
+                    ]}
+                    onValueChange={val => {
+                      this.setState({vip: val});
+                    }}
+                    style={{
+                      inputIOS: {
+                        // fontFamily: 'Montserrat-Regular',
+                        borderBottomWidth: 1,
+                        borderColor: '#CCC',
+                        fontSize: 14,
+                        width: '100%',
+                        borderRadius: 5,
+                        textAlignVertical: 'bottom',
+                        paddingVertical: 0.5,
+                        paddingHorizontal: 20,
+                        color: '#666',
+                        paddingRight: 30,
+                      },
+                    }} // to ensure the text is never behind the icon}}
+                    value={this.state.vip}
+                    enabled={
                       this.state.disableprospect
                         ? this.state.makafalse
                         : this.state.makatrue
                     }
-                   />
-                 
+                  />
                 </View>
-               
               ) : (
                 <View style={{flex: 1}}>
                   <RNPickerSelect
@@ -1768,42 +1761,37 @@ class DetailPage extends Component {
                 <Text style={Styles.overviewTitles_Small}>Category</Text>
               </View>
               {Platform.OS == 'ios' ? (
-                 <View style={{flex: 1}}>
-               
-                 <RNPickerSelect
-                   
-                   items={[
-                    {label: 'Individu', value: 'I'},
-                    {label: 'Company', value: 'C'},
-                  ]}
-                  onValueChange={cat => this.changeform(cat)}
-                  
-                     style={{  inputIOS:{
-                         
-                      fontFamily: 'Montserrat-Regular',
-                      borderBottomWidth: 1,
-                      borderColor: '#CCC',
-                      fontSize: 14,
-                      width: '100%',
-                      borderRadius: 5,
-                      textAlignVertical: 'bottom',
-                      paddingVertical: .5,
-                      paddingHorizontal: 20,
-                      color: '#666',
-                      paddingRight: 30,
-                    },
-                      }} // to ensure the text is never behind the icon}}
-                     value={this.state.category}
-                     enabled={
+                <View style={{flex: 1}}>
+                  <RNPickerSelect
+                    items={[
+                      {label: 'Individu', value: 'I'},
+                      {label: 'Company', value: 'C'},
+                    ]}
+                    onValueChange={cat => this.changeform(cat)}
+                    style={{
+                      inputIOS: {
+                        // fontFamily: 'Montserrat-Regular',
+                        borderBottomWidth: 1,
+                        borderColor: '#CCC',
+                        fontSize: 14,
+                        width: '100%',
+                        borderRadius: 5,
+                        textAlignVertical: 'bottom',
+                        paddingVertical: 0.5,
+                        paddingHorizontal: 20,
+                        color: '#666',
+                        paddingRight: 30,
+                      },
+                    }} // to ensure the text is never behind the icon}}
+                    value={this.state.category}
+                    enabled={
                       this.state.disableprospect
                         ? this.state.makafalse
                         : this.state.makatrue
                     }
-                      selectedValue={this.state.category}
-                   />
-                 
+                    selectedValue={this.state.category}
+                  />
                 </View>
-                
               ) : (
                 <View style={{flex: 1}}>
                   <RNPickerSelect
@@ -1855,18 +1843,18 @@ class DetailPage extends Component {
     const data = optionsObject.map(option => option.label);
     // const cancelButtonIndex = options.length - 1; // Misalkan tombol cancel adalah opsi terakhir
     ActionSheetIOS.showActionSheetWithOptions(
-        {
-            options: data,
-            cancelButtonIndex: 0
-        },
-        buttonIndex => {
-            if (buttonIndex !== 0) {
-              console.log('buttonIndex', data[buttonIndex]);
-                this.setState({ salutation: data[buttonIndex] });
-            }
+      {
+        options: data,
+        cancelButtonIndex: 0,
+      },
+      buttonIndex => {
+        if (buttonIndex !== 0) {
+          console.log('buttonIndex', data[buttonIndex]);
+          this.setState({salutation: data[buttonIndex]});
         }
+      },
     );
-}
+  }
 
   renderAccordionContentDetail() {
     let {
@@ -1940,51 +1928,42 @@ class DetailPage extends Component {
                 </View>
                 {
                   Platform.OS == 'ios' ? (
-                   
                     <View style={{flex: 1}}>
-                     
-                    <RNPickerSelect
-                    
-                      onValueChange={val => this.setState({salutation: val})}
-                      
-                         style={{ 
-                          inputIOS:{
-                         
-                            fontFamily: 'Montserrat-Regular',
+                      <RNPickerSelect
+                        onValueChange={val => this.setState({salutation: val})}
+                        style={{
+                          inputIOS: {
+                            // fontFamily: 'Montserrat-Regular',
                             borderBottomWidth: 1,
                             borderColor: '#CCC',
                             fontSize: 14,
                             width: '100%',
                             borderRadius: 5,
                             textAlignVertical: 'bottom',
-                            paddingVertical: .5,
+                            paddingVertical: 0.5,
                             paddingHorizontal: 20,
                             color: '#666',
-                            backgroundColor: this.state.disabledetailindividu ? '#f3f3f3' :  'white'
+                            backgroundColor: this.state.disabledetailindividu
+                              ? '#f3f3f3'
+                              : 'white',
                           },
-                          
-                         }} // to ensure the text is never behind the icon}}
-                         value={this.state.salutation}
-                         enabled={
+                        }} // to ensure the text is never behind the icon}}
+                        value={this.state.salutation}
+                        enabled={
                           this.state.disableprospect
                             ? this.state.makafalse
                             : this.state.makatrue
                         }
-                      
+                        selectedValue={this.state.salutation}
+                        // style={Styles.textInput}
 
-                      selectedValue={this.state.salutation}
-                      // style={Styles.textInput}
-                  
-                    
-                      items={this.state.salutationcd.map((data, key) => ({
-                        key: key,
-                        label: data.label,
-                        value: data.value,
-                      }))}
-                     
-                    />
-                  
-                  </View>
+                        items={this.state.salutationcd.map((data, key) => ({
+                          key: key,
+                          label: data.label,
+                          value: data.value,
+                        }))}
+                      />
+                    </View>
                   ) : (
                     // <View>
                     <View style={{flex: 1}}>
@@ -2140,51 +2119,44 @@ class DetailPage extends Component {
                   <Text style={{fontSize: 12}}>Province</Text>
                 </Label>
                 {Platform.OS == 'ios' ? (
-                 
                   <View style={{flex: 1}}>
-                     
-                  <RNPickerSelect
-                  
-                    onValueChange={zoomprovince =>
-                      this.chooseProv(zoomprovince)}
-                    
-                       style={{ 
-                        inputIOS:{
-                       
-                          fontFamily: 'Montserrat-Regular',
+                    <RNPickerSelect
+                      onValueChange={zoomprovince =>
+                        this.chooseProv(zoomprovince)
+                      }
+                      style={{
+                        inputIOS: {
+                          // fontFamily: 'Montserrat-Regular',
                           borderBottomWidth: 1,
                           borderColor: '#CCC',
                           fontSize: 14,
                           width: '100%',
                           borderRadius: 5,
                           textAlignVertical: 'bottom',
-                          paddingVertical: .5,
+                          paddingVertical: 0.5,
                           paddingHorizontal: 20,
                           color: '#666',
-                          backgroundColor: this.state.disabledetailindividu ? '#f3f3f3' :  'white'
+                          backgroundColor: this.state.disabledetailindividu
+                            ? '#f3f3f3'
+                            : 'white',
                         },
-                        
-                       }} // to ensure the text is never behind the icon}}
-                       value={this.state.province_cd}
-                       enabled={
+                      }} // to ensure the text is never behind the icon}}
+                      value={this.state.province_cd}
+                      enabled={
                         this.state.disableprospect
                           ? this.state.makafalse
                           : this.state.makatrue
                       }
-                    
+                      selectedValue={this.state.province_cd}
+                      // style={Styles.textInput}
 
-                    selectedValue={this.state.province_cd}
-                    // style={Styles.textInput}
-                
-                  
-                    items={this.state.prov.map((data, key) => ({
-                      key: key,
-                      label: data.label,
-                      value: data.value,
-                    }))}
-                  />
-                
-                </View>
+                      items={this.state.prov.map((data, key) => ({
+                        key: key,
+                        label: data.label,
+                        value: data.value,
+                      }))}
+                    />
+                  </View>
                 ) : (
                   <View style={{flex: 1}}>
                     <RNPickerSelect
@@ -2240,33 +2212,28 @@ class DetailPage extends Component {
                 </Label>
 
                 {Platform.OS == 'ios' ? (
-                
-
                   <View style={{flex: 1}}>
-                     
-                  <RNPickerSelect
-                  
-                    onValueChange={zoomcity => this.chooseCity(zoomcity)}
-                    
-                       style={{ 
-                        inputIOS:{
-                       
-                          fontFamily: 'Montserrat-Regular',
+                    <RNPickerSelect
+                      onValueChange={zoomcity => this.chooseCity(zoomcity)}
+                      style={{
+                        inputIOS: {
+                          // fontFamily: 'Montserrat-Regular',
                           borderBottomWidth: 1,
                           borderColor: '#CCC',
                           fontSize: 14,
                           width: '100%',
                           borderRadius: 5,
                           textAlignVertical: 'bottom',
-                          paddingVertical: .5,
+                          paddingVertical: 0.5,
                           paddingHorizontal: 20,
                           color: '#666',
-                          backgroundColor: this.state.disabledetailindividu ? '#f3f3f3' :  'white'
+                          backgroundColor: this.state.disabledetailindividu
+                            ? '#f3f3f3'
+                            : 'white',
                         },
-                        
-                       }} // to ensure the text is never behind the icon}}
-                       value={this.state.city}
-                       enabled={
+                      }} // to ensure the text is never behind the icon}}
+                      value={this.state.city}
+                      enabled={
                         this.state.disabledetailindividu
                           ? this.state.makafalse
                           : this.state.makatrue
@@ -2276,19 +2243,16 @@ class DetailPage extends Component {
                         value: null,
                         color: '#9EA0A4',
                       }}
+                      selectedValue={this.state.city}
+                      // style={Styles.textInput}
 
-                    selectedValue={this.state.city}
-                    // style={Styles.textInput}
-                
-                  
-                    items={this.state.getcity.map((data, key) => ({
-                      key: key,
-                      label: data.label,
-                      value: data.value,
-                    }))}
-                  />
-                
-                </View>
+                      items={this.state.getcity.map((data, key) => ({
+                        key: key,
+                        label: data.label,
+                        value: data.value,
+                      }))}
+                    />
+                  </View>
                 ) : (
                   <View style={{flex: 1}}>
                     <RNPickerSelect
@@ -2343,51 +2307,48 @@ class DetailPage extends Component {
                 </Label>
 
                 {Platform.OS == 'ios' ? (
-                
-                  <View style={{flex: 1}}>   
-                      <RNPickerSelect
-                          onValueChange={zoomdistrict =>
-                            this.chooseDistrict(zoomdistrict)
-                          }
-                          style={{ 
-                            inputIOS:{
-                          
-                              fontFamily: 'Montserrat-Regular',
-                              borderBottomWidth: 1,
-                              borderColor: '#CCC',
-                              fontSize: 14,
-                              width: '100%',
-                              borderRadius: 5,
-                              textAlignVertical: 'bottom',
-                              paddingVertical: .5,
-                              paddingHorizontal: 20,
-                              color: '#666',
-                              backgroundColor: this.state.disabledetailindividu ? '#f3f3f3' :  'white'
-                            },
-                            
-                          }} // to ensure the text is never behind the icon}}
-                          value={this.state.district}
-                          enabled={
-                            this.state.disabledetailindividu
-                              ? this.state.makafalse
-                              : this.state.makatrue
-                          }
-                          placeholder={{
-                            label: 'Select a district...',
-                            value: null,
-                            color: '#9EA0A4',
-                          }}
+                  <View style={{flex: 1}}>
+                    <RNPickerSelect
+                      onValueChange={zoomdistrict =>
+                        this.chooseDistrict(zoomdistrict)
+                      }
+                      style={{
+                        inputIOS: {
+                          // fontFamily: 'Montserrat-Regular',
+                          borderBottomWidth: 1,
+                          borderColor: '#CCC',
+                          fontSize: 14,
+                          width: '100%',
+                          borderRadius: 5,
+                          textAlignVertical: 'bottom',
+                          paddingVertical: 0.5,
+                          paddingHorizontal: 20,
+                          color: '#666',
+                          backgroundColor: this.state.disabledetailindividu
+                            ? '#f3f3f3'
+                            : 'white',
+                        },
+                      }} // to ensure the text is never behind the icon}}
+                      value={this.state.district}
+                      enabled={
+                        this.state.disabledetailindividu
+                          ? this.state.makafalse
+                          : this.state.makatrue
+                      }
+                      placeholder={{
+                        label: 'Select a district...',
+                        value: null,
+                        color: '#9EA0A4',
+                      }}
+                      selectedValue={this.state.district}
+                      // style={Styles.textInput}
 
-                          selectedValue={this.state.district}
-                        // style={Styles.textInput}
-                    
-                      
-                          items={this.state.getdistrict.map((data, key) => ({
-                            key: key,
-                            label: data.label,
-                            value: data.value,
-                          }))}
-                      />
+                      items={this.state.getdistrict.map((data, key) => ({
+                        key: key,
+                        label: data.label,
+                        value: data.value,
+                      }))}
+                    />
                   </View>
                 ) : (
                   <View style={{flex: 1}}>
@@ -2444,50 +2405,48 @@ class DetailPage extends Component {
                   <Text style={{fontSize: 12}}>Village</Text>
                 </Label>
                 {Platform.OS == 'ios' ? (
-                  
-                  <View style={{flex: 1}}>   
-                      <RNPickerSelect
-                          onValueChange={zoomvillage =>
-                            this.chooseVillage(zoomvillage)
-                          }
-                         
-                          style={{ 
-                            inputIOS:{
-                              fontFamily: 'Montserrat-Regular',
-                              borderBottomWidth: 1,
-                              borderColor: '#CCC',
-                              fontSize: 14,
-                              width: '100%',
-                              borderRadius: 5,
-                              textAlignVertical: 'bottom',
-                              paddingVertical: .5,
-                              paddingHorizontal: 20,
-                              color: '#666',
-                              backgroundColor: this.state.disabledetailindividu ? '#f3f3f3' :  'white'
-                            },
-                          }} // to ensure the text is never behind the icon}}
-                          value={this.state.village}
-                          enabled={
-                            this.state.disabledetailindividu
-                              ? this.state.makafalse
-                              : this.state.makatrue
-                          }
-                          placeholder={{
-                            label: 'Select a village...',
-                            value: null,
-                            color: '#9EA0A4',
-                          }}
+                  <View style={{flex: 1}}>
+                    <RNPickerSelect
+                      onValueChange={zoomvillage =>
+                        this.chooseVillage(zoomvillage)
+                      }
+                      style={{
+                        inputIOS: {
+                          // fontFamily: 'Montserrat-Regular',
+                          borderBottomWidth: 1,
+                          borderColor: '#CCC',
+                          fontSize: 14,
+                          width: '100%',
+                          borderRadius: 5,
+                          textAlignVertical: 'bottom',
+                          paddingVertical: 0.5,
+                          paddingHorizontal: 20,
+                          color: '#666',
+                          backgroundColor: this.state.disabledetailindividu
+                            ? '#f3f3f3'
+                            : 'white',
+                        },
+                      }} // to ensure the text is never behind the icon}}
+                      value={this.state.village}
+                      enabled={
+                        this.state.disabledetailindividu
+                          ? this.state.makafalse
+                          : this.state.makatrue
+                      }
+                      placeholder={{
+                        label: 'Select a village...',
+                        value: null,
+                        color: '#9EA0A4',
+                      }}
+                      selectedValue={this.state.village}
+                      // style={Styles.textInput}
 
-                          selectedValue={this.state.village}
-                        // style={Styles.textInput}
-                    
-                      
-                          items={this.state.getvillage.map((data, key) => ({
-                            key: key,
-                            label: data.label,
-                              value: data.value,
-                          }))}
-                      />
+                      items={this.state.getvillage.map((data, key) => ({
+                        key: key,
+                        label: data.label,
+                        value: data.value,
+                      }))}
+                    />
                   </View>
                 ) : (
                   <View style={{flex: 1}}>
@@ -2543,30 +2502,26 @@ class DetailPage extends Component {
                 <Label>
                   <Text style={{fontSize: 12}}>Post Code</Text>
                 </Label>
-                {
-                  Platform.OS == 'ios' ? (
-                    <TextInput
-                      keyboardType="number-pad"
-                      // style={Styles.textInput}
-                      style={
-                        this.state.disabledetailindividu
-                          ? Styles.textInput_disable
-                          : Styles.textInput
-                      }
-                      value={this.state.post_cd}
-                      onChangeText={post_cd => this.setState({post_cd})}
-                    />
-                   
-                  ) : (
-                    <TextInput
-                      keyboardType="number-pad"
-                      style={Styles.textInput}
-                      value={this.state.post_cd}
-                      onChangeText={post_cd => this.setState({post_cd})}
-                    />
-                  )
-                  
-                }
+                {Platform.OS == 'ios' ? (
+                  <TextInput
+                    keyboardType="number-pad"
+                    // style={Styles.textInput}
+                    style={
+                      this.state.disabledetailindividu
+                        ? Styles.textInput_disable
+                        : Styles.textInput
+                    }
+                    value={this.state.post_cd}
+                    onChangeText={post_cd => this.setState({post_cd})}
+                  />
+                ) : (
+                  <TextInput
+                    keyboardType="number-pad"
+                    style={Styles.textInput}
+                    value={this.state.post_cd}
+                    onChangeText={post_cd => this.setState({post_cd})}
+                  />
+                )}
 
                 {/* <TextInput style={Styles.textInput} placeholder={'Post Code'} value={post_cd} onChangeText={(val)=>{this.setState({post_cd:val})}}/> */}
               </View>
@@ -3041,7 +2996,7 @@ class DetailPage extends Component {
                       selectedValue={this.state.village}
                       style={{width: '100%', marginHorizontal: 10}}
                       textStyle={{
-                        fontFamily: 'Montserrat-Regular',
+                        // fontFamily: 'Montserrat-Regular',
                         fontSize: 12,
                         color: '#666',
                       }}
@@ -3319,54 +3274,45 @@ class DetailPage extends Component {
                 <Text style={{fontSize: 12}}>Sex</Text>
               </Label>
               {Platform.OS == 'ios' ? (
-                
                 <View style={{flex: 1}}>
-                     
-                <RNPickerSelect
-                
-                  onValueChange={val => this.setState({sex: val})}
-                  
-                     style={{ 
-                      inputIOS:{
-                     
-                        fontFamily: 'Montserrat-Regular',
+                  <RNPickerSelect
+                    onValueChange={val => this.setState({sex: val})}
+                    style={{
+                      inputIOS: {
+                        // fontFamily: 'Montserrat-Regular',
                         borderBottomWidth: 1,
                         borderColor: '#CCC',
                         fontSize: 14,
                         width: '100%',
                         borderRadius: 5,
                         textAlignVertical: 'bottom',
-                        paddingVertical: .5,
+                        paddingVertical: 0.5,
                         paddingHorizontal: 20,
                         color: '#666',
-                        backgroundColor: this.state.disableotherdetail ? '#f3f3f3' :  'white'
+                        backgroundColor: this.state.disableotherdetail
+                          ? '#f3f3f3'
+                          : 'white',
                       },
-                      
-                     }} // to ensure the text is never behind the icon}}
-                     value={this.state.sex}
-                     enabled={
+                    }} // to ensure the text is never behind the icon}}
+                    value={this.state.sex}
+                    enabled={
                       this.state.disableotherdetail
                         ? this.state.makafalse
                         : this.state.makatrue
                     }
-                  
-
-                  selectedValue={this.state.sex}
-                  // style={Styles.textInput}
-                  placeholder={{
-                    label: 'Select a sex...',
-                    value: null,
-                    color: '#9EA0A4',
-                  }}
-                
-                  items={[
-                    {label: 'Male', value: 'Male'},
-                    {label: 'Female', value: 'Female'},
-                  ]}
-                 
-                />
-              
-              </View>
+                    selectedValue={this.state.sex}
+                    // style={Styles.textInput}
+                    placeholder={{
+                      label: 'Select a sex...',
+                      value: null,
+                      color: '#9EA0A4',
+                    }}
+                    items={[
+                      {label: 'Male', value: 'Male'},
+                      {label: 'Female', value: 'Female'},
+                    ]}
+                  />
+                </View>
               ) : (
                 <View style={{flex: 1}}>
                   <RNPickerSelect
@@ -3498,12 +3444,11 @@ class DetailPage extends Component {
               {
                 Platform.OS == 'ios' ? (
                   <Input
-                  style={Styles.textInput}
-                  value={this.state.occupation}
-                  // placeholder='Occupation'
-                  onChangeText={occupation => this.setState({occupation})}
-                />
-                 
+                    style={Styles.textInput}
+                    value={this.state.occupation}
+                    // placeholder='Occupation'
+                    onChangeText={occupation => this.setState({occupation})}
+                  />
                 ) : (
                   <Input
                     style={Styles.textInput}
@@ -3545,55 +3490,46 @@ class DetailPage extends Component {
                 <Text style={Styles.overviewTitles_Small}>Media</Text>
               </View>
               {Platform.OS == 'ios' ? (
-                 <View style={{flex: 1}}>
-                     
-                 <RNPickerSelect
-                 
-                      onValueChange={val => this.setState({media_cd: val})}
-                   
-                      style={{ 
-                       inputIOS:{
-                      
-                         fontFamily: 'Montserrat-Regular',
-                         borderBottomWidth: 1,
-                         borderColor: '#CCC',
-                         fontSize: 14,
-                         width: '100%',
-                         borderRadius: 5,
-                         textAlignVertical: 'bottom',
-                         paddingVertical: .5,
-                         paddingHorizontal: 20,
-                         color: '#666',
-                         backgroundColor: this.state.disableotherdetail ? '#f3f3f3' :  'white'
-                       },
-                       
-                      }} // to ensure the text is never behind the icon}}
-                      value={this.state.media_cd}
-                      enabled={
-                       this.state.disableotherdetail
-                         ? this.state.makafalse
-                         : this.state.makatrue
-                     }
-                   
- 
-                   selectedValue={this.state.media_cd}
-                   // style={Styles.textInput}
-                   placeholder={{
+                <View style={{flex: 1}}>
+                  <RNPickerSelect
+                    onValueChange={val => this.setState({media_cd: val})}
+                    style={{
+                      inputIOS: {
+                        // fontFamily: 'Montserrat-Regular',
+                        borderBottomWidth: 1,
+                        borderColor: '#CCC',
+                        fontSize: 14,
+                        width: '100%',
+                        borderRadius: 5,
+                        textAlignVertical: 'bottom',
+                        paddingVertical: 0.5,
+                        paddingHorizontal: 20,
+                        color: '#666',
+                        backgroundColor: this.state.disableotherdetail
+                          ? '#f3f3f3'
+                          : 'white',
+                      },
+                    }} // to ensure the text is never behind the icon}}
+                    value={this.state.media_cd}
+                    enabled={
+                      this.state.disableotherdetail
+                        ? this.state.makafalse
+                        : this.state.makatrue
+                    }
+                    selectedValue={this.state.media_cd}
+                    // style={Styles.textInput}
+                    placeholder={{
                       label: 'Select a media...',
                       value: null,
                       color: '#9EA0A4',
                     }}
-                 
                     items={this.state.getmedia.map((data, key) => ({
                       key: key,
                       label: data.label,
                       value: data.value,
                     }))}
-                  
-                 />
-               
-               </View>
-              
+                  />
+                </View>
               ) : (
                 <View style={{flex: 1}}>
                   <RNPickerSelect
@@ -4222,7 +4158,7 @@ class DetailPage extends Component {
           {this.state.detail.length == 0 ? (
             <ActivityIndicator />
           ) : (
-           <View>
+            <View>
               <ScrollView>
                 <View style={Styles.formBg}>
                   {this.state.individu ? (
@@ -4311,9 +4247,8 @@ class DetailPage extends Component {
             </View>
           )}
           {/* </Content> */}
-        
         </Content>
-    
+
         {/* </Content> */}
       </Container>
     );
