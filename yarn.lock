@@ -1021,17 +1021,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@codler/react-native-keyboard-aware-scroll-view@npm:1.0.1":
-  version: 1.0.1
-  resolution: "@codler/react-native-keyboard-aware-scroll-view@npm:1.0.1"
-  dependencies:
-    react-native-iphone-x-helper: ^1.0.3
-  peerDependencies:
-    react-native: ">=0.63.0"
-  checksum: 14e10e1cbfb148edb3afc5c2b0b4e23a4711eca3c545ef86d469ebbf06dda88e09d99dc9cf4a16aadeb6d8f07ebf597503b04100b4cb8a0256d28b5e96f85324
-  languageName: node
-  linkType: hard
-
 "@egjs/hammerjs@npm:^2.0.17":
   version: 2.0.17
   resolution: "@egjs/hammerjs@npm:2.0.17"
@@ -1628,15 +1617,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@react-native-community/datetimepicker@npm:^3.0.2":
-  version: 3.5.2
-  resolution: "@react-native-community/datetimepicker@npm:3.5.2"
-  dependencies:
-    invariant: ^2.2.4
-  checksum: 8f0d3bc7014b17c696a415565c6fc591591b29ba5a438f2c1692a96ffc185693266eb950229ed3e9bf6b035d61a720ee402cbe9750d5bef81fd19e7647a24229
-  languageName: node
-  linkType: hard
-
 "@react-native-community/eslint-config@npm:^2.0.0":
   version: 2.0.0
   resolution: "@react-native-community/eslint-config@npm:2.0.0"
@@ -1684,16 +1664,6 @@ __metadata:
     react: ">=16"
     react-native: ">=0.57"
   checksum: 404d8f9ad399f530d96374ad117aa6d5e1347945daea59900f500ffa380fb117fd76b99f7630a23840dd2ac765b83e72a88867ee2bdc8df430eb550513078fa7
-  languageName: node
-  linkType: hard
-
-"@react-native-picker/picker@npm:^1.9.7":
-  version: 1.16.8
-  resolution: "@react-native-picker/picker@npm:1.16.8"
-  peerDependencies:
-    react: 16 || 17
-    react-native: ">=0.57"
-  checksum: c0176e41ba7486bf0a27ab5471315848cb166330313bd12e29ee65b7d2e1dfde22383de6a89be15770d132b33bca1764e64feee3acf22c67c3733fd877d3e91f
   languageName: node
   linkType: hard
 
@@ -2112,7 +2082,7 @@ __metadata:
     jest: ^26.6.3
     metro-react-native-babel-preset: ^0.64.0
     moment: ^2.24.0
-    native-base: ^2.13.12
+    native-base: 2.13.12
     react: 17.0.1
     react-native: 0.64.2
     react-native-app-intro: ^1.1.5
@@ -2128,7 +2098,6 @@ __metadata:
     react-native-form-validator: ^0.2.0
     react-native-fs: 2.13.2
     react-native-gesture-handler: ^1.1.0
-    react-native-google-signin: ^2.0.0
     react-native-html-to-pdf: ^0.8.0
     react-native-image-crop-picker: 0.25.0
     react-native-image-zoom-viewer: ^2.2.26
@@ -2161,7 +2130,7 @@ __metadata:
     react-native-table-component: ^1.2.0
     react-native-textinput-effects: ^0.5.1
     react-native-vector-icons: ^10.1.0
-    react-native-webview: ^11.6.5
+    react-native-webview: ^13.0.0
     react-navigation: ^3.4.1
     react-redux: ^6.0.1
     react-test-renderer: 17.0.1
@@ -3675,9 +3644,9 @@ __metadata:
   linkType: hard
 
 "caniuse-lite@npm:^1.0.30001669":
-  version: 1.0.30001679
-  resolution: "caniuse-lite@npm:1.0.30001679"
-  checksum: 6fca375c6c3a749aaf1246f28c9b182f94b2aa0fb30a98d4c5a3df1a22054fba852df625be50b5ffa1c772a0c53f1aea14dead920d6c5d54030dd4dede0dba98
+  version: 1.0.30001680
+  resolution: "caniuse-lite@npm:1.0.30001680"
+  checksum: 2641d2b18c5ab0a6663cb350c5adc81e5ede1a7677d1c7518a8053ada87bf6f206419e1820a2608f76fa5e4f7bea327cbe47df423783e571569a88c0ea645270
   languageName: node
   linkType: hard
 
@@ -4859,17 +4828,24 @@ __metadata:
   languageName: node
   linkType: hard
 
-"escape-string-regexp@npm:2.0.0, escape-string-regexp@npm:^2.0.0":
+"escape-string-regexp@npm:^1.0.2, escape-string-regexp@npm:^1.0.5":
+  version: 1.0.5
+  resolution: "escape-string-regexp@npm:1.0.5"
+  checksum: 6092fda75c63b110c706b6a9bfde8a612ad595b628f0bd2147eea1d3406723020810e591effc7db1da91d80a71a737a313567c5abb3813e8d9c71f4aa595b410
+  languageName: node
+  linkType: hard
+
+"escape-string-regexp@npm:^2.0.0":
   version: 2.0.0
   resolution: "escape-string-regexp@npm:2.0.0"
   checksum: 9f8a2d5743677c16e85c810e3024d54f0c8dea6424fad3c79ef6666e81dd0846f7437f5e729dfcdac8981bc9e5294c39b4580814d114076b8d36318f46ae4395
   languageName: node
   linkType: hard
 
-"escape-string-regexp@npm:^1.0.2, escape-string-regexp@npm:^1.0.5":
-  version: 1.0.5
-  resolution: "escape-string-regexp@npm:1.0.5"
-  checksum: 6092fda75c63b110c706b6a9bfde8a612ad595b628f0bd2147eea1d3406723020810e591effc7db1da91d80a71a737a313567c5abb3813e8d9c71f4aa595b410
+"escape-string-regexp@npm:^4.0.0":
+  version: 4.0.0
+  resolution: "escape-string-regexp@npm:4.0.0"
+  checksum: 98b48897d93060f2322108bf29db0feba7dd774be96cd069458d1453347b25ce8682ecc39859d4bca2203cc0ab19c237bcc71755eff49a0f8d90beadeeba5cc5
   languageName: node
   linkType: hard
 
@@ -7760,13 +7736,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"lodash._reinterpolate@npm:^3.0.0":
-  version: 3.0.0
-  resolution: "lodash._reinterpolate@npm:3.0.0"
-  checksum: 06d2d5f33169604fa5e9f27b6067ed9fb85d51a84202a656901e5ffb63b426781a601508466f039c720af111b0c685d12f1a5c14ff8df5d5f27e491e562784b2
-  languageName: node
-  linkType: hard
-
 "lodash.debounce@npm:^4.0.8":
   version: 4.0.8
   resolution: "lodash.debounce@npm:4.0.8"
@@ -7781,24 +7750,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"lodash.frompairs@npm:^4.0.1":
-  version: 4.0.1
-  resolution: "lodash.frompairs@npm:4.0.1"
-  checksum: 8ff2d857f0764325dba5825ef8776cfc6992a504d75d668889bdd617c62fc3f179f1590042e127c98ed14d3fb14b71e66697b0fe8b10f73879c3a46e2d1c23d3
-  languageName: node
-  linkType: hard
-
 "lodash.isequal@npm:^4.5.0":
   version: 4.5.0
   resolution: "lodash.isequal@npm:4.5.0"
   checksum: da27515dc5230eb1140ba65ff8de3613649620e8656b19a6270afe4866b7bd461d9ba2ac8a48dcc57f7adac4ee80e1de9f965d89d4d81a0ad52bb3eec2609644
-  languageName: node
-  linkType: hard
-
-"lodash.isstring@npm:^4.0.1":
-  version: 4.0.1
-  resolution: "lodash.isstring@npm:4.0.1"
-  checksum: eaac87ae9636848af08021083d796e2eea3d02e80082ab8a9955309569cb3a463ce97fd281d7dc119e402b2e7d8c54a23914b15d2fc7fff56461511dc8937ba0
   languageName: node
   linkType: hard
 
@@ -7816,43 +7771,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"lodash.omit@npm:^4.5.0":
-  version: 4.5.0
-  resolution: "lodash.omit@npm:4.5.0"
-  checksum: 434645e49fe84ab315719bd5a9a3a585a0f624aa4160bc09157dd041a414bcc287c15840365c1379476a3f3eda41fbe838976c3f7bdecbbf4c5478e86c471a30
-  languageName: node
-  linkType: hard
-
-"lodash.pick@npm:^4.4.0":
-  version: 4.4.0
-  resolution: "lodash.pick@npm:4.4.0"
-  checksum: 2c36cab7da6b999a20bd3373b40e31a3ef81fa264f34a6979c852c5bc8ac039379686b27380f0cb8e3781610844fafec6949c6fbbebc059c98f8fa8570e3675f
-  languageName: node
-  linkType: hard
-
 "lodash.result@npm:^4.5.2":
   version: 4.5.2
   resolution: "lodash.result@npm:4.5.2"
   checksum: 69e149271f1476ee0f3e7eb2b1b3cde083b56d47c297ca8b584b205aab0e8d56f1da1e3bfec7ae6b4dc5370494a573ebc41d06d4a28b190fd97e25e93dfd4839
-  languageName: node
-  linkType: hard
-
-"lodash.template@npm:^4.5.0":
-  version: 4.5.0
-  resolution: "lodash.template@npm:4.5.0"
-  dependencies:
-    lodash._reinterpolate: ^3.0.0
-    lodash.templatesettings: ^4.0.0
-  checksum: ca64e5f07b6646c9d3dbc0fe3aaa995cb227c4918abd1cef7a9024cd9c924f2fa389a0ec4296aa6634667e029bc81d4bbdb8efbfde11df76d66085e6c529b450
-  languageName: node
-  linkType: hard
-
-"lodash.templatesettings@npm:^4.0.0":
-  version: 4.2.0
-  resolution: "lodash.templatesettings@npm:4.2.0"
-  dependencies:
-    lodash._reinterpolate: ^3.0.0
-  checksum: 863e025478b092997e11a04e9d9e735875eeff1ffcd6c61742aa8272e3c2cddc89ce795eb9726c4e74cef5991f722897ff37df7738a125895f23fc7d12a7bb59
   languageName: node
   linkType: hard
 
@@ -8633,13 +8555,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"native-base@npm:^2.13.12":
-  version: 2.15.2
-  resolution: "native-base@npm:2.15.2"
+"native-base@npm:2.13.12":
+  version: 2.13.12
+  resolution: "native-base@npm:2.13.12"
   dependencies:
-    "@codler/react-native-keyboard-aware-scroll-view": 1.0.1
-    "@react-native-community/datetimepicker": ^3.0.2
-    "@react-native-picker/picker": ^1.9.7
     blueimp-md5: ^2.5.0
     clamp: ^1.0.1
     color: ~3.1.2
@@ -8654,13 +8573,15 @@ __metadata:
     prop-types: ^15.5.10
     react-native-drawer: 2.5.1
     react-native-easy-grid: 0.2.2
-    react-native-vector-icons: ^7.0.0
+    react-native-keyboard-aware-scroll-view: 0.9.1
+    react-native-vector-icons: ^6.6.0
+    react-timer-mixin: ^0.13.4
     react-tween-state: ^0.1.5
     tween-functions: ^1.0.1
   peerDependencies:
     react: ">=16.4.1"
     react-native: ">=0.56.0"
-  checksum: 6b47cda0e1d4bb593441a736f3cb0fb41ca3fa2559e3d751ddf25f4e23ee292cff3a50cd4ed678018841fdc733bdc667ae12c98e75673d683b8739f5d24b7508
+  checksum: f2e58338074164b22cee186c3d1a4a40b9e19a8256a46d147a543ecea1c8ddbd3e32aa7f3e45494647c2718ed87a038201aa52cd5cb4ccfea83e9471e48a2e28
   languageName: node
   linkType: hard
 
@@ -9892,17 +9813,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-native-google-signin@npm:^2.0.0":
-  version: 2.1.1
-  resolution: "react-native-google-signin@npm:2.1.1"
-  peerDependencies:
-    prop-types: ^15.5.10
-    react: ">=15.4.0 || ^16.0.0-alpha"
-    react-native: ">=0.40"
-  checksum: 446e5014eef9fa87d206b1d69fa603fd73c564f613df3ef92aca10d645142e423cbdbc5e3acd9323ac2887f91283f463574eeef1150004ac2ac7f922b48e8522
-  languageName: node
-  linkType: hard
-
 "react-native-html-to-pdf@npm:^0.8.0":
   version: 0.8.0
   resolution: "react-native-html-to-pdf@npm:0.8.0"
@@ -9947,6 +9857,18 @@ __metadata:
   peerDependencies:
     react-native: ">=0.42.0"
   checksum: 024376646009a966e33e12fc2358751830818b0fb73b1c601a64eb5e490d2dc43eec23668991b985a8c412a84d087f20eb45bb9b593567c08b66e741b7bddda5
+  languageName: node
+  linkType: hard
+
+"react-native-keyboard-aware-scroll-view@npm:0.9.1":
+  version: 0.9.1
+  resolution: "react-native-keyboard-aware-scroll-view@npm:0.9.1"
+  dependencies:
+    prop-types: ^15.6.2
+    react-native-iphone-x-helper: ^1.0.3
+  peerDependencies:
+    react-native: ">=0.48.4"
+  checksum: eb04ca0fae9d94705ee01b2f0cb1dff731f8980c35ccd1b6159432bf2af944dfe5dd4bf8a5e62e9a379e26147cb46d2c427b975d0de012f49fb0e7516fcbecaa
   languageName: node
   linkType: hard
 
@@ -10328,35 +10250,32 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-native-vector-icons@npm:^7.0.0":
-  version: 7.1.0
-  resolution: "react-native-vector-icons@npm:7.1.0"
+"react-native-vector-icons@npm:^6.6.0":
+  version: 6.7.0
+  resolution: "react-native-vector-icons@npm:6.7.0"
   dependencies:
-    lodash.frompairs: ^4.0.1
-    lodash.isequal: ^4.5.0
-    lodash.isstring: ^4.0.1
-    lodash.omit: ^4.5.0
-    lodash.pick: ^4.4.0
-    lodash.template: ^4.5.0
+    lodash: ^4.17.15
     prop-types: ^15.7.2
     yargs: ^15.0.2
+  peerDependencies:
+    "@react-native-community/toolbar-android": ^0.1.0-rc.1
   bin:
     fa5-upgrade: bin/fa5-upgrade.sh
     generate-icon: bin/generate-icon.js
-  checksum: f4e07a4dad4b237675443c51c8054ca49877ad76ba3c7ee350b1adf469e0ca1a891323898fe737923435a8f71c8946771e82d79d564edc50576db66855892582
+  checksum: 7dde88f441d3486efd473ac0ee5ce57a8ad70b2ebf8ff18adbc98cb941d5a2106747c6bb431d65ef4745c5f0e76c8e166ef3d07f42962c37d802c7be03afc340
   languageName: node
   linkType: hard
 
-"react-native-webview@npm:^11.6.5":
-  version: 11.26.1
-  resolution: "react-native-webview@npm:11.26.1"
+"react-native-webview@npm:^13.0.0":
+  version: 13.12.3
+  resolution: "react-native-webview@npm:13.12.3"
   dependencies:
-    escape-string-regexp: 2.0.0
+    escape-string-regexp: ^4.0.0
     invariant: 2.2.4
   peerDependencies:
     react: "*"
     react-native: "*"
-  checksum: d2f95a89e944a2f1e8cf402e4e274f3568edae42e7ef190915e9fba8004a01d699c962459bdc9688c159060538e90aea3017cab24e6f4112021cbbc10ef57104
+  checksum: 94d824fedc6b5c0402926b99a96f71f4752416e4f038be827552015c0bf6d595d71ba656079618402662aec5e2c539018b0bff2906b6f95261f70893e5dd5d80
   languageName: node
   linkType: hard
 
@@ -10591,7 +10510,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-timer-mixin@npm:^0.13.3":
+"react-timer-mixin@npm:^0.13.3, react-timer-mixin@npm:^0.13.4":
   version: 0.13.4
   resolution: "react-timer-mixin@npm:0.13.4"
   checksum: ff82e1f90fab1ab4569017572b29fd0fdf0ebdfbf7a9580927a7f6737913046af39005bc82a0d8c6628cd999aecb66f411d331fd4dee70c4dba5a995b9d2032b
