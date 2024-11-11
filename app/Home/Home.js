@@ -54,6 +54,8 @@ const SLIDER_1_FIRST_ITEM = 0;
 import SIMILAR from '../Property/Similar';
 import ImageResizeMode from 'react-native/Libraries/Image/ImageResizeMode';
 import moment from 'moment';
+import dummyPromo from './static/dummy_promo.json';
+import dummyProject from '../Project/dummy_project.json';
 
 export default class Home extends Component {
   constructor(props) {
@@ -67,8 +69,9 @@ export default class Home extends Component {
       dataNews: [],
       attendanceSession: [],
       currentSession: 0,
-
+      dummyPromo: dummyPromo.data,
       isCorLoaded: false,
+      tower_dummy: [],
     };
   }
 
@@ -86,6 +89,7 @@ export default class Home extends Component {
       dataTower: await _getData('@UserProject'),
       attendanceSession: await _getData('@AttendanceSession'),
       isCorLoaded: true,
+      tower_dummy: dummyProject.data,
     };
     console.log('homedata', data);
 
@@ -158,45 +162,47 @@ export default class Home extends Component {
   };
 
   getPromo = () => {
-    fetch(
-      urlApi + 'c_newsandpromo/getDatapromo/IFCAMOBILE/' + this.state.email,
-      {
-        method: 'GET',
-      },
-    )
-      .then(response => response.json())
-      .then(res => {
-        if (!res.Error) {
-          const resData = res.Data;
+    this.setState({dataPromo: dummyPromo.data});
+    // fetch(
+    //   urlApi + 'c_newsandpromo/getDatapromo/IFCAMOBILE/' + this.state.email,
+    //   {
+    //     method: 'GET',
+    //   },
+    // )
+    //   .then(response => response.json())
+    //   .then(res => {
+    //     if (!res.Error) {
+    //       const resData = res.Data;
 
-          this.setState({dataPromo: resData});
-          console.log('dataPRopmo', resData);
-        }
-      })
-      .catch(error => {
-        console.log(error);
-      });
+    //       this.setState({dataPromo: resData});
+    //       console.log('dataPRopmo', resData);
+    //     }
+    //   })
+    //   .catch(error => {
+    //     console.log(error);
+    //   });
   };
 
   getNews = () => {
-    fetch(
-      urlApi + 'c_newsandpromo/getDatanews/IFCAMOBILE/' + this.state.email,
-      {
-        method: 'GET',
-      },
-    )
-      .then(response => response.json())
-      .then(res => {
-        if (!res.Error) {
-          const resData = res.Data;
+    this.setState({dataNews: dummyPromo.data});
+    // fetch(
+    //   urlApi + 'c_newsandpromo/getDatanews/IFCAMOBILE/' + this.state.email,
+    //   {
+    //     method: 'GET',
+    //   },
+    // )
+    //   .then(response => response.json())
+    //   .then(res => {
+    //     if (!res.Error) {
+    //       const resData = res.Data;
 
-          this.setState({dataNews: resData});
-          console.log('dataNews', resData);
-        }
-      })
-      .catch(error => {
-        console.log(error);
-      });
+    //       this.setState({dataNews: resData});
+    //       console.log('dataNews', resData);
+    //     }
+    //   })
+    //   .catch(error => {
+    //     console.log(error);
+    //   });
   };
 
   // _renderItem({ item, index }) {
@@ -219,7 +225,7 @@ export default class Home extends Component {
           <Text style={styles.newsTitleText} numberOfLines={2}>
             {item.subject}
           </Text>
-          <Text style={styles.newsTitleText_small}></Text>
+          {/* <Text style={styles.newsTitleText_small}></Text> */}
         </View>
         {/* <View style={styles.newsTitle_small}>
               <Text style={styles.newsTitleText_small} numberOfLines={2}>
@@ -231,6 +237,7 @@ export default class Home extends Component {
   }
 
   _renderItemWithParallax({item, index}, parallaxProps) {
+    console.log('item paralax', item);
     return (
       <SliderEntry
         data={item}
@@ -260,7 +267,7 @@ export default class Home extends Component {
         <Text style={styles.title}>IFCA Property365</Text>
         <Text style={styles.subtitle}>{`This is what you need!`}</Text>
 
-        <View
+        {/* <View
           style={{
             justifyContent: 'flex-end',
             flexDirection: 'row',
@@ -275,15 +282,15 @@ export default class Home extends Component {
             onPress={() => Actions.ListingProjectPage()}>
             <Text style={Styles.sLinkHead}>ALL PROJECT</Text>
           </Button>
-        </View>
+        </View> */}
 
         <View style={styles.corContainerStyle}>
-          {this.state.dataTower.length == 0 ? (
+          {this.state.tower_dummy.length == 0 ? (
             <ActivityIndicator size="large" />
           ) : (
             <Carousel
               ref={c => (this._slider1Ref = c)}
-              data={this.state.dataTower}
+              data={this.state.tower_dummy}
               renderItem={this._renderItemWithParallax}
               sliderWidth={sliderWidth}
               itemWidth={itemWidth}
@@ -411,7 +418,7 @@ export default class Home extends Component {
                   sliderWidth={width}
                   sliderHeight={width}
                   itemWidth={width - 60}
-                  data={this.state.dataPromo}
+                  data={this.state.dataPromo} //dummy statik aja
                   renderItem={this._renderItemPromo}
                   hasParallaxImages={true}
                   // resizeMode={ImageResizeMode.contain}

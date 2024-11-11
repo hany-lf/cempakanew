@@ -513,6 +513,8 @@ class Routes extends Component {
                 component={AddProspect}
                 hideNavBar={true}
                 title=""
+                animationEnabled={true}
+                useNativeDriver={true} // Tambahkan ini
               />
               <Scene
                 key="ListProspect"
@@ -564,7 +566,7 @@ class Routes extends Component {
                 hideNavBar={true}
                 title=""
               />
-                <Scene
+              <Scene
                 key="AddFutureAction"
                 component={AddFutureAction}
                 hideNavBar={true}

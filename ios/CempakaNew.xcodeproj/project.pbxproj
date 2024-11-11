@@ -8,11 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		00E356F31AD99517003FC87E /* CempakaNewTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* CempakaNewTests.m */; };
-		03D6C92E92FFB0AA65290138 /* libPods-CempakaNew-CempakaNewTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CC5185F07F28414582CF2339 /* libPods-CempakaNew-CempakaNewTests.a */; };
 		13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
-		2F921D57F6FEF4E778703961 /* libPods-CempakaNew.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 601B7984F5791D2A91102DBE /* libPods-CempakaNew.a */; };
+		291517B70D94E9785D4C0397 /* libPods-CempakaNew-CempakaNewTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 26BB1588C39031527C289773 /* libPods-CempakaNew-CempakaNewTests.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		86D9A2902B999C8E001E95BA /* SFUIDisplay-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 86D9A2712B999C89001E95BA /* SFUIDisplay-Light.ttf */; };
 		86D9A2912B999C8E001E95BA /* SFUIDisplay-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 86D9A2722B999C89001E95BA /* SFUIDisplay-Semibold.otf */; };
@@ -40,6 +39,7 @@
 		86D9A2AC2B999C8E001E95BA /* Montserrat-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 86D9A28D2B999C8D001E95BA /* Montserrat-Regular.ttf */; };
 		86D9A2AD2B999C8E001E95BA /* SF-UI-Display-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 86D9A28E2B999C8E001E95BA /* SF-UI-Display-Medium.ttf */; };
 		86D9A2AE2B999C8E001E95BA /* Steelworks_Vintage_Demo.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 86D9A28F2B999C8E001E95BA /* Steelworks_Vintage_Demo.ttf */; };
+		9E81D8D9250DB63FC7C3FDBB /* libPods-CempakaNew.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B8C70CD5D35FBBD10CDD7D75 /* libPods-CempakaNew.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,9 +62,8 @@
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = CempakaNew/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = CempakaNew/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = CempakaNew/main.m; sourceTree = "<group>"; };
-		32583B925DFA8418AC89945F /* Pods-CempakaNew.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CempakaNew.release.xcconfig"; path = "Target Support Files/Pods-CempakaNew/Pods-CempakaNew.release.xcconfig"; sourceTree = "<group>"; };
-		528DC22ECF689B35A66359C4 /* Pods-CempakaNew-CempakaNewTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CempakaNew-CempakaNewTests.debug.xcconfig"; path = "Target Support Files/Pods-CempakaNew-CempakaNewTests/Pods-CempakaNew-CempakaNewTests.debug.xcconfig"; sourceTree = "<group>"; };
-		601B7984F5791D2A91102DBE /* libPods-CempakaNew.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CempakaNew.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		26BB1588C39031527C289773 /* libPods-CempakaNew-CempakaNewTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CempakaNew-CempakaNewTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		332FBDF2034285281B161AB1 /* Pods-CempakaNew-CempakaNewTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CempakaNew-CempakaNewTests.release.xcconfig"; path = "Target Support Files/Pods-CempakaNew-CempakaNewTests/Pods-CempakaNew-CempakaNewTests.release.xcconfig"; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = CempakaNew/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		86D9A2712B999C89001E95BA /* SFUIDisplay-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SFUIDisplay-Light.ttf"; path = "../../assets/fonts/SFUIDisplay-Light.ttf"; sourceTree = "<group>"; };
 		86D9A2722B999C89001E95BA /* SFUIDisplay-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SFUIDisplay-Semibold.otf"; path = "../../assets/fonts/SFUIDisplay-Semibold.otf"; sourceTree = "<group>"; };
@@ -100,14 +99,15 @@
 		86D9A2BB2B99BBF5001E95BA /* Foundation.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Foundation.ttf; sourceTree = "<group>"; };
 		86D9A2BC2B99BBFB001E95BA /* Octicons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Octicons.ttf; sourceTree = "<group>"; };
 		86D9A2BE2B99BC08001E95BA /* Feather.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Feather.ttf; sourceTree = "<group>"; };
-		B31193EFEFF79F7F8FC6FBC2 /* Pods-CempakaNew-CempakaNewTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CempakaNew-CempakaNewTests.release.xcconfig"; path = "Target Support Files/Pods-CempakaNew-CempakaNewTests/Pods-CempakaNew-CempakaNewTests.release.xcconfig"; sourceTree = "<group>"; };
-		BD0BA1B9A90199430DA11D0D /* Pods-CempakaNew.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CempakaNew.debug.xcconfig"; path = "Target Support Files/Pods-CempakaNew/Pods-CempakaNew.debug.xcconfig"; sourceTree = "<group>"; };
+		A36D98B44A9E6EE1D0A40157 /* Pods-CempakaNew-CempakaNewTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CempakaNew-CempakaNewTests.debug.xcconfig"; path = "Target Support Files/Pods-CempakaNew-CempakaNewTests/Pods-CempakaNew-CempakaNewTests.debug.xcconfig"; sourceTree = "<group>"; };
+		B8C70CD5D35FBBD10CDD7D75 /* libPods-CempakaNew.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CempakaNew.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE94E92B2C2A6C0D0063185A /* FontAwesome5_Brands.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = FontAwesome5_Brands.ttf; sourceTree = "<group>"; };
 		BE94E92C2C2A6C0D0063185A /* FontAwesome5_Solid.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = FontAwesome5_Solid.ttf; sourceTree = "<group>"; };
 		BE94E92D2C2A6C0D0063185A /* FontAwesome5_Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = FontAwesome5_Regular.ttf; sourceTree = "<group>"; };
 		BEFC42552C1013D40088E1CD /* libAppAuth.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libAppAuth.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		CC5185F07F28414582CF2339 /* libPods-CempakaNew-CempakaNewTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CempakaNew-CempakaNewTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
+		F021487B8CA9323C3CBBD4B2 /* Pods-CempakaNew.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CempakaNew.debug.xcconfig"; path = "Target Support Files/Pods-CempakaNew/Pods-CempakaNew.debug.xcconfig"; sourceTree = "<group>"; };
+		F5134909E1E2EC3F4165D5B4 /* Pods-CempakaNew.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CempakaNew.release.xcconfig"; path = "Target Support Files/Pods-CempakaNew/Pods-CempakaNew.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,7 +115,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				03D6C92E92FFB0AA65290138 /* libPods-CempakaNew-CempakaNewTests.a in Frameworks */,
+				291517B70D94E9785D4C0397 /* libPods-CempakaNew-CempakaNewTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -123,7 +123,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2F921D57F6FEF4E778703961 /* libPods-CempakaNew.a in Frameworks */,
+				9E81D8D9250DB63FC7C3FDBB /* libPods-CempakaNew.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -165,8 +165,8 @@
 			children = (
 				BEFC42552C1013D40088E1CD /* libAppAuth.a */,
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
-				601B7984F5791D2A91102DBE /* libPods-CempakaNew.a */,
-				CC5185F07F28414582CF2339 /* libPods-CempakaNew-CempakaNewTests.a */,
+				B8C70CD5D35FBBD10CDD7D75 /* libPods-CempakaNew.a */,
+				26BB1588C39031527C289773 /* libPods-CempakaNew-CempakaNewTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -250,10 +250,10 @@
 		8DED4EEB4A796AF45D43F952 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				BD0BA1B9A90199430DA11D0D /* Pods-CempakaNew.debug.xcconfig */,
-				32583B925DFA8418AC89945F /* Pods-CempakaNew.release.xcconfig */,
-				528DC22ECF689B35A66359C4 /* Pods-CempakaNew-CempakaNewTests.debug.xcconfig */,
-				B31193EFEFF79F7F8FC6FBC2 /* Pods-CempakaNew-CempakaNewTests.release.xcconfig */,
+				F021487B8CA9323C3CBBD4B2 /* Pods-CempakaNew.debug.xcconfig */,
+				F5134909E1E2EC3F4165D5B4 /* Pods-CempakaNew.release.xcconfig */,
+				A36D98B44A9E6EE1D0A40157 /* Pods-CempakaNew-CempakaNewTests.debug.xcconfig */,
+				332FBDF2034285281B161AB1 /* Pods-CempakaNew-CempakaNewTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -265,11 +265,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "CempakaNewTests" */;
 			buildPhases = (
-				4FC55852A68E83D6CD419DA9 /* [CP] Check Pods Manifest.lock */,
+				AE6F777F442FDDD753EDE98D /* [CP] Check Pods Manifest.lock */,
 				00E356EA1AD99517003FC87E /* Sources */,
 				00E356EB1AD99517003FC87E /* Frameworks */,
 				00E356EC1AD99517003FC87E /* Resources */,
-				B13B03AC4CCEC9624C79A93C /* [CP] Copy Pods Resources */,
+				81C3136D64CCE17B31AD6557 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -285,14 +285,14 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "CempakaNew" */;
 			buildPhases = (
-				C3DE3D3894F8C389B84EE00A /* [CP] Check Pods Manifest.lock */,
+				715115A331B759A5028255A9 /* [CP] Check Pods Manifest.lock */,
 				FD10A7F022414F080027D42C /* Start Packager */,
 				13B07F871A680F5B00A75B9A /* Sources */,
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
-				26AF3B280BA86AB1475E9C4C /* [CP] Copy Pods Resources */,
 				BEDA2DDF2BFDA4B6007F05A3 /* ShellScript */,
+				85669D71A6174E78D4D8611F /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -400,9 +400,47 @@
 			shellPath = /bin/sh;
 			shellScript = "set -e\n\nexport NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh\n";
 		};
-		26AF3B280BA86AB1475E9C4C /* [CP] Copy Pods Resources */ = {
+		715115A331B759A5028255A9 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
-			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-CempakaNew-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		81C3136D64CCE17B31AD6557 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CempakaNew-CempakaNewTests/Pods-CempakaNew-CempakaNewTests-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CempakaNew-CempakaNewTests/Pods-CempakaNew-CempakaNewTests-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CempakaNew-CempakaNewTests/Pods-CempakaNew-CempakaNewTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		85669D71A6174E78D4D8611F /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
@@ -418,7 +456,7 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CempakaNew/Pods-CempakaNew-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		4FC55852A68E83D6CD419DA9 /* [CP] Check Pods Manifest.lock */ = {
+		AE6F777F442FDDD753EDE98D /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -440,23 +478,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		B13B03AC4CCEC9624C79A93C /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-CempakaNew-CempakaNewTests/Pods-CempakaNew-CempakaNewTests-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-CempakaNew-CempakaNewTests/Pods-CempakaNew-CempakaNewTests-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CempakaNew-CempakaNewTests/Pods-CempakaNew-CempakaNewTests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		BEDA2DDF2BFDA4B6007F05A3 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 12;
@@ -473,28 +494,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n";
-		};
-		C3DE3D3894F8C389B84EE00A /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-CempakaNew-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
 		};
 		FD10A7F022414F080027D42C /* Start Packager */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -549,7 +548,7 @@
 /* Begin XCBuildConfiguration section */
 		00E356F61AD99517003FC87E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 528DC22ECF689B35A66359C4 /* Pods-CempakaNew-CempakaNewTests.debug.xcconfig */;
+			baseConfigurationReference = A36D98B44A9E6EE1D0A40157 /* Pods-CempakaNew-CempakaNewTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -576,7 +575,7 @@
 		};
 		00E356F71AD99517003FC87E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B31193EFEFF79F7F8FC6FBC2 /* Pods-CempakaNew-CempakaNewTests.release.xcconfig */;
+			baseConfigurationReference = 332FBDF2034285281B161AB1 /* Pods-CempakaNew-CempakaNewTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
@@ -600,7 +599,7 @@
 		};
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = BD0BA1B9A90199430DA11D0D /* Pods-CempakaNew.debug.xcconfig */;
+			baseConfigurationReference = F021487B8CA9323C3CBBD4B2 /* Pods-CempakaNew.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -637,7 +636,7 @@
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 32583B925DFA8418AC89945F /* Pods-CempakaNew.release.xcconfig */;
+			baseConfigurationReference = F5134909E1E2EC3F4165D5B4 /* Pods-CempakaNew.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;

@@ -1,0 +1,62 @@
+{
+  "success": true,
+  "message": "Success",
+  "data": [
+    {
+      "id": "1",
+      "picture": "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=800",
+      "subject": "Diskon 25% Untuk Pembelian Unit Apartemen Green Palace",
+      "descs": "Dapatkan penawaran spesial diskon 25% untuk setiap pembelian unit Apartemen Green Palace. Berlaku untuk semua tipe unit, mulai dari studio hingga 3 bedroom. Periode promo terbatas hanya sampai akhir bulan ini.",
+      "type": "promo"
+    },
+    {
+      "id": "2",
+      "picture": "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=800",
+      "subject": "Promo Bunga 0% Untuk KPA Rumah Cluster Dahlia",
+      "descs": "Miliki hunian impian di Cluster Dahlia dengan skema KPA bunga 0% selama 1 tahun pertama. Bekerjasama dengan Bank terpercaya, proses KPA cepat dan mudah. Segera hubungi marketing gallery kami.",
+      "type": "promo"
+    },
+    {
+      "id": "3",
+      "picture": "https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=800",
+      "subject": "Cashback 50 Juta Untuk Pembelian Unit Ready Stock",
+      "descs": "Green Palace berhasil meraih penghargaan sebagai Apartemen Terbaik tahun 2024 dalam kategori Mixed-Use Development. Penghargaan ini merupakan bukti komitmen kami dalam memberikan kualitas hunian terbaik.",
+      "type": "news"
+    },
+    {
+      "id": "4",
+      "picture": "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800",
+      "subject": "Booking Fee Hanya 1 Juta Rupiah Untuk Semua Unit",
+      "descs": "Kesempatan terbaik untuk memiliki hunian impian dengan booking fee ringan. Cukup dengan 1 juta rupiah, Anda sudah bisa memiliki unit apartemen exclusive. Penawaran terbatas hanya untuk 20 unit pertama.",
+      "type": "promo"
+    },
+    {
+      "id": "5",
+      "picture": "https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=800",
+      "subject": "Free Furnished Untuk 10 Unit Pertama",
+      "descs": "Green Palace dengan bangga mengumumkan pembukaan pusat perbelanjaan terbaru kami. Green Palace Mall akan resmi dibuka pada tanggal 1 Juni 2024. Berbagai tenant ternama siap memenuhi kebutuhan lifestyle Anda.",
+      "type": "news"
+    },
+    {
+      "id": "6",
+      "picture": "https://images.unsplash.com/photo-1523217582562-09d0def993a6?w=800",
+      "subject": "DP 0% Untuk Pembelian Unit Studio dan 1 Bedroom",
+      "descs": "Promo spesial untuk first time buyer! Miliki unit studio atau 1 bedroom tanpa DP. Cicilan ringan mulai dari 3 jutaan per bulan. Syarat dan ketentuan berlaku. Hubungi marketing gallery kami untuk info lebih lanjut.",
+      "type": "promo"
+    },
+    {
+      "id": "7",
+      "picture": "https://images.unsplash.com/photo-1484154218962-a197022b5858?w=800",
+      "subject": "Gratis Biaya Admin dan Biaya Notaris",
+      "descs": "Sebagai bagian dari komitmen inovasi, seluruh unit Green Palace kini dilengkapi dengan Smart Home System. Penghuni dapat mengontrol pencahayaan, AC, dan keamanan melalui smartphone.",
+      "type": "news"
+    },
+    {
+      "id": "8",
+      "picture": "https://images.unsplash.com/photo-1580216316771-2a587fc8333b?w=800",
+      "subject": "Promo Akhir Tahun: Diskon Hingga 100 Juta Rupiah",
+      "descs": "Sambut akhir tahun dengan penawaran terbaik! Dapatkan diskon hingga 100 juta rupiah untuk pembelian unit 2 dan 3 bedroom. Bonus interior package senilai 50 juta rupiah. Promo berlaku hingga 31 Desember 2024.",
+      "type": "promo"
+    }
+  ]
+}

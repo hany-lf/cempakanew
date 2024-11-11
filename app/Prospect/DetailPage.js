@@ -818,6 +818,7 @@ class DetailPage extends Component {
   getInterest = async () => {
     const dataProspect = await _getData('statusProspect');
     const {business_id} = dataProspect;
+    console.log('business_id', business_id);
     // const {occupation_cd} = this.state
 
     // const province = this.props.items

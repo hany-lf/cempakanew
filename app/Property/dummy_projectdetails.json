@@ -1,0 +1,329 @@
+{
+  "Pesan": "Success",
+  "data": {
+    "project": [
+      {
+        "entity_cd": "0321",
+        "project_no": "0321",
+        "project_date": null,
+        "project_ref": " ",
+        "debtor_acct": " ",
+        "debtor_type": "01",
+        "owner_type": "01",
+        "location": "03",
+        "project_type": "NA",
+        "descs": "Antasari Place",
+        "award_date": null,
+        "start_date": "2010-01-01 00:00:00.000",
+        "completion_date": null,
+        "currency_cd": "IDR",
+        "contract_amt": ".00",
+        "auth_vo": ".00",
+        "claim_todate": ".00",
+        "ret_todate": ".00",
+        "ret_limit": ".00",
+        "ret_percent": ".00",
+        "max_ret_percent": ".00",
+        "ret_release_date": null,
+        "penalty": ".00",
+        "min_claim_amt": ".00",
+        "claim_interval": "0",
+        "ret_acct": " ",
+        "profit_acct": " ",
+        "wip_acct": " ",
+        "revenue_acct": " ",
+        "memo_acct": " ",
+        "project_rev_cd": " ",
+        "ret_cd": " ",
+        "memo_cd": " ",
+        "est_cost": ".00",
+        "prev_recog_profit": ".00",
+        "project_status": "A",
+        "remarks": null,
+        "audit_user": "MGR",
+        "audit_date": "2024-09-26 11:09:15.757",
+        "project_factor": ".00",
+        "doc_no": "0",
+        "claim_method": " ",
+        "act_complete_dt": null,
+        "last_bill_date": null,
+        "div_cd": "101",
+        "dept_cd": "912",
+        "activity_cd": " ",
+        "wstatus": "A",
+        "contact_person": " ",
+        "contact_telno": null,
+        "contact_email": null,
+        "designation": null,
+        "post_sch_flag": null,
+        "address1": null,
+        "address2": null,
+        "address3": null,
+        "post_cd": null,
+        "payment_cd": null,
+        "const_sch": null,
+        "selling_price": null,
+        "pay_bank_cd": null,
+        "duration": null,
+        "project_group": null,
+        "RowID": "173",
+        "calendar": null,
+        "default_bank_code": null,
+        "financier_type": null,
+        "solicitor_type": null,
+        "debtor_no": "2",
+        "approval_status": "B",
+        "data_type": "I",
+        "nut_prefix": null,
+        "booking_fee": null,
+        "bank_cd": null,
+        "virtual_entity": null,
+        "sk_no": null,
+        "area": null,
+        "tower": null,
+        "logo": "LogoAntasariPlace.jpg",
+        "prefix_fa": "EQ",
+        "email_add": "ibnu.hafiz@ifca.co.id",
+        "wa_no": "+62 818-712-042",
+        "picture_url": null,
+        "caption_address": null,
+        "coordinat_name": "Antasari Mappp",
+        "coordinat_address": "Antasari Place, Jakarta Selatan",
+        "coordinat_project": "https://maps.app.goo.gl/UBjQgB2pvu95CWec9",
+        "facebook_url": null,
+        "youtube_url": null,
+        "instagram_url": null,
+        "office_no": null,
+        "web_url": null,
+        "hidden_picture_url": null,
+        "direction_map": null,
+        "kso_status": "N",
+        "email_finance": "ibnu.hafiz@ifca.co.id",
+        "email_sad": "ibnu.hafiz@ifca.co.id",
+        "protek_budget": "N",
+        "kwitansi_trx": "KW",
+        "bank_sales": null,
+        "rek_sales": null,
+        "bank_bphtb": null,
+        "rek_bphtb": null,
+        "debtor_prefix": "SP",
+        "prefix_va_bca": "65331",
+        "initial": "AP",
+        "email_finance_ar": "ibnu.hafiz@ifca.co.id",
+        "email_procurement": "ibnu.hafiz@ifca.co.id"
+      }
+    ],
+    "gallery": [
+      {
+        "entity_cd": "0321",
+        "project_no": "0321",
+        "line_no": "1",
+        "gallery_url": "https://ifca.paradiseindonesia.com/webparadise/public/storage/project-gallery/0321_0321_Studio-A.jpg",
+        "gallery_title": "Antasari - Studio",
+        "audit_user": "ABE",
+        "audit_date": "2024-01-03 16:44:29.000",
+        "rowID": "1"
+      },
+      {
+        "entity_cd": "0321",
+        "project_no": "0321",
+        "line_no": "2",
+        "gallery_url": "https://ifca.paradiseindonesia.com/webparadise/public/storage/project-gallery/0321_0321_Studio-B.jpg",
+        "gallery_title": "Antasari - Studio",
+        "audit_user": "ABE",
+        "audit_date": "2024-01-03 16:44:49.000",
+        "rowID": "5"
+      },
+      {
+        "entity_cd": "0321",
+        "project_no": "0321",
+        "line_no": "3",
+        "gallery_url": "https://ifca.paradiseindonesia.com/webparadise/public/storage/project-gallery/0321_0321_1-BR-A.jpg",
+        "gallery_title": "Antasari - 1 BR",
+        "audit_user": "ABE",
+        "audit_date": "2024-01-03 16:53:08.000",
+        "rowID": "6"
+      },
+      {
+        "entity_cd": "0321",
+        "project_no": "0321",
+        "line_no": "4",
+        "gallery_url": "https://ifca.paradiseindonesia.com/webparadise/public/storage/project-gallery/0321_0321_1-BR-B.jpg",
+        "gallery_title": "Antasari - 1 BR",
+        "audit_user": "ABE",
+        "audit_date": "2024-01-03 16:53:30.000",
+        "rowID": "7"
+      },
+      {
+        "entity_cd": "0321",
+        "project_no": "0321",
+        "line_no": "5",
+        "gallery_url": "https://ifca.paradiseindonesia.com/webparadise/public/storage/project-gallery/0321_0321_2-BR-A.jpg",
+        "gallery_title": "Antasari - 2 BR",
+        "audit_user": "ABE",
+        "audit_date": "2024-01-03 17:00:54.000",
+        "rowID": "8"
+      },
+      {
+        "entity_cd": "0321",
+        "project_no": "0321",
+        "line_no": "6",
+        "gallery_url": "https://ifca.paradiseindonesia.com/webparadise/public/storage/project-gallery/0321_0321_2-BR-B.jpg",
+        "gallery_title": "Antasari - 2 BR",
+        "audit_user": "ABE",
+        "audit_date": "2024-01-03 17:01:09.000",
+        "rowID": "9"
+      },
+      {
+        "entity_cd": "0321",
+        "project_no": "0321",
+        "line_no": "8",
+        "gallery_url": "https://ifca.paradiseindonesia.com/webparadise/public/storage/project-gallery/0321_0321_0321_0321_Studio-A.jpg",
+        "gallery_title": "gallery testing 8",
+        "audit_user": "MGR",
+        "audit_date": "2024-01-12 14:04:45.000",
+        "rowID": "26"
+      },
+      {
+        "entity_cd": "0321",
+        "project_no": "0321",
+        "line_no": "7",
+        "gallery_url": "https://ifca.paradiseindonesia.com/webparadise/public/storage/project-gallery/0321_0321_STD-1.jpg",
+        "gallery_title": "Gallery testing 7",
+        "audit_user": "MGR",
+        "audit_date": "2024-01-09 15:24:43.000",
+        "rowID": "22"
+      }
+    ],
+    "overview": [
+      {
+        "entity_cd": "0321",
+        "project_no": "0321",
+        "overview_info": "Sky Tower adalah hunian modern premium yang menjulang megah di jantung kawasan elite Kemang. Dibangun di atas lahan seluas 2.5 hektar, apartemen ini menawarkan konsep mixed-use development yang mengintegrasikan hunian, area komersial, dan ruang hijau dalam satu kawasan.",
+        "audit_user": "ABE",
+        "audit_date": "2024-02-15 14:11:42.000",
+        "rowID": "1",
+        "youtube_link": "E11fO0QmqTs",
+        "url_brochure": null
+      }
+    ],
+    "feature": [
+      {
+        "entity_cd": "0321",
+        "project_no": "0321",
+        "feature_info": "Sky Tower adalah hunian modern premium yang menjulang megah di jantung kawasan elite Kemang. Dibangun di atas lahan seluas 2.5 hektar, apartemen ini menawarkan konsep mixed-use development yang mengintegrasikan hunian, area komersial, dan ruang hijau dalam satu kawasan.",
+        "audit_user": "AGGA",
+        "audit_date": "2024-01-03 15:45:54.000",
+        "rowID": "1"
+      }
+    ],
+    "plan": [
+      {
+        "entity_cd": "0321",
+        "project_no": "0321",
+        "line_no": "1",
+        "plan_url": "https://ifca.paradiseindonesia.com/webparadise/public/storage/project-plan/0321_0321_1BR-1.jpg",
+        "plan_title": "Plan - 1 BR",
+        "audit_user": "MGR",
+        "audit_date": "2024-01-09 16:34:38.000",
+        "rowID": "1"
+      },
+      {
+        "entity_cd": "0321",
+        "project_no": "0321",
+        "line_no": "2",
+        "plan_url": "http://ifca.paradiseindonesia.com/webparadise/public/storage/project-plan/0321_0321_2BR-1.jpg",
+        "plan_title": "Plan - 2 BR",
+        "audit_user": "MGR",
+        "audit_date": "2023-12-05 14:06:25.000",
+        "rowID": "2"
+      },
+      {
+        "entity_cd": "0321",
+        "project_no": "0321",
+        "line_no": "6",
+        "plan_url": "https://ifca.paradiseindonesia.com/webparadise/public/storage/project-plan/0321_0321_0321_0321_Studio-A.jpg",
+        "plan_title": "plan 2 testing",
+        "audit_user": "MGR",
+        "audit_date": "2024-01-12 14:09:02.000",
+        "rowID": "14"
+      },
+      {
+        "entity_cd": "0321",
+        "project_no": "0321",
+        "line_no": "3",
+        "plan_url": "https://ifca.paradiseindonesia.com/webparadise/public/storage/project-plan/0321_0321_STD-1.jpg",
+        "plan_title": "STD",
+        "audit_user": "MGR",
+        "audit_date": "2024-01-09 16:45:57.000",
+        "rowID": "10"
+      },
+      {
+        "entity_cd": "0321",
+        "project_no": "0321",
+        "line_no": "4",
+        "plan_url": "https://ifca.paradiseindonesia.com/webparadise/public/storage/project-plan/0321_0321_1BR-1.jpg",
+        "plan_title": "Plan 1 BR testing",
+        "audit_user": "MGR",
+        "audit_date": "2024-01-09 16:46:16.000",
+        "rowID": "11"
+      }
+    ],
+    "dataAmenities": {
+      "infrastructure": [
+        {
+          "entity_cd": "0321",
+          "project_no": "0321",
+          "amenities_type": "I",
+          "amenities_info": "<ul><li>Kemang Raya</li><li>Cipete Raya</li><li>Senopati</li><li>SCBD</li></ul>",
+          "audit_user": "MGR",
+          "audit_date": "2023-12-04 11:31:58.000",
+          "rowID": "7",
+          "amenities_url": null,
+          "amenities_title": null
+        }
+      ],
+      "school": [
+        {
+          "entity_cd": "0321",
+          "project_no": "0321",
+          "amenities_type": "S",
+          "amenities_info": "<ul><li>Highscope</li><li>CIKAL</li><li>Pelita Harapan</li><li>Pangudi Luhur</li></ul>",
+          "audit_user": "MGR",
+          "audit_date": "2023-12-04 11:31:58.000",
+          "rowID": "8",
+          "amenities_url": null,
+          "amenities_title": null
+        }
+      ],
+      "hospital": [
+        {
+          "entity_cd": "0321",
+          "project_no": "0321",
+          "amenities_type": "H",
+          "amenities_info": "<ul><li>RSUP Fatmawati</li><li>RSUD Pasar MInggu</li><li>Siloam</li><li>Mayapada</li></ul>",
+          "audit_user": "MGR",
+          "audit_date": "2023-12-04 11:31:58.000",
+          "rowID": "9",
+          "amenities_url": null,
+          "amenities_title": null
+        }
+      ],
+      "other": [
+        {
+          "entity_cd": "0321",
+          "project_no": "0321",
+          "amenities_type": "O",
+          "amenities_info": "<ul><li>CITOS</li><li>Kemang Village</li><li>Darmawangsa Square</li><li>AEON MAll</li></ul>",
+          "audit_user": "MGR",
+          "audit_date": "2023-12-04 11:31:58.000",
+          "rowID": "10",
+          "amenities_url": null,
+          "amenities_title": null
+        }
+      ]
+    },
+    "download": []
+  },
+  "Error": false
+}

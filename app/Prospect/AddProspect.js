@@ -788,9 +788,10 @@ class AddProspect extends Component {
                       }}>
                       <Icon
                         solid
-                        name="star"
                         style={Styles.iconSub}
-                        type="FontAwesome5"
+                        active
+                        name="star"
+                        type="FontAwesome"
                       />
                       <Text style={Styles.overviewTitles}>Business Type</Text>
                     </View>
@@ -911,9 +912,10 @@ class AddProspect extends Component {
                       }}>
                       <Icon
                         solid
-                        name="star"
                         style={Styles.iconSub}
-                        type="FontAwesome5"
+                        active
+                        name="star"
+                        type="FontAwesome"
                       />
                       <Text style={Styles.overviewTitles}>Class</Text>
                     </View>
@@ -1018,9 +1020,10 @@ class AddProspect extends Component {
                       }}>
                       <Icon
                         solid
-                        name="star"
                         style={Styles.iconSub}
-                        type="FontAwesome5"
+                        active
+                        name="star"
+                        type="FontAwesome"
                       />
                       <Text style={Styles.overviewTitles}>VIP</Text>
                     </View>
@@ -1106,9 +1109,10 @@ class AddProspect extends Component {
                       }}>
                       <Icon
                         solid
-                        name="star"
                         style={Styles.iconSub}
-                        type="FontAwesome5"
+                        active
+                        name="star"
+                        type="FontAwesome"
                       />
                       <Text style={Styles.overviewTitles}>Status</Text>
                     </View>
@@ -1294,9 +1298,10 @@ class AddProspect extends Component {
                       }}>
                       <Icon
                         solid
-                        name="star"
                         style={Styles.iconSub}
-                        type="FontAwesome5"
+                        active
+                        name="star"
+                        type="FontAwesome"
                       />
                       <Text style={Styles.overviewTitles}>Name</Text>
                     </View>
@@ -1310,10 +1315,11 @@ class AddProspect extends Component {
                       <Text
                         style={{
                           position: 'absolute',
-                          bottom: 0,
+                          bottom: 10,
                           left: 25,
                           color: 'red',
                           fontSize: 12,
+                          // top: 5,
                         }}>
                         ! Name Required
                       </Text>

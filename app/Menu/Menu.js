@@ -1,165 +1,234 @@
-import React from 'react'
-import { StatusBar,ActivityIndicator, TouchableOpacity, TextInput, StyleSheet, Image, TouchableHighlight, ImageBackground, Dimensions, ScrollView, Platform, SafeAreaView, FlatList } from 'react-native'
-import { Container,List,ListItem, Header, Content, Button, Icon, Text, Title, Left, Right, Body, Input, Item, Footer, View, FooterTab, Badge } from 'native-base'
+import React from 'react';
+import {
+  StatusBar,
+  ActivityIndicator,
+  TouchableOpacity,
+  TextInput,
+  StyleSheet,
+  Image,
+  TouchableHighlight,
+  ImageBackground,
+  Dimensions,
+  ScrollView,
+  Platform,
+  SafeAreaView,
+  FlatList,
+} from 'react-native';
+import {
+  Container,
+  List,
+  ListItem,
+  Header,
+  Content,
+  Button,
+  Icon,
+  Text,
+  Title,
+  Left,
+  Right,
+  Body,
+  Input,
+  Item,
+  Footer,
+  View,
+  FooterTab,
+  Badge,
+} from 'native-base';
 
-import NavigationService from '../Service/Navigation'
+import NavigationService from '../Service/Navigation';
 
-import { Fonts, Metrics, Colors,Style } from '../Themes/';
-import Styles from './Style'
-import Styles2 from './Style2'
-import {_storeData,_getData} from '@Component/StoreAsync';
-import { Actions } from "react-native-router-flux";
+import {Fonts, Metrics, Colors, Style} from '../Themes/';
+import Styles from './Style';
+import Styles2 from './Style2';
+import {_storeData, _getData} from '@Component/StoreAsync';
+import {Actions} from 'react-native-router-flux';
 import {urlApi} from '@Config/services';
 //const {width, height} = Dimensions.get('window')
-const { width: viewportWidth, height: viewportHeight } = Dimensions.get('window');
+const {width: viewportWidth, height: viewportHeight} = Dimensions.get('window');
 
 export default class Menu extends React.Component {
+  constructor(props) {
+    super(props);
 
-    constructor(props){
-        super(props)
+    this.state = {
+      email: '',
+      name: '',
+      group: '',
+      dashmenu: [],
+      fotoProfil: 'http://35.198.219.220:2121/alfaAPI/images/profil/avatar.png',
+      isLogin: false,
+      isLoaded: false,
+    };
+  }
 
-        this.state = {
-            email : '',
-            name : '',
-            group : '',
-            dashmenu : [],
-            fotoProfil : 'http://35.198.219.220:2121/alfaAPI/images/profil/avatar.png',
-            isLogin : false,
-            isLoaded : false
-        }
+  async componentDidMount() {
+    const data = {
+      email: await _getData('@User'),
+      userId: await _getData('@UserId'),
+      name: await _getData('@Name'),
+      group: await _getData('@Group'),
+      token: await _getData('@Token'),
+      dashmenu: (await _getData('@DashMenu'))
+        ? await _getData('@DashMenu')
+        : [],
+      isLogin: await _getData('@isLogin'),
+    };
+
+    console.log('datra', data);
+    this.setState(data, () => {
+      if (data.isLogin) {
+        this.getProfile();
+      }
+    });
+
+    setTimeout(() => {
+      this.setState({isLoaded: true});
+    }, 2000);
+  }
+
+  receiveProps = async () => {
+    const data = {
+      name: await _getData('@Name'),
+    };
+
+    if (await _getData('@ProfileUpdate')) {
+      _storeData('@ProfileUpdate', false);
+      this.setState(data);
+      this.getProfile();
     }
+  };
 
-    async componentDidMount(){
-        const data = {
-          email :  await _getData('@User'),
-          userId : await _getData('@UserId'),
-          name :  await _getData('@Name'),
-          group : await _getData('@Group'),
-          token : await _getData('@Token'),
-          dashmenu : await _getData('@DashMenu') ? await _getData('@DashMenu') : [],
-          isLogin : await _getData('@isLogin')
-        }
+  getProfile = () => {
+    fetch(
+      urlApi +
+        'c_profil/getData/IFCAMOBILE/' +
+        this.state.email +
+        '/' +
+        this.state.userId,
+      {
+        method: 'GET',
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+          Token: this.state.token,
+        },
+      },
+    )
+      .then(response => response.json())
+      .then(res => {
+        const resData = res.Data[0];
 
-        console.log('datra',data);
-        this.setState(data,()=>{
-            if(data.isLogin){
-                this.getProfile()
-            }
-        })
+        // ? Agar Gambar Tidak ter cache
+        let url = resData.pict + '?random_number=' + new Date().getTime();
+        this.setState({fotoProfil: url});
+        console.log('res Profil', this.state);
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  };
 
-        setTimeout(()=>{
-            this.setState({isLoaded : true})
-        },2000)
+  // goToFeed = (val) =>{
+  //     if(val.isProject == 1){
+  //         Actions.project({goTo : val.URL_angular})
+  //     } else {
+  //         Actions[val.URL_angular]()
+  //     }
+  //     console.log('menu',val);
+  // }
+
+  goToFeed = val => {
+    if (val.isProject == 1) {
+      Actions.project({goTo: val});
     }
-
-    receiveProps = async() =>{
-        const data = {
-          name :  await _getData('@Name'),
-        }
-
-        if(await _getData('@ProfileUpdate')){
-            _storeData('@ProfileUpdate',false)
-            this.setState(data)
-            this.getProfile()
-        }
-
-    }
-
-    getProfile = () => {
-        
-        fetch(urlApi+'c_profil/getData/IFCAMOBILE/'+this.state.email+'/'+this.state.userId,{
-            method : "GET",
-            headers :{
-                Accept: 'application/json',
-                'Content-Type': 'application/json',
-                'Token' : this.state.token
-            }
-        })
-        .then((response) => response.json())
-        .then((res)=>{
-            const resData = res.Data[0];
-
-            // ? Agar Gambar Tidak ter cache 
-            let url = resData.pict + '?random_number=' + new Date().getTime()
-            this.setState({fotoProfil:url})
-            console.log('res Profil',this.state);
-        }).catch((error) => {
-            console.log(error);
-        });
-    }
-
-
-    // goToFeed = (val) =>{
-    //     if(val.isProject == 1){
-    //         Actions.project({goTo : val.URL_angular})
-    //     } else {
-    //         Actions[val.URL_angular]()
-    //     }
-    //     console.log('menu',val);
+    // else if (val.Title == 'Promo') {
+    //     Actions.Feed({ types: 'promo'})
+    // } else if (val.Title == 'News') {
+    //     Actions.Feed({ types: 'news'})
     // }
-
-    goToFeed = (val) =>{
-        if(val.isProject == 1){
-            Actions.project({goTo : val})
-        } 
-        // else if (val.Title == 'Promo') {
-        //     Actions.Feed({ types: 'promo'})
-        // } else if (val.Title == 'News') {
-        //     Actions.Feed({ types: 'news'})
-        // }
-        else {
-            Actions[val.URL_angular]()
-        }
-
-        console.log('test',val);
+    else {
+      Actions[val.URL_angular]();
     }
 
-    render() {
-        let dashmenu = this.state.dashmenu.length % 3
-        let secLoop = [0,1]
+    console.log('test', val);
+  };
 
-            return (
-                <Container style={Style.bgMain}>
-                    <StatusBar backgroundColor="rgba(0,0,0,0)" animated barStyle="dark-content" />
+  render() {
+    let dashmenu = this.state.dashmenu.length % 3;
+    let secLoop = [0, 1];
 
-                    <Content style={Style.layoutInner} contentContainerStyle={Style.layoutContent}>
-                        <View style={Styles.section}>
+    return (
+      <Container style={Style.bgMain}>
+        <StatusBar
+          backgroundColor="rgba(0,0,0,0)"
+          animated
+          barStyle="dark-content"
+        />
 
+        <Content
+          style={Style.layoutInner}
+          contentContainerStyle={Style.layoutContent}>
+          <View style={Styles.section}>
+            <List style={Styles2.infoTab}>
+              {this.state.dashmenu.map((val, key) =>
+                key <= this.state.dashmenu.length - 1 ? (
+                  <ListItem
+                    key={key}
+                    style={Styles2.infoItem}
+                    onPress={() => this.goToFeed(val)}>
+                    <Image
+                      source={{
+                        uri: urlApi + 'images/dashPict/' + val.picture,
+                      }}
+                      style={Styles2.infoIcon}
+                    />
+                    <View
+                      style={{alignSelf: 'center'}}
+                      style={{alignSelf: 'center'}}>
+                      <Text style={Styles2.infoHeader}>{val.Title}</Text>
+                      <Text style={Styles2.infoDesc}>{val.title_descs}</Text>
+                    </View>
 
-                            <List style={Styles2.infoTab}>
+                    <Right style={{position: 'absolute', right: 10}}>
+                      <Icon
+                        // name="arrow-forward"
+                        active
+                        name="chevron-right"
+                        type="FontAwesome"
+                        style={{fontSize: 15}}
+                        // active
+                      />
+                    </Right>
+                  </ListItem>
+                ) : (
+                  <ListItem
+                    key={key}
+                    style={Styles2.infoItemLast}
+                    onPress={() => this.goToFeed(val)}>
+                    <Image
+                      source={{
+                        uri: urlApi + 'images/dashPict/' + val.picture,
+                      }}
+                      style={Styles2.infoIcon}
+                    />
+                    <View
+                      style={{alignSelf: 'center'}}
+                      style={{alignSelf: 'center'}}>
+                      <Text style={Styles2.infoHeader}>{val.Title}</Text>
+                      <Text style={Styles2.infoDesc}>
+                        {'Account Setting & Change Password'}
+                      </Text>
+                    </View>
 
-                                { this.state.dashmenu.map((val,key)=>
+                    <Right style={{position: 'absolute', right: 10}}>
+                      <Icon name="arrow-forward" style={{fontSize: 30}} />
+                    </Right>
+                  </ListItem>
+                ),
+              )}
+            </List>
 
-                                    key <= this.state.dashmenu.length - 1 ? 
-                                    <ListItem key={key} style={Styles2.infoItem} onPress={()=>this.goToFeed(val) }>
-                                        <Image source={{uri : urlApi+"images/dashPict/"+val.picture}} style={Styles2.infoIcon} />
-                                        <View style={{alignSelf:'center'}} style={{alignSelf:'center'}}>
-                                            <Text style={Styles2.infoHeader}>{val.Title}</Text>
-                                            <Text style={Styles2.infoDesc}>{val.title_descs}</Text>
-                                        </View>
-
-                                        <Right style={{position:'absolute',right:10}}>
-                                            <Icon name="arrow-forward" style={{fontSize: 30,}} />
-                                        </Right>
-                                    </ListItem>    
-                                    :
-                                    <ListItem key={key} style={Styles2.infoItemLast} onPress={()=>this.goToFeed(val) }>
-                                        <Image source={{uri : urlApi+"images/dashPict/"+val.picture}} style={Styles2.infoIcon} />
-                                        <View style={{alignSelf:'center'}} style={{alignSelf:'center'}}>
-                                            <Text style={Styles2.infoHeader}>{val.Title}</Text>
-                                            <Text style={Styles2.infoDesc}>{'Account Setting & Change Password'}</Text>
-                                        </View>
-
-                                        <Right style={{position:'absolute',right:10}}>
-                                            <Icon name="arrow-forward" style={{fontSize: 30,}} />
-                                        </Right>
-                                    </ListItem>
-                                    
-                                )}
-                            </List>
-
-
-                                {/* {this.state.isLogin ? 
+            {/* {this.state.isLogin ? 
                                     <View style={Styles.profile}>
                                         <Image source={{uri:this.state.fotoProfil}} style={Styles.avatar} />
                                         <View>
@@ -183,9 +252,8 @@ export default class Menu extends React.Component {
                                         </View>
                                     </View>
                                 } */}
-    
-    
-                            {/* <View style={Styles.btnLayout}>
+
+            {/* <View style={Styles.btnLayout}>
                             { this.state.dashmenu.map((val,key)=>
                                 <TouchableOpacity key={key} style={Styles.btnBox} onPress={() => {
                                     this.goToFeed(val)
@@ -194,8 +262,8 @@ export default class Menu extends React.Component {
                                     <Text style={Styles.btnText}>{val.Title}</Text>
                                 </TouchableOpacity>
                             )} */}
-    
-                                {/* <TouchableOpacity style={Styles.btnBox} onPress={() => {
+
+            {/* <TouchableOpacity style={Styles.btnBox} onPress={() => {
                                     NavigationService.navigate('MemberMessages')
                                 }}>
                                     <Image source={require('@Asset/images/btn-messages.png')} style={Styles.btnImg} />
@@ -222,14 +290,14 @@ export default class Menu extends React.Component {
                                     <Image source={require('@Asset/images/btn-settings.png')} style={Styles.btnImg} />
                                     <Text style={Styles.btnText}>Settings</Text>
                                 </TouchableOpacity> */}
-                            
-                            {/* <TouchableOpacity style={Styles.btnBox}
+
+            {/* <TouchableOpacity style={Styles.btnBox}
                                 onPress={()=>this.goToFeed({URL_angular : "ReportNew",isProject:1})}>
                                 <Image source={{uri : urlApi+"images/dashPict/profits.png"}} style={Styles.imgBtn} />
                                 <Text style={Styles.btnText}>New Report</Text>
                             </TouchableOpacity> */}
-    
-                            {/* <TouchableOpacity style={Styles.btnBox}
+
+            {/* <TouchableOpacity style={Styles.btnBox}
                                 onPress={()=>this.goToFeed({URL_angular : "NUPPage",isProject:1})}>
                                 <Image source={{uri : urlApi+"images/dashPict/profits.png"}} style={Styles.imgBtn} />
                                 <Text style={Styles.btnText}>NUP</Text>
@@ -245,8 +313,8 @@ export default class Menu extends React.Component {
                                 )
                             : null}
                             </View> */}
-    
-                            {/* <View style={Styles.message}>
+
+            {/* <View style={Styles.message}>
                                 <View style={Styles.headerBg}>
                                     <Icon name="envelope" type="FontAwesome" style={Styles.headerIcon} />
                                     <Text style={Styles.sHeader}>{'Recent Messages'.toUpperCase()}</Text>
@@ -273,22 +341,21 @@ export default class Menu extends React.Component {
                                     )}
                                 />
                             </View> */}
-                        </View>
-                    </Content>
-                </Container>
-            )
-        
-    }
+          </View>
+        </Content>
+      </Container>
+    );
+  }
 }
 
 const LoginStyle = StyleSheet.create({
-    container: {
-        flex: 1,
-        alignItems: 'center',
-        justifyContent: 'center'
-    },
-    btn : {
-        backgroundColor : Colors.loginBlue,
-        padding :10
-    }
+  container: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  btn: {
+    backgroundColor: Colors.loginBlue,
+    padding: 10,
+  },
 });

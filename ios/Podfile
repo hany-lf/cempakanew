@@ -5,7 +5,7 @@ platform :ios, '12.0'
 
 target 'CempakaNew' do
   config = use_native_modules!
-  pod 'AppAuth'
+  # pod 'AppAuth'
 
   pod 'RNImageCropPicker', :path => '../node_modules/react-native-image-crop-picker'
   # Add this line to include FBReactNativeSpec

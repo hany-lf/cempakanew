@@ -71,7 +71,7 @@
     "react-native-table-component": "^1.2.0",
     "react-native-textinput-effects": "^0.5.1",
     "react-native-vector-icons": "^10.1.0",
-    "react-native-webview": "^11.6.5",
+    "react-native-webview": "^11.0.0",
     "react-navigation": "^3.4.1",
     "react-redux": "^6.0.1",
     "redux": "^4.0.1",
