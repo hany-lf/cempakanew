@@ -165,70 +165,64 @@ export default class Menu extends React.Component {
           barStyle="dark-content"
         />
 
-        <Content
-          style={Style.layoutInner}
-          contentContainerStyle={Style.layoutContent}>
-          <View style={Styles.section}>
-            <List style={Styles2.infoTab}>
-              {this.state.dashmenu.map((val, key) =>
-                key <= this.state.dashmenu.length - 1 ? (
-                  <ListItem
-                    key={key}
-                    style={Styles2.infoItem}
-                    onPress={() => this.goToFeed(val)}>
-                    <Image
-                      source={{
-                        uri: urlApi + 'images/dashPict/' + val.picture,
-                      }}
-                      style={Styles2.infoIcon}
+        <ScrollView>
+          <Text>Menu</Text>
+          <List style={Styles2.infoTab}>
+            {this.state.dashmenu.map((val, key) =>
+              key <= this.state.dashmenu.length - 1 ? (
+                <ListItem
+                  key={key}
+                  style={Styles2.infoItem}
+                  onPress={() => this.goToFeed(val)}>
+                  <Image
+                    source={{
+                      uri: urlApi + 'images/dashPict/' + val.picture,
+                    }}
+                    style={Styles2.infoIcon}
+                  />
+                  <View style={{alignSelf: 'center'}}>
+                    <Text style={Styles2.infoHeader}>{val.Title}</Text>
+                    <Text style={Styles2.infoDesc}>{val.title_descs}</Text>
+                  </View>
+
+                  <Right style={{position: 'absolute', right: 10}}>
+                    <Icon
+                      // name="arrow-forward"
+                      active
+                      name="chevron-right"
+                      type="FontAwesome"
+                      style={{fontSize: 15}}
+                      // active
                     />
-                    <View
-                      style={{alignSelf: 'center'}}
-                      style={{alignSelf: 'center'}}>
-                      <Text style={Styles2.infoHeader}>{val.Title}</Text>
-                      <Text style={Styles2.infoDesc}>{val.title_descs}</Text>
-                    </View>
+                  </Right>
+                </ListItem>
+              ) : (
+                <ListItem
+                  key={key}
+                  style={Styles2.infoItemLast}
+                  onPress={() => this.goToFeed(val)}>
+                  <Image
+                    source={{
+                      uri: urlApi + 'images/dashPict/' + val.picture,
+                    }}
+                    style={Styles2.infoIcon}
+                  />
+                  <View style={{alignSelf: 'center'}}>
+                    <Text style={Styles2.infoHeader}>{val.Title}</Text>
+                    <Text style={Styles2.infoDesc}>
+                      {'Account Setting & Change Password'}
+                    </Text>
+                  </View>
 
-                    <Right style={{position: 'absolute', right: 10}}>
-                      <Icon
-                        // name="arrow-forward"
-                        active
-                        name="chevron-right"
-                        type="FontAwesome"
-                        style={{fontSize: 15}}
-                        // active
-                      />
-                    </Right>
-                  </ListItem>
-                ) : (
-                  <ListItem
-                    key={key}
-                    style={Styles2.infoItemLast}
-                    onPress={() => this.goToFeed(val)}>
-                    <Image
-                      source={{
-                        uri: urlApi + 'images/dashPict/' + val.picture,
-                      }}
-                      style={Styles2.infoIcon}
-                    />
-                    <View
-                      style={{alignSelf: 'center'}}
-                      style={{alignSelf: 'center'}}>
-                      <Text style={Styles2.infoHeader}>{val.Title}</Text>
-                      <Text style={Styles2.infoDesc}>
-                        {'Account Setting & Change Password'}
-                      </Text>
-                    </View>
+                  <Right style={{position: 'absolute', right: 10}}>
+                    <Icon name="arrow-forward" style={{fontSize: 30}} />
+                  </Right>
+                </ListItem>
+              ),
+            )}
+          </List>
 
-                    <Right style={{position: 'absolute', right: 10}}>
-                      <Icon name="arrow-forward" style={{fontSize: 30}} />
-                    </Right>
-                  </ListItem>
-                ),
-              )}
-            </List>
-
-            {/* {this.state.isLogin ? 
+          {/* {this.state.isLogin ? 
                                     <View style={Styles.profile}>
                                         <Image source={{uri:this.state.fotoProfil}} style={Styles.avatar} />
                                         <View>
@@ -253,7 +247,7 @@ export default class Menu extends React.Component {
                                     </View>
                                 } */}
 
-            {/* <View style={Styles.btnLayout}>
+          {/* <View style={Styles.btnLayout}>
                             { this.state.dashmenu.map((val,key)=>
                                 <TouchableOpacity key={key} style={Styles.btnBox} onPress={() => {
                                     this.goToFeed(val)
@@ -263,7 +257,7 @@ export default class Menu extends React.Component {
                                 </TouchableOpacity>
                             )} */}
 
-            {/* <TouchableOpacity style={Styles.btnBox} onPress={() => {
+          {/* <TouchableOpacity style={Styles.btnBox} onPress={() => {
                                     NavigationService.navigate('MemberMessages')
                                 }}>
                                     <Image source={require('@Asset/images/btn-messages.png')} style={Styles.btnImg} />
@@ -291,13 +285,13 @@ export default class Menu extends React.Component {
                                     <Text style={Styles.btnText}>Settings</Text>
                                 </TouchableOpacity> */}
 
-            {/* <TouchableOpacity style={Styles.btnBox}
+          {/* <TouchableOpacity style={Styles.btnBox}
                                 onPress={()=>this.goToFeed({URL_angular : "ReportNew",isProject:1})}>
                                 <Image source={{uri : urlApi+"images/dashPict/profits.png"}} style={Styles.imgBtn} />
                                 <Text style={Styles.btnText}>New Report</Text>
                             </TouchableOpacity> */}
 
-            {/* <TouchableOpacity style={Styles.btnBox}
+          {/* <TouchableOpacity style={Styles.btnBox}
                                 onPress={()=>this.goToFeed({URL_angular : "NUPPage",isProject:1})}>
                                 <Image source={{uri : urlApi+"images/dashPict/profits.png"}} style={Styles.imgBtn} />
                                 <Text style={Styles.btnText}>NUP</Text>
@@ -314,7 +308,7 @@ export default class Menu extends React.Component {
                             : null}
                             </View> */}
 
-            {/* <View style={Styles.message}>
+          {/* <View style={Styles.message}>
                                 <View style={Styles.headerBg}>
                                     <Icon name="envelope" type="FontAwesome" style={Styles.headerIcon} />
                                     <Text style={Styles.sHeader}>{'Recent Messages'.toUpperCase()}</Text>
@@ -341,8 +335,7 @@ export default class Menu extends React.Component {
                                     )}
                                 />
                             </View> */}
-          </View>
-        </Content>
+        </ScrollView>
       </Container>
     );
   }

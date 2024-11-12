@@ -754,427 +754,521 @@ class BookingPage extends Component {
         const item = this.props.items;
 
         return (
-            <Container style={Style.bgMain}>
-                <Header style={Style.navigation}>
-                    <StatusBar
-                        backgroundColor={Colors.statusBarOrange}
-                        animated
-                        barStyle="light-content"
+          <Container style={Style.bgMain}>
+            <Header style={Style.navigation}>
+              <StatusBar
+                backgroundColor={Colors.statusBarOrange}
+                animated
+                barStyle="light-content"
+              />
+
+              <View style={Style.actionBarLeft}>
+                <Button
+                  transparent
+                  style={Style.actionBarBtn}
+                  onPress={Actions.pop}>
+                  <Icon
+                    active
+                    name="arrow-left"
+                    style={Style.textWhite}
+                    type="MaterialCommunityIcons"
+                  />
+                </Button>
+              </View>
+              <View style={Style.actionBarMiddle}>
+                <Text style={Style.actionBarText}>
+                  {'Booking'.toUpperCase()}
+                </Text>
+              </View>
+              <View style={Style.actionBarRight}></View>
+            </Header>
+            <ScrollView>
+              <View>
+                <ScrollView>
+                  <View style={Styles.overview}>
+                    <Card
+                      style={{
+                        height: null,
+                        backgroundColor: 'white',
+                        shadowOffset: {width: 1, height: 1},
+                        shadowColor: '#37BEB7',
+                        shadowOpacity: 0.5,
+                        elevation: 5,
+                        paddingHorizontal: 10,
+                        paddingVertical: 10,
+                        borderRadius: 10,
+                        flex: 1,
+                      }}>
+                      <View>
+                        <View
+                          style={{
+                            flexDirection: 'row',
+                            justifyContent: 'space-between',
+                          }}>
+                          <Text
+                            style={{
+                              fontSize: 15,
+                              textAlign: 'left',
+                              color: '#333',
+                              fontWeight: 'bold',
+                            }}>
+                            Booking Details
+                          </Text>
+                        </View>
+                        <View
+                          style={{
+                            flexDirection: 'row',
+                            justifyContent: 'space-between',
+                            paddingTop: 10,
+                          }}>
+                          <Text
+                            style={{
+                              fontSize: 15,
+                              fontWeight: '500',
+                              textAlign: 'left',
+                              color: '#333',
+                            }}>
+                            {prevItems.title}
+                          </Text>
+                        </View>
+                        <View
+                          style={{
+                            flexDirection: 'row',
+                            justifyContent: 'space-between',
+                          }}>
+                          <Text
+                            style={{
+                              fontSize: 15,
+                              fontWeight: '500',
+                              textAlign: 'left',
+                              color: '#333',
+                            }}>
+                            {prevItems.towerDescs} | Lantai {item.level_no} |{' '}
+                            {item.lot_no}
+                          </Text>
+                        </View>
+                        <View
+                          style={{
+                            flexDirection: 'row',
+                            justifyContent: 'space-between',
+                          }}>
+                          <Text
+                            style={{
+                              fontSize: 15,
+                              fontWeight: '500',
+                              textAlign: 'left',
+                              color: '#333',
+                            }}>
+                            {/* {this.state.paydescs} |  */}
+                            IDR. {this.props.price.trx_amt}
+                          </Text>
+                        </View>
+                      </View>
+                    </Card>
+                  </View>
+
+                  <View style={Styles.overview}>
+                    <Text style={Styles.overviewTitle}>
+                      Agent/Marketing Name
+                    </Text>
+                    <TextInput
+                      style={Styles.textInputBold}
+                      value={this.state.name}
+                      editable={false}
+                    />
+                  </View>
+                  <View style={Styles.overview}>
+                    <Text style={Styles.overviewTitle}>Category</Text>
+                    <Picker
+                      note
+                      mode="dropdown"
+                      style={Styles.textInput}
+                      selectedValue={this.state.category}
+                      onValueChange={val => this.setState({category: val})}>
+                      <Picker.Item label="Choose Category" value="" />
+                      <Picker.Item
+                        label="Individual"
+                        value="I"
+                        style={Styles.overviewTitle}
+                      />
+                      <Picker.Item
+                        label="Company"
+                        value="C"
+                        style={Styles.overviewTitle}
+                      />
+                    </Picker>
+
+                    {this.state.errorcategory ? (
+                      <Text
+                        style={{
+                          position: 'absolute',
+                          bottom: 0,
+                          left: 25,
+                          color: 'red',
+                          fontSize: 12,
+                        }}>
+                        ! Category Required
+                      </Text>
+                    ) : null}
+                  </View>
+                  <View
+                    style={
+                      this.state.category == 'C'
+                        ? {display: 'none'}
+                        : Styles.overview
+                    }>
+                    <Text
+                      style={
+                        this.state.category == 'C'
+                          ? {display: 'none'}
+                          : Styles.overviewTitle
+                      }>
+                      Identity No.
+                    </Text>
+                    <Picker
+                      note
+                      mode="dropdown"
+                      style={
+                        this.state.category == 'C'
+                          ? {display: 'none'}
+                          : Styles.textInput
+                      }
+                      selectedValue={this.state.identity_no}
+                      onValueChange={val =>
+                        this.setState({identity_no: val, no_ktp: ''})
+                      }>
+                      <Picker.Item label="Choose Identity Card" value="" />
+                      <Picker.Item
+                        label="KTP"
+                        value="01"
+                        style={Styles.overviewTitle}
+                      />
+                      <Picker.Item
+                        label="SIM"
+                        value="02"
+                        style={Styles.overviewTitle}
+                      />
+                      <Picker.Item
+                        label="KITAS"
+                        value="03"
+                        style={Styles.overviewTitle}
+                      />
+                    </Picker>
+                    <TextInput
+                      // keyboardType={"number-pad"}
+                      style={
+                        this.state.category == 'C'
+                          ? {display: 'none'}
+                          : Styles.textInput
+                      }
+                      onChangeText={val => this.setState({no_ktp: val})}
+                      value={this.state.no_ktp}
+                      maxLength={
+                        this.state.identity_no == '01'
+                          ? 16
+                          : this.state.identity_no == '02'
+                          ? 15
+                          : 25
+                      }
                     />
 
-                    <View style={Style.actionBarLeft}>
-                        <Button
-                            transparent
-                            style={Style.actionBarBtn}
-                            onPress={Actions.pop}
-                        >
-                            <Icon
-                                active
-                                name="arrow-left"
-                                style={Style.textWhite}
-                                type="MaterialCommunityIcons"
-                            />
-                        </Button>
-                    </View>
-                    <View style={Style.actionBarMiddle}>
-                        <Text style={Style.actionBarText}>
-                            {"Booking".toUpperCase()}
+                    {this.state.category == 'C' ? null : this.state
+                        .errorno_ktp ? (
+                      <Text
+                        style={{
+                          position: 'absolute',
+                          bottom: 0,
+                          left: 25,
+                          color: 'red',
+                          fontSize: 12,
+                        }}>
+                        ! Identity No. Required
+                      </Text>
+                    ) : null}
+                  </View>
+                  <Button
+                    rounded
+                    warning
+                    full
+                    style={
+                      this.state.category == 'C'
+                        ? {display: 'none'}
+                        : Styles.btnMedium
+                    }
+                    onPress={() => this.getBiodata()}>
+                    {!this.state.isLoaded ? (
+                      <ActivityIndicator color="#fff" />
+                    ) : (
+                      <Text style={Styles.signInBtnText}>Search</Text>
+                    )}
+                  </Button>
+                  <View style={Styles.overview}>
+                    <Text style={Styles.overviewTitle}>NPWP No.</Text>
+                    <TextInput
+                      // keyboardType={"number-pad"}
+                      style={Styles.textInput}
+                      onChangeText={val => this.setState({npwp: val})}
+                      value={this.state.npwp}
+                      maxLength={15}
+                    />
+
+                    {this.state.errornpwp ? (
+                      <Text
+                        style={{
+                          position: 'absolute',
+                          bottom: 0,
+                          left: 25,
+                          color: 'red',
+                          fontSize: 12,
+                        }}>
+                        ! NPWP No. Required
+                      </Text>
+                    ) : null}
+                  </View>
+                  <Button
+                    rounded
+                    warning
+                    full
+                    style={
+                      this.state.category == 'C'
+                        ? Styles.btnMedium
+                        : {display: 'none'}
+                    }
+                    onPress={() => this.getBiodata()}>
+                    {!this.state.isLoaded ? (
+                      <ActivityIndicator color="#fff" />
+                    ) : (
+                      <Text style={Styles.signInBtnText}>Search</Text>
+                    )}
+                  </Button>
+                  <View style={Styles.overview}>
+                    <Text style={Styles.overviewTitle}>Full Name</Text>
+                    <TextInput
+                      style={Styles.textInput}
+                      onChangeText={val => this.setState({fullname: val})}
+                      value={this.state.fullname}
+                    />
+
+                    {this.state.errorfullname ? (
+                      <Text
+                        style={{
+                          position: 'absolute',
+                          bottom: 0,
+                          left: 25,
+                          color: 'red',
+                          fontSize: 12,
+                        }}>
+                        ! Full Name Required
+                      </Text>
+                    ) : null}
+                  </View>
+                  <View
+                    style={
+                      this.state.category == 'C'
+                        ? {display: 'none'}
+                        : Styles.overview
+                    }>
+                    <Text
+                      style={
+                        this.state.category == 'C'
+                          ? {display: 'none'}
+                          : Styles.overviewTitle
+                      }>
+                      Gender
+                    </Text>
+                    <Picker
+                      note
+                      mode="dropdown"
+                      style={
+                        this.state.category == 'C'
+                          ? {display: 'none'}
+                          : Styles.textInput
+                      }
+                      selectedValue={this.state.gender}
+                      onValueChange={val => this.setState({gender: val})}>
+                      <Picker.Item label="Choose Gender" value="" />
+                      <Picker.Item
+                        label="Male"
+                        value="M"
+                        style={Styles.overviewTitle}
+                      />
+                      <Picker.Item
+                        label="Female"
+                        value="F"
+                        style={Styles.overviewTitle}
+                      />
+                    </Picker>
+
+                    {this.state.category == 'C' ? null : this.state
+                        .errorgender ? (
+                      <Text
+                        style={{
+                          position: 'absolute',
+                          bottom: 0,
+                          left: 25,
+                          color: 'red',
+                          fontSize: 12,
+                        }}>
+                        ! Gender Required
+                      </Text>
+                    ) : null}
+                  </View>
+                  <View style={Styles.overview}>
+                    <Text style={Styles.overviewTitle}>Mobile Number</Text>
+                    <TextInput
+                      placeholder=""
+                      keyboardType={'phone-pad'}
+                      style={Styles.textInput}
+                      onChangeText={val => this.setState({nohp: val})}
+                      value={this.state.nohp}
+                    />
+
+                    {this.state.errornohp ? (
+                      this.state.nohp.substring(0, 1) != '0' ? (
+                        alert('Mobile Number Must Begins With 0 (Zero)')
+                      ) : (
+                        <Text
+                          style={{
+                            position: 'absolute',
+                            bottom: 0,
+                            left: 25,
+                            color: 'red',
+                            fontSize: 12,
+                          }}>
+                          ! Mobile Number Required
                         </Text>
-                    </View>
-                    <View style={Style.actionBarRight}></View>
-                </Header>
-                <Content
-                    style={Style.layoutInner}
-                    contentContainerStyle={Style.layoutContent}
-                >
-                    <View>
-                        <ScrollView>
-                            <View style={Styles.overview}>
-                                <Card style={{
-                                    height: null,
-                                    backgroundColor: 'white',
-                                    shadowOffset: { width: 1, height: 1 },
-                                    shadowColor: "#37BEB7",
-                                    shadowOpacity: 0.5,
-                                    elevation: 5,
-                                    paddingHorizontal: 10,
-                                    paddingVertical: 10,
-                                    borderRadius: 10,
-                                    flex: 1
-                                }}>
+                      )
+                    ) : this.state.nohp.substring(0, 1) != '0' ? (
+                      alert('Mobile Number Must Begins With 0 (Zero)')
+                    ) : null}
+                  </View>
+                  <View style={Styles.overview}>
+                    <Text style={Styles.overviewTitle}>Email Address</Text>
+                    <TextInput
+                      keyboardType="email-address"
+                      style={Styles.textInput}
+                      onChangeText={val => this.setState({email_add: val})}
+                      value={this.state.email_add}
+                    />
 
-                                    <View>
-                                        <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
-                                            <Text style={{
-                                                fontSize: 15,
-                                                textAlign: 'left',
-                                                color: '#333',
-                                                fontWeight: "bold"
-                                            }}>
-                                                Booking Details
-                                    </Text>
-                                        </View>
-                                        <View style={{ flexDirection: 'row', justifyContent: 'space-between', paddingTop: 10, }}>
-                                            <Text style={{
-                                                fontSize: 15,
-                                                fontWeight: '500',
-                                                textAlign: 'left',
-                                                color: '#333'
-                                            }}>
-                                                {prevItems.title}
-                                        </Text>
-                                        </View>
-                                        <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
-                                            <Text style={{
-                                                fontSize: 15,
-                                                fontWeight: '500',
-                                                textAlign: 'left',
-                                                color: '#333'
-                                            }}>
-                                                {prevItems.towerDescs} | Lantai {item.level_no} | {item.lot_no}
-                                            </Text>
-                                        </View>
-                                        <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
-                                            <Text style={{
-                                                fontSize: 15,
-                                                fontWeight: '500',
-                                                textAlign: 'left',
-                                                color: '#333'
-                                            }}>
-                                               {/* {this.state.paydescs} |  */}
-                                               IDR. {this.props.price.trx_amt}
-                                            </Text>
-                                        </View>
-                                    </View>
-                                </Card>
-                            </View>
+                    {this.state.erroremail_add ? (
+                      <Text
+                        style={{
+                          position: 'absolute',
+                          bottom: 0,
+                          left: 25,
+                          color: 'red',
+                          fontSize: 12,
+                        }}>
+                        ! Email Required
+                      </Text>
+                    ) : null}
+                  </View>
+                  {/*style = { {display = 'none'} }  */}
 
-                            <View style={Styles.overview}>
-                                <Text style={Styles.overviewTitle}>Agent/Marketing Name</Text>
-                                <TextInput 
-                                    style={Styles.textInputBold} 
-                                    value={this.state.name} 
-                                    editable={false} />
-                            </View>
-                            <View style={Styles.overview}>
-                                <Text style={Styles.overviewTitle}>Category</Text>
-                                <Picker note
-                                    mode="dropdown"
-                                    style={Styles.textInput}
-                                    selectedValue={this.state.category}
-                                    onValueChange={(val)=>this.setState({category:val})} 
-                                >
-                                    <Picker.Item label="Choose Category" value='' />
-                                    <Picker.Item label="Individual" value='I' style={Styles.overviewTitle} />
-                                    <Picker.Item label="Company" value='C' style={Styles.overviewTitle}  />
-                                </Picker>
-                               
+                  <View style={Styles.overview}>
+                    <Text style={Styles.overviewTitle}>City</Text>
+                    <TextInput
+                      style={Styles.textInput}
+                      onChangeText={val => this.setState({citys: val})}
+                      value={this.state.citys}
+                    />
+                    {this.state.errorcitys ? (
+                      <Text
+                        style={{
+                          position: 'absolute',
+                          bottom: 0,
+                          left: 25,
+                          color: 'red',
+                          fontSize: 12,
+                        }}>
+                        ! City Required
+                      </Text>
+                    ) : null}
+                  </View>
+                  <View
+                    style={
+                      this.state.category == 'C'
+                        ? {display: 'none'}
+                        : Styles.overview
+                    }>
+                    <Text
+                      style={
+                        this.state.category == 'C'
+                          ? {display: 'none'}
+                          : Styles.overviewTitle
+                      }>
+                      Nationality
+                    </Text>
+                    <Picker
+                      note
+                      mode="dropdown"
+                      style={
+                        this.state.category == 'C'
+                          ? {display: 'none'}
+                          : Styles.textInput
+                      }
+                      selectedValue={this.state.nationality_descs}
+                      onValueChange={val =>
+                        this.setState({nationality_descs: val})
+                      }>
+                      <Picker.Item label="Choose Nationality" />
+                      {this.state.nationality.map((data, key) => (
+                        <Picker.Item
+                          key={key}
+                          label={data.descs}
+                          value={data.nationality_cd}
+                        />
+                      ))}
+                    </Picker>
 
-                                    
-                                {this.state.errorcategory ? (
-                                    <Text
-                                    style={{
-                                        position: "absolute",
-                                        bottom: 0,
-                                        left: 25,
-                                        color: "red",
-                                        fontSize: 12
-                                    }}
-                                > 
-                                ! Category Required
-                                    </Text>
-                                )
-                                :null
-                                }
-                            </View>
-                            <View style={this.state.category == 'C' ? {display: 'none'} : Styles.overview}> 
-                                <Text style={this.state.category == 'C' ? {display: 'none'} : Styles.overviewTitle}>Identity No.</Text>
-                                <Picker note
-                                    mode="dropdown"
-                                    style={this.state.category == 'C' ? {display: 'none'} : Styles.textInput}
-                                    selectedValue={this.state.identity_no}
-                                    onValueChange={(val)=>this.setState({identity_no:val, no_ktp: ''})} 
-                                >
-                                    <Picker.Item label="Choose Identity Card" value='' />
-                                    <Picker.Item label="KTP" value='01' style={Styles.overviewTitle} />
-                                    <Picker.Item label="SIM" value='02' style={Styles.overviewTitle}  />
-                                    <Picker.Item label="KITAS" value='03' style={Styles.overviewTitle}  />
-                                </Picker>
-                                <TextInput 
-                                    // keyboardType={"number-pad"}
-                                    style={this.state.category == 'C' ? {display: 'none'} : Styles.textInput} 
-                                    onChangeText={val => this.setState({no_ktp : val})} 
-                                    value={this.state.no_ktp}
-                                    maxLength={this.state.identity_no == '01' ? 16 : this.state.identity_no == '02' ? 15 : 25} />
+                    {this.state.category == 'C' ? null : this.state
+                        .errornationality_descs ? (
+                      <Text
+                        style={{
+                          position: 'absolute',
+                          bottom: 0,
+                          left: 25,
+                          color: 'red',
+                          fontSize: 12,
+                        }}>
+                        ! Select Nationality Required
+                      </Text>
+                    ) : null}
+                  </View>
+                  <View style={Styles.overview}>
+                    <Text style={Styles.overviewTitle}>Your Address</Text>
+                    <TextInput
+                      style={Styles.textInput}
+                      multiline={true}
+                      numberOfLines={1}
+                      onChangeText={val => this.setState({addresses: val})}
+                      maxLength={60}
+                      value={this.state.addresses}
+                    />
 
-                                    
-                                {this.state.category == 'C' ? null : this.state.errorno_ktp ? (
-                                    <Text
-                                    style={{
-                                        position: "absolute",
-                                        bottom: 0,
-                                        left: 25,
-                                        color: "red",
-                                        fontSize: 12
-                                    }}
-                                > 
-                                ! Identity No. Required
-                                    </Text>
-                                )
-                                :null
-                                }
-                            </View>
-                            <Button rounded warning full
-                                    style={this.state.category == 'C' ? {display:'none'} : Styles.btnMedium  }
-                                    onPress={()=>this.getBiodata()}>
-                                    
-                                    {
-                                        !this.state.isLoaded ? (
-                                            <ActivityIndicator color="#fff" />
-                                        ):(
-                                            <Text style={Styles.signInBtnText}>Search</Text>
-                                        )
-                                    }
-                                    
-                                   
-                            </Button>
-                            <View style={Styles.overview}>
-                                <Text style={Styles.overviewTitle}>NPWP No.</Text>
-                                <TextInput 
-                                    // keyboardType={"number-pad"}
-                                    style={Styles.textInput} 
-                                    onChangeText={val => this.setState({npwp : val})} 
-                                    value={this.state.npwp}
-                                    maxLength={15} />
+                    {this.state.erroraddresses ? (
+                      <Text
+                        style={{
+                          position: 'absolute',
+                          bottom: 0,
+                          left: 25,
+                          color: 'red',
+                          fontSize: 12,
+                        }}>
+                        ! Address Required
+                      </Text>
+                    ) : null}
+                    <TextInput
+                      style={Styles.textInput}
+                      multiline={true}
+                      numberOfLines={1}
+                      onChangeText={val => this.setState({address2: val})}
+                      maxLength={60}
+                      value={this.state.address2}
+                    />
 
-                                    
-                                {this.state.errornpwp ? (
-                                    <Text
-                                    style={{
-                                        position: "absolute",
-                                        bottom: 0,
-                                        left: 25,
-                                        color: "red",
-                                        fontSize: 12
-                                    }}
-                                > 
-                                ! NPWP No. Required
-                                    </Text>
-                                )
-                                :null
-                                }
-                            </View>
-                            <Button rounded warning full
-                                    style={this.state.category == 'C' ? Styles.btnMedium : {display:'none'} }
-                                    onPress={()=>this.getBiodata()}>
-                                    
-                                    {
-                                        !this.state.isLoaded ? (
-                                            <ActivityIndicator color="#fff" />
-                                        ):(
-                                            <Text style={Styles.signInBtnText}>Search</Text>
-                                        )
-                                    }
-                                    
-                                   
-                            </Button>
-                            <View style={Styles.overview}>
-                                <Text style={Styles.overviewTitle}>Full Name</Text>
-                                <TextInput 
-                                    style={Styles.textInput} 
-                                    onChangeText={val => this.setState({fullname : val})}
-                                    value={this.state.fullname} />
-
-                                    {this.state.errorfullname ? (
-                                    <Text
-                                    style={{
-                                        position: "absolute",
-                                        bottom: 0,
-                                        left: 25,
-                                        color: "red",
-                                        fontSize: 12
-                                    }}
-                                    > 
-                                        ! Full Name Required
-                                        </Text>
-                                        )
-                                        :null
-                                    }
-                            </View>
-                            <View style={this.state.category == 'C' ? {display: 'none'} : Styles.overview}>
-                                <Text style={this.state.category == 'C' ? {display: 'none'} : Styles.overviewTitle}>Gender</Text>
-                                <Picker note
-                                    mode="dropdown"
-                                    style={this.state.category == 'C' ? {display: 'none'} : Styles.textInput}
-                                    selectedValue={this.state.gender}
-                                    onValueChange={(val)=>this.setState({gender:val})} 
-                                >
-                                    <Picker.Item label="Choose Gender" value='' />
-                                    <Picker.Item label="Male" value='M' style={Styles.overviewTitle} />
-                                    <Picker.Item label="Female" value='F' style={Styles.overviewTitle}  />
-                                </Picker>
-                               
-
-                                    
-                                {this.state.category == 'C' ? null : this.state.errorgender ? (
-                                    <Text
-                                    style={{
-                                        position: "absolute",
-                                        bottom: 0,
-                                        left: 25,
-                                        color: "red",
-                                        fontSize: 12
-                                    }}
-                                > 
-                                ! Gender Required
-                                    </Text>
-                                )
-                                :null
-                                }
-                            </View>
-                            <View style={Styles.overview}>
-                                <Text style={Styles.overviewTitle}>Mobile Number</Text>
-                                <TextInput 
-                                    placeholder=''
-                                    keyboardType={"phone-pad"}
-                                    style={Styles.textInput}
-                                    onChangeText={val => this.setState({nohp : val})}
-                                    value={this.state.nohp} />
-
-                                    {this.state.errornohp ?
-                                    this.state.nohp.substring(0,1) != '0' ? alert('Mobile Number Must Begins With 0 (Zero)') :
-                                    ( 
-                                        
-                                        <Text
-                                        style={{
-                                            position: "absolute",
-                                            bottom: 0,
-                                            left: 25,
-                                            color: "red",
-                                            fontSize: 12
-                                        }}
-                                        > 
-                                        ! Mobile Number Required
-                                        </Text>
-                                    )
-                                    :  this.state.nohp.substring(0,1) != '0' ? alert('Mobile Number Must Begins With 0 (Zero)') 
-                                    :  null
-                                    }
-                            </View>
-                            <View style={Styles.overview}>
-                                <Text style={Styles.overviewTitle}>Email Address</Text>
-                                <TextInput 
-                                    keyboardType="email-address"
-                                    style={Styles.textInput} 
-                                    onChangeText={val => this.setState({email_add : val})} 
-                                    value={this.state.email_add} />
-
-                                    {this.state.erroremail_add ? (
-                                    <Text
-                                        style={{
-                                            position: "absolute",
-                                            bottom: 0,
-                                            left: 25,
-                                            color: "red",
-                                            fontSize: 12
-                                        }}
-                                        > 
-                                        ! Email Required
-                                    </Text>
-                                    )
-                                    :null
-                                    }
-                            </View>
-                              {/*style = { {display = 'none'} }  */}
-                            
-                            <View style={Styles.overview}>
-                                <Text style={Styles.overviewTitle}>City</Text>
-                                <TextInput 
-                                    style={Styles.textInput} 
-                                    onChangeText={val => this.setState({citys : val})} 
-                                    value={this.state.citys} />
-                                 {this.state.errorcitys ? (
-                                    <Text
-                                    style={{
-                                        position: "absolute",
-                                        bottom: 0,
-                                        left: 25,
-                                        color: "red",
-                                        fontSize: 12
-                                    }}
-                                > 
-                                 ! City Required
-                                    </Text>
-                                )
-                                :null
-                            }
-                                
-                            </View>
-                            <View style={this.state.category == 'C' ? {display: 'none'} : Styles.overview}>
-                                <Text style={this.state.category == 'C' ? {display: 'none'} : Styles.overviewTitle}>Nationality</Text>
-                                <Picker note
-                                    mode="dropdown"
-                                    style={this.state.category == 'C' ? {display: 'none'} : Styles.textInput}
-                                    selectedValue={this.state.nationality_descs}
-                                    onValueChange={(val)=>this.setState({nationality_descs:val})}
-                                >
-                                    <Picker.Item label="Choose Nationality" />
-                                    {this.state.nationality.map((data, key) =>
-                                        <Picker.Item key={key} label={data.descs} value={data.nationality_cd} />
-                                    )}
-                                </Picker>
-                                
-                                    {this.state.category == 'C' ? null : this.state.errornationality_descs ? (
-                                            <Text
-                                                style={{
-                                                    position: "absolute",
-                                                    bottom: 0,
-                                                    left: 25,
-                                                    color: "red",
-                                                    fontSize: 12
-                                                }}
-                                            >
-                                                ! Select Nationality Required
-                                            </Text>
-                                        ) : null}
-                                
-                            </View>
-                            <View style={Styles.overview}>
-                                <Text style={Styles.overviewTitle}>Your Address</Text>
-                                <TextInput
-                                    style={Styles.textInput}
-                                    multiline={true}
-                                    numberOfLines={1}
-                                    onChangeText={val => this.setState({addresses : val})}
-                                    maxLength= {60}
-                                    value={this.state.addresses}
-                                />
-                                
-                            {this.state.erroraddresses ? (
-                                    <Text
-                                    style={{
-                                        position: "absolute",
-                                        bottom: 0,
-                                        left: 25,
-                                        color: "red",
-                                        fontSize: 12
-                                    }}
-                                > 
-                                 ! Address Required
-                                    </Text>
-                                )
-                                :null
-                            }
-                                <TextInput
-                                    style={Styles.textInput}
-                                    multiline={true}
-                                    numberOfLines={1}
-                                    onChangeText={val => this.setState({address2 : val})} 
-                                    maxLength= {60}
-                                    value={this.state.address2}
-                                />
-                                
-                            {/* {this.state.erroraddress2 ? (
+                    {/* {this.state.erroraddress2 ? (
                                     <Text
                                     style={{
                                         position: "absolute",
@@ -1189,16 +1283,16 @@ class BookingPage extends Component {
                                 )
                                 :null
                             } */}
-                                <TextInput
-                                    style={Styles.textInput}
-                                    multiline={true}
-                                    numberOfLines={1}
-                                    onChangeText={val => this.setState({address3 : val})} 
-                                    maxLength= {60}
-                                    value={this.state.address3}
-                                />
-                                
-                            {/* {this.state.erroraddress3 ? (
+                    <TextInput
+                      style={Styles.textInput}
+                      multiline={true}
+                      numberOfLines={1}
+                      onChangeText={val => this.setState({address3: val})}
+                      maxLength={60}
+                      value={this.state.address3}
+                    />
+
+                    {/* {this.state.erroraddress3 ? (
                                     <Text
                                     style={{
                                         position: "absolute",
@@ -1213,36 +1307,33 @@ class BookingPage extends Component {
                                 )
                                 :null
                             } */}
-                            </View>
+                  </View>
 
-                            <View style={Styles.overview}>
-                                <Text style={Styles.overviewTitle}>Post Code</Text>
-                                <TextInput
-                                    style={Styles.textInput}
-                                    multiline={false}
-                                    numberOfLines={1}
-                                    keyboardType={"phone-pad"}
-                                    onChangeText={val => this.setState({post_cd : val})} 
-                                    value={this.state.post_cd}
-                                />
-                                
-                            {this.state.errorpost_cd ? (
-                                    <Text
-                                    style={{
-                                        position: "absolute",
-                                        bottom: 0,
-                                        left: 25,
-                                        color: "red",
-                                        fontSize: 12
-                                    }}
-                                > 
-                                 ! Post Code Required
-                                    </Text>
-                                )
-                                :null
-                            }
-                            </View>
-                            {/* <View style={Styles.overview}>
+                  <View style={Styles.overview}>
+                    <Text style={Styles.overviewTitle}>Post Code</Text>
+                    <TextInput
+                      style={Styles.textInput}
+                      multiline={false}
+                      numberOfLines={1}
+                      keyboardType={'phone-pad'}
+                      onChangeText={val => this.setState({post_cd: val})}
+                      value={this.state.post_cd}
+                    />
+
+                    {this.state.errorpost_cd ? (
+                      <Text
+                        style={{
+                          position: 'absolute',
+                          bottom: 0,
+                          left: 25,
+                          color: 'red',
+                          fontSize: 12,
+                        }}>
+                        ! Post Code Required
+                      </Text>
+                    ) : null}
+                  </View>
+                  {/* <View style={Styles.overview}>
                                 <Text style={Styles.overviewTitle}>Booking Type</Text>
                                 <Picker note
                                     mode="dropdown"
@@ -1270,220 +1361,226 @@ class BookingPage extends Component {
                                         </Text>
                                     ) : null}
                             </View> */}
-                            <View style={Styles.overview}>
-                                <Text style={Styles.overviewTitle}>Amount</Text>
-                                 
-                                {this.state.amounts.length == 0 ?
-                                    <TextInput 
-                                    style={Styles.textInputBold} 
-                                    keyboardType="numeric" 
-                                    value={this.state.amt}
-                                    editable={false} 
-                                    onChangeText={(val)=>this.setState({amt:val})}  
-                                    />
-                                    :
-                                    <View>
-                                        {this.state.amounts.map((data, key) =>
-                                        <TextInput key={key} 
-                                        style={Styles.textInputBold} 
-                                        keyboardType="numeric" 
-                                        value={numFormat(data.value)}
-                                        editable={false} 
-                                        label = {data.label}
-                                        />
-                                        )}
-                                    </View>
-                                    }
-                            </View>
-                            <View style={Styles.overview}>
-                                <Text style={Styles.overviewTitle}>No. Referensi Bukti Bayar</Text>
-                                <TextInput
-                                    style={Styles.textInput}
-                                    multiline={true}
-                                    // numberOfLines={5}
-                                    onChangeText={val => this.setState({remarks : val})} 
-                                    value={this.state.remarks}
-                                />
-                                
-                                {this.state.errorremarks ? (
-                                    <Text
-                                    style={{
-                                        position: "absolute",
-                                        bottom: 0,
-                                        left: 25,
-                                        color: "red",
-                                        fontSize: 12
-                                    }}
-                                > 
-                                 ! Remarks Required
-                                    </Text>
-                                )
-                                :null
-                                }
-                            </View>
-                            <View style={this.state.category == 'C' ? {display: 'none'} : Styles.containImageTop}>
-                                <Text 
-                                style={this.state.category == 'C' ? {display: 'none'} : [
-                                    Style.textBlack, 
-                                    {paddingTop: 5}
-                                ]}
-                                
-                                >
-                                    Upload KTP
-                                </Text>
-                                <TouchableOpacity style={this.state.category == 'C' ? {display: 'none'} : {
-                                        padding: 2,
-                                        borderWidth: 1,
-                                        borderColor: '#d3d3d3',
-                                        margin: 10
-                                    }}
-                                    onPress={() => this.showAlert("pictUrlKTP")}
-                                    pointerEvents={this.state.isLoaded ? "auto" : "none"}
-                                    >
-                                    {
-                                        this.state.pictUrlKTP == null || this.state.pictUrlKTP =='' ?
-                                            <View>
-                                                <Image
-                                                style={this.state.category == 'C' ? {display: 'none'} : {width: 200, height: 130}}
-                                                source={uri = require("../../assets/images/ktp.png")} 
-                                                />
-                                            </View>
-                                        :
+                  <View style={Styles.overview}>
+                    <Text style={Styles.overviewTitle}>Amount</Text>
 
-                                        <Image style={this.state.category == 'C' ? {display: 'none'} : {width: 200, height: 130}} source={this.state.pictUrlKTP} />
-                                    }
-                                </TouchableOpacity>
-                                {this.state.errorpictUrlKTP ? (
-                                    <Text
-                                    style={{
-                                        position: "absolute",
-                                        bottom: 0,
-                                        left: 25,
-                                        color: "red",
-                                        fontSize: 12
-                                    }}
-                                > 
-                                 ! KTP Required
-                                    </Text>
-                                )
-                                :null
-                                }
-                            </View>
-                            <View style={Styles.containImageTop}>
-                                <Text 
-                                    style={[
-                                        Style.textBlack, 
-                                        {paddingTop: 5}
-                                    ]}
-                                >
-                                    Upload NPWP
-                                </Text>
-                                <TouchableOpacity 
-                                    style={{
-                                        padding: 2,
-                                        borderWidth: 1,
-                                        borderColor: '#d3d3d3',
-                                        margin: 10,
-                                    }}
-                                    onPress={() => this.showAlert("pictUrlNPWP")}
-                                    pointerEvents={this.state.isLoaded ? "auto" : "none"}
-                                    >
-                                    {
-                                        this.state.pictUrlNPWP == null || this.state.pictUrlNPWP =='' ?
-                                            <View>
-                                                <Image
-                                                style={{width: 200, height: 130}}
-                                                source={uri = require("../../assets/images/ktp.png")} />
-                                            </View>
-                                        :
+                    {this.state.amounts.length == 0 ? (
+                      <TextInput
+                        style={Styles.textInputBold}
+                        keyboardType="numeric"
+                        value={this.state.amt}
+                        editable={false}
+                        onChangeText={val => this.setState({amt: val})}
+                      />
+                    ) : (
+                      <View>
+                        {this.state.amounts.map((data, key) => (
+                          <TextInput
+                            key={key}
+                            style={Styles.textInputBold}
+                            keyboardType="numeric"
+                            value={numFormat(data.value)}
+                            editable={false}
+                            label={data.label}
+                          />
+                        ))}
+                      </View>
+                    )}
+                  </View>
+                  <View style={Styles.overview}>
+                    <Text style={Styles.overviewTitle}>
+                      No. Referensi Bukti Bayar
+                    </Text>
+                    <TextInput
+                      style={Styles.textInput}
+                      multiline={true}
+                      // numberOfLines={5}
+                      onChangeText={val => this.setState({remarks: val})}
+                      value={this.state.remarks}
+                    />
 
-                                        <Image style={{width: 200, height: 130}} source={this.state.pictUrlNPWP} />
-                                    }
-                                </TouchableOpacity>
-                                {this.state.errorpictUrlNPWP ? (
-                                    <Text
-                                    style={{
-                                        position: "absolute",
-                                        bottom: 0,
-                                        left: 25,
-                                        color: "red",
-                                        fontSize: 12
-                                    }}
-                                > 
-                                 ! NPWP Required
-                                    </Text>
-                                )
-                                :null
-                                }
-                            </View>
-                            <View style={Styles.containImageTop}>
-                                <Text 
-                                style={[
-                                    Style.textBlack, 
-                                    {paddingTop: 5}
-                                ]}
-                                
-                                >
-                                    Upload Bukti Transfer
-                                </Text>
-                                <TouchableOpacity 
-                                    style={{
-                                        padding: 2,
-                                        borderWidth: 1,
-                                        borderColor: '#d3d3d3',
-                                        margin: 10
-                                    }}
-                                    onPress={() => this.showAlert("pictUrlBuktiTF")}
-                                    pointerEvents={this.state.isLoaded ? "auto" : "none"}
-                                    >
-                                    {
-                                        this.state.pictUrlBuktiTF == null || this.state.pictUrlBuktiTF =='' ?
-                                            <View>
-                                                <Image
-                                                style={{width: 200, height: 130}}
-                                                source={uri = require("../../assets/images/ktp.png")} />
-                                            </View>
-                                        :
-
-                                        <Image style={{width: 200, height: 130}} source={this.state.pictUrlBuktiTF} />
-                                    }
-                                </TouchableOpacity>
-                                {this.state.errorpictUrlBuktiTF ? (
-                                    <Text
-                                    style={{
-                                        position: "absolute",
-                                        bottom: 0,
-                                        left: 25,
-                                        color: "red",
-                                        fontSize: 12
-                                    }}
-                                > 
-                                 ! Bukti Transfer Required
-                                    </Text>
-                                )
-                                :null
-                                }
-                            </View>
-                            <View style={Styles.overview}>
-                                <Button rounded warning full
-                                    style={{ marginTop: 16, borderRadius: 10 }}
-                                    onPress={()=>this.submit()}>
-                                    
-                                    {
-                                        !this.state.isLoaded ? (
-                                            <ActivityIndicator color="#fff" />
-                                        ):(
-                                            <Text style={Styles.signInBtnText}>CONFIRM</Text>
-                                        )
-                                    }
-                                    
-                                   
-                                </Button>
-                            </View>
-                        </ScrollView>
-                    </View>
-                </Content>
-            </Container >
+                    {this.state.errorremarks ? (
+                      <Text
+                        style={{
+                          position: 'absolute',
+                          bottom: 0,
+                          left: 25,
+                          color: 'red',
+                          fontSize: 12,
+                        }}>
+                        ! Remarks Required
+                      </Text>
+                    ) : null}
+                  </View>
+                  <View
+                    style={
+                      this.state.category == 'C'
+                        ? {display: 'none'}
+                        : Styles.containImageTop
+                    }>
+                    <Text
+                      style={
+                        this.state.category == 'C'
+                          ? {display: 'none'}
+                          : [Style.textBlack, {paddingTop: 5}]
+                      }>
+                      Upload KTP
+                    </Text>
+                    <TouchableOpacity
+                      style={
+                        this.state.category == 'C'
+                          ? {display: 'none'}
+                          : {
+                              padding: 2,
+                              borderWidth: 1,
+                              borderColor: '#d3d3d3',
+                              margin: 10,
+                            }
+                      }
+                      onPress={() => this.showAlert('pictUrlKTP')}
+                      pointerEvents={this.state.isLoaded ? 'auto' : 'none'}>
+                      {this.state.pictUrlKTP == null ||
+                      this.state.pictUrlKTP == '' ? (
+                        <View>
+                          <Image
+                            style={
+                              this.state.category == 'C'
+                                ? {display: 'none'}
+                                : {width: 200, height: 130}
+                            }
+                            source={
+                              (uri = require('../../assets/images/ktp.png'))
+                            }
+                          />
+                        </View>
+                      ) : (
+                        <Image
+                          style={
+                            this.state.category == 'C'
+                              ? {display: 'none'}
+                              : {width: 200, height: 130}
+                          }
+                          source={this.state.pictUrlKTP}
+                        />
+                      )}
+                    </TouchableOpacity>
+                    {this.state.errorpictUrlKTP ? (
+                      <Text
+                        style={{
+                          position: 'absolute',
+                          bottom: 0,
+                          left: 25,
+                          color: 'red',
+                          fontSize: 12,
+                        }}>
+                        ! KTP Required
+                      </Text>
+                    ) : null}
+                  </View>
+                  <View style={Styles.containImageTop}>
+                    <Text style={[Style.textBlack, {paddingTop: 5}]}>
+                      Upload NPWP
+                    </Text>
+                    <TouchableOpacity
+                      style={{
+                        padding: 2,
+                        borderWidth: 1,
+                        borderColor: '#d3d3d3',
+                        margin: 10,
+                      }}
+                      onPress={() => this.showAlert('pictUrlNPWP')}
+                      pointerEvents={this.state.isLoaded ? 'auto' : 'none'}>
+                      {this.state.pictUrlNPWP == null ||
+                      this.state.pictUrlNPWP == '' ? (
+                        <View>
+                          <Image
+                            style={{width: 200, height: 130}}
+                            source={
+                              (uri = require('../../assets/images/ktp.png'))
+                            }
+                          />
+                        </View>
+                      ) : (
+                        <Image
+                          style={{width: 200, height: 130}}
+                          source={this.state.pictUrlNPWP}
+                        />
+                      )}
+                    </TouchableOpacity>
+                    {this.state.errorpictUrlNPWP ? (
+                      <Text
+                        style={{
+                          position: 'absolute',
+                          bottom: 0,
+                          left: 25,
+                          color: 'red',
+                          fontSize: 12,
+                        }}>
+                        ! NPWP Required
+                      </Text>
+                    ) : null}
+                  </View>
+                  <View style={Styles.containImageTop}>
+                    <Text style={[Style.textBlack, {paddingTop: 5}]}>
+                      Upload Bukti Transfer
+                    </Text>
+                    <TouchableOpacity
+                      style={{
+                        padding: 2,
+                        borderWidth: 1,
+                        borderColor: '#d3d3d3',
+                        margin: 10,
+                      }}
+                      onPress={() => this.showAlert('pictUrlBuktiTF')}
+                      pointerEvents={this.state.isLoaded ? 'auto' : 'none'}>
+                      {this.state.pictUrlBuktiTF == null ||
+                      this.state.pictUrlBuktiTF == '' ? (
+                        <View>
+                          <Image
+                            style={{width: 200, height: 130}}
+                            source={
+                              (uri = require('../../assets/images/ktp.png'))
+                            }
+                          />
+                        </View>
+                      ) : (
+                        <Image
+                          style={{width: 200, height: 130}}
+                          source={this.state.pictUrlBuktiTF}
+                        />
+                      )}
+                    </TouchableOpacity>
+                    {this.state.errorpictUrlBuktiTF ? (
+                      <Text
+                        style={{
+                          position: 'absolute',
+                          bottom: 0,
+                          left: 25,
+                          color: 'red',
+                          fontSize: 12,
+                        }}>
+                        ! Bukti Transfer Required
+                      </Text>
+                    ) : null}
+                  </View>
+                  <View style={Styles.overview}>
+                    <Button
+                      rounded
+                      warning
+                      full
+                      style={{marginTop: 16, borderRadius: 10}}
+                      onPress={() => this.submit()}>
+                      {!this.state.isLoaded ? (
+                        <ActivityIndicator color="#fff" />
+                      ) : (
+                        <Text style={Styles.signInBtnText}>CONFIRM</Text>
+                      )}
+                    </Button>
+                  </View>
+                </ScrollView>
+              </View>
+            </ScrollView>
+          </Container>
         );
     }
 }

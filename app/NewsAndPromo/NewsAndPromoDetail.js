@@ -86,9 +86,10 @@ class NewsAndPromoDetail extends Component {
           </View>
           <View style={Style.actionBarRight}></View>
         </Header>
-        <Content
+        {/* <Content
           style={Style.layoutInner}
-          contentContainerStyle={Style.layoutContent}>
+          contentContainerStyle={Style.layoutContent}> */}
+        <View style={Style.layoutInner}>
           {/* <Image
               source={require("@Asset/images/tigabr.jpg")}
               style={{
@@ -121,7 +122,7 @@ class NewsAndPromoDetail extends Component {
                         </Text> */}
             </View>
           </View>
-        </Content>
+        </View>
       </Container>
     );
   }

@@ -166,91 +166,87 @@ class Feed extends Component {
                         </TouchableOpacity> */}
           </View>
         </Header>
-        <Content style={[Style.layoutContent, {backgroundColor: '#f3f3f3'}]}>
-          <ScrollView scrollEventThrottle={200} directionalLockEnabled={true}>
-            <View style={Styles.sectionGrey}>
-              <View style={Styles.headerBg}>
-                {/* <Icon name="newspaper" type="FontAwesome5" style={Styles.headerIcon} />
+        {/* <Content style={[Style.layoutContent, {backgroundColor: '#f3f3f3'}]}> */}
+        <ScrollView scrollEventThrottle={200} directionalLockEnabled={true}>
+          <View style={Styles.sectionGrey}>
+            <View style={Styles.headerBg}>
+              {/* <Icon name="newspaper" type="FontAwesome5" style={Styles.headerIcon} />
                                 <Text style={Styles.sHeader}>{'News And Promo'.toUpperCase()}</Text> */}
-                <TouchableOpacity
-                  onPress={() => this.changeType('news')}
-                  style={[
-                    Styles.btnSelect,
-                    {
-                      borderBottomColor:
-                        this.state.type == 'news'
-                          ? Colors.headerOrange
-                          : '#f3f3f3',
-                    },
-                  ]}>
-                  <Text
-                    style={{
-                      color:
-                        this.state.type == 'news'
-                          ? Colors.headerOrange
-                          : '#333',
-                    }}>
-                    News
-                  </Text>
-                </TouchableOpacity>
-                <TouchableOpacity
-                  onPress={() => this.changeType('promo')}
-                  style={[
-                    Styles.btnSelect,
-                    {
-                      borderBottomColor:
-                        this.state.type == 'promo'
-                          ? Colors.headerOrange
-                          : '#f3f3f3',
-                    },
-                  ]}>
-                  <Text
-                    style={{
-                      color:
-                        this.state.type == 'promo'
-                          ? Colors.headerOrange
-                          : '#333',
-                    }}>
-                    Promo
-                  </Text>
-                </TouchableOpacity>
-              </View>
+              <TouchableOpacity
+                onPress={() => this.changeType('news')}
+                style={[
+                  Styles.btnSelect,
+                  {
+                    borderBottomColor:
+                      this.state.type == 'news'
+                        ? Colors.headerOrange
+                        : '#f3f3f3',
+                  },
+                ]}>
+                <Text
+                  style={{
+                    color:
+                      this.state.type == 'news' ? Colors.headerOrange : '#333',
+                  }}>
+                  News
+                </Text>
+              </TouchableOpacity>
+              <TouchableOpacity
+                onPress={() => this.changeType('promo')}
+                style={[
+                  Styles.btnSelect,
+                  {
+                    borderBottomColor:
+                      this.state.type == 'promo'
+                        ? Colors.headerOrange
+                        : '#f3f3f3',
+                  },
+                ]}>
+                <Text
+                  style={{
+                    color:
+                      this.state.type == 'promo' ? Colors.headerOrange : '#333',
+                  }}>
+                  Promo
+                </Text>
+              </TouchableOpacity>
             </View>
+          </View>
 
-            <View style={{marginTop: 5}}>
-              {this.state.news.map((data, key) => (
-                <TouchableOpacity
-                  key={key}
-                  style={Styles.newsContainer}
-                  onPress={() => Actions.NewsAndPromoDetail({items: data})}>
-                  <View style={Styles.newsTextWrap}>
-                    <Text style={Styles.newsTitle}>{data.subject}.</Text>
-                    <Text style={Styles.newsLocation}>{data.descs}</Text>
-                  </View>
-                  <View style={Styles.newsImageWrap}>
-                    <Image
-                      style={Styles.newsImage}
-                      source={{uri: data.picture}}
-                    />
-                  </View>
-                  <View
-                    style={[
-                      Styles.newsBadge,
-                      {
-                        backgroundColor:
-                          data.content_type == 'news' ? '#f5ef42' : '#f56822',
-                      },
-                    ]}>
-                    {/* <Text>
+          <View style={{marginTop: 5}}>
+            {this.state.news.map((data, key) => (
+              <TouchableOpacity
+                key={key}
+                style={Styles.newsContainer}
+                onPress={() => Actions.NewsAndPromoDetail({items: data})}>
+                <View style={Styles.newsTextWrap}>
+                  <Text style={Styles.newsTitle}>{data.subject}.</Text>
+                  <Text style={Styles.newsLocation}>{data.descs}</Text>
+                </View>
+                <View style={Styles.newsImageWrap}>
+                  <Image
+                    style={Styles.newsImage}
+                    source={{uri: data.picture}}
+                  />
+                </View>
+                <View
+                  style={[
+                    Styles.newsBadge,
+                    {
+                      backgroundColor:
+                        data.content_type == 'news' ? '#f5ef42' : '#f56822',
+                    },
+                  ]}>
+                  {/* <Text>
                       {data.content_type.charAt(0).toUpperCase() +
                         data.content_type.slice(1)}
                     </Text> */}
-                  </View>
-                </TouchableOpacity>
-              ))}
-            </View>
-          </ScrollView>
-        </Content>
+                </View>
+              </TouchableOpacity>
+            ))}
+          </View>
+        </ScrollView>
+        {/* </Content> */}
       </Container>
     );
   }

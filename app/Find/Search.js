@@ -73,62 +73,59 @@ export default class Search extends React.Component {
           animated
           barStyle="dark-content"
         />
-        <Content style={Style.layoutContent}>
-          <ScrollView scrollEventThrottle={200} directionalLockEnabled={true}>
-            <View style={Styles.sectionGrey}>
-              <View style={Styles.headerBg}>
-                <Icon
-                  active
-                  name="building"
-                  type="FontAwesome"
-                  style={Styles.actionIcon}
-                />
-                <Text style={Styles.sHeader}>
-                  {'All Project'.toUpperCase()}
-                </Text>
-                {/* <Right>
+
+        <ScrollView scrollEventThrottle={200} directionalLockEnabled={true}>
+          <View style={Styles.sectionGrey}>
+            <View style={Styles.headerBg}>
+              <Icon
+                active
+                name="building"
+                type="FontAwesome"
+                style={Styles.actionIcon}
+              />
+              <Text style={Styles.sHeader}>{'All Project'.toUpperCase()}</Text>
+              {/* <Right>
                             <Button small rounded style={Styles.sBtn} onPress={() => { NavigationService.navigate('PublicProperties') }}>
                                 <Text style={Styles.sLink} >See All</Text>
                             </Button>
                         </Right> */}
-              </View>
-
-              {this.state.dataTower.length == 0 ? (
-                <View style={Styles.city}>
-                  <Shimmer autoRun={true} style={Styles.btnCity} />
-                  <Shimmer autoRun={true} style={Styles.btnCity} />
-                  <Shimmer autoRun={true} style={Styles.btnCity} />
-                  <Shimmer autoRun={true} style={Styles.btnCity} />
-                </View>
-              ) : (
-                <View style={Styles.city}>
-                  {this.state.dataTower.map((item, key) => (
-                    <TouchableOpacity
-                      key={key}
-                      style={Styles.btnCity}
-                      onPress={() => this.clickProject(item)}>
-                      <Image
-                        source={{
-                          uri:
-                            item.picture_url +
-                            '?random_number=' +
-                            new Date().getTime(),
-                        }}
-                        resizeMode={'cover'}
-                        style={Styles.btnCityImg}
-                      />
-                      <View style={Styles.btnCityLocation}>
-                        <Text style={Styles.btnCityText}>
-                          {item.project_descs}
-                        </Text>
-                      </View>
-                    </TouchableOpacity>
-                  ))}
-                </View>
-              )}
             </View>
-          </ScrollView>
-        </Content>
+
+            {this.state.dataTower.length == 0 ? (
+              <View style={Styles.city}>
+                <Shimmer autoRun={true} style={Styles.btnCity} />
+                <Shimmer autoRun={true} style={Styles.btnCity} />
+                <Shimmer autoRun={true} style={Styles.btnCity} />
+                <Shimmer autoRun={true} style={Styles.btnCity} />
+              </View>
+            ) : (
+              <View style={Styles.city}>
+                {this.state.dataTower.map((item, key) => (
+                  <TouchableOpacity
+                    key={key}
+                    style={Styles.btnCity}
+                    onPress={() => this.clickProject(item)}>
+                    <Image
+                      source={{
+                        uri:
+                          item.picture_url +
+                          '?random_number=' +
+                          new Date().getTime(),
+                      }}
+                      resizeMode={'cover'}
+                      style={Styles.btnCityImg}
+                    />
+                    <View style={Styles.btnCityLocation}>
+                      <Text style={Styles.btnCityText}>
+                        {item.project_descs}
+                      </Text>
+                    </View>
+                  </TouchableOpacity>
+                ))}
+              </View>
+            )}
+          </View>
+        </ScrollView>
       </Container>
     );
   }

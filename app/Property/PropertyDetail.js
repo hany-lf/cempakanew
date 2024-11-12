@@ -496,9 +496,10 @@ export default class extends React.Component {
           </View>
         </Header>
 
-        <Content
+        {/* <Content
           style={Style.layoutInner}
-          contentContainerStyle={Style.layoutContent}>
+          contentContainerStyle={Style.layoutContent}> */}
+        <ScrollView style={[Style.layoutInner, {width: '100%', height: 300}]}>
           {/* IMAGE */}
           {this.state.picture_url != '' ? (
             <ImageBackground
@@ -1260,7 +1261,7 @@ export default class extends React.Component {
               </Form>
             </ScrollView>
           </Modal>
-        </Content>
+        </ScrollView>
         <Button
           full
           style={{backgroundColor: '#12173F'}}

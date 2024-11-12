@@ -1,5 +1,5 @@
 //import liraries
-import React from "react";
+import React from 'react';
 import {
   StatusBar,
   ActivityIndicator,
@@ -14,8 +14,8 @@ import {
   Platform,
   SafeAreaView,
   View,
-  FlatList
-} from "react-native";
+  FlatList,
+} from 'react-native';
 import {
   Container,
   Header,
@@ -31,24 +31,22 @@ import {
   Item,
   Footer,
   FooterTab,
-  Badge
-} from "native-base";
+  Badge,
+} from 'native-base';
 
-import NavigationService from "@Service/Navigation";
+import NavigationService from '@Service/Navigation';
 
-import PROPERTIES from "./Properties";
+import PROPERTIES from './Properties';
 
-import { Actions } from "react-native-router-flux";
+import {Actions} from 'react-native-router-flux';
 
-import { Style, Colors } from "../Themes/";
-import Styles from "./Style";
-import { _storeData, _getData, _navigate } from "@Component/StoreAsync";
-import { urlApi } from "@Config/services";
+import {Style, Colors} from '../Themes/';
+import Styles from './Style';
+import {_storeData, _getData, _navigate} from '@Component/StoreAsync';
+import {urlApi} from '@Config/services';
 
 //const {width, height} = Dimensions.get('window')
-const { width: viewportWidth, height: viewportHeight } = Dimensions.get(
-  "window"
-);
+const {width: viewportWidth, height: viewportHeight} = Dimensions.get('window');
 let isMount = false;
 
 // create a component
@@ -59,10 +57,10 @@ class Categoris extends React.Component {
     this.state = {
       hd: null,
 
-      tower: []
+      tower: [],
     };
-    console.log("props CLUSTER", this.props);
-    console.log("props getTower", this.props.getTower);
+    console.log('props CLUSTER', this.props);
+    console.log('props getTower', this.props.getTower);
   }
 
   async componentDidMount() {
@@ -70,8 +68,8 @@ class Categoris extends React.Component {
 
     const data = {
       hd: new Headers({
-        Token: await _getData("@Token")
-      })
+        Token: await _getData('@Token'),
+      }),
     };
     this.setState(data, () => {
       this.getTower();
@@ -80,7 +78,7 @@ class Categoris extends React.Component {
 
   getTower = () => {
     const dataPenting = this.props.items;
-    console.log('item',dataPenting);
+    console.log('item', dataPenting);
     const towers = this.props.getTower;
     // console.log('tower',towers);
     // const entity = towers.entity_cd;
@@ -91,28 +89,28 @@ class Categoris extends React.Component {
       isMount
         ? fetch(
             urlApi +
-              "c_product_info/getTowerData/" +
+              'c_product_info/getTowerData/' +
               dataPenting.db_profile +
-              "/" +
+              '/' +
               dataPenting.entity_cd +
-              "/" +
+              '/' +
               dataPenting.project_no,
             {
-              method: "GET",
-              headers: this.state.hd
-            }
+              method: 'GET',
+              headers: this.state.hd,
+            },
           )
             .then(response => response.json())
             .then(res => {
               if (!res.Error) {
                 const resData = res.Data;
-                this.setState({ tower: resData });
+                this.setState({tower: resData});
               } else {
-                this.setState({ isLoaded: !this.state.isLoaded }, () => {
+                this.setState({isLoaded: !this.state.isLoaded}, () => {
                   alert(res.Pesan);
                 });
               }
-              console.log("getTowerZ", res);
+              console.log('getTowerZ', res);
             })
             .catch(error => {
               console.log(error);
@@ -142,18 +140,18 @@ class Categoris extends React.Component {
     // const clusterCode = this.state.tower[0].cluster_cd;
     const clusterCode = this.state.tower;
     // const cl_cd = clusterCode.cluster_cd;
-    console.log('cek cluster',clusterCode);
+    console.log('cek cluster', clusterCode);
     const cl_cd = item.cluster_cd;
-    
-    console.log('cl_cd',cl_cd);
+
+    console.log('cl_cd', cl_cd);
     // console.log('GET cluster code', dataPenting);
     let url;
-    dataPenting["tower"] = item.property_cd;
-    dataPenting["towerDescs"] = item.descs;
+    dataPenting['tower'] = item.property_cd;
+    dataPenting['towerDescs'] = item.descs;
     // clusterCode["cluster_cd"] = item.cluster_cd;
 
-    console.log("check DATA", dataPenting);
-    console.log("get __goTo", this.props.goTo);
+    console.log('check DATA', dataPenting);
+    console.log('get __goTo', this.props.goTo);
     // console.log('get __routeName', this.props.routeName);
     // console.log("check _getLotType", takeLotType);
     // const lotty = this.state.tower;
@@ -162,9 +160,9 @@ class Categoris extends React.Component {
     // console.log('lottyped', lottyped);
 
     if (this.props.goTo) {
-      if (this.props.goTo.URL == "UnitEnquiryPage") {
-        console.log("dyn true", this.props.dyn);
-        _navigate("UnitEnquiryProjectPage", {
+      if (this.props.goTo.URL == 'UnitEnquiryPage') {
+        console.log('dyn true', this.props.dyn);
+        _navigate('UnitEnquiryProjectPage', {
           prevItems: dataPenting,
           items: this.props.items,
           gotoItems: this.props.goTo,
@@ -173,18 +171,18 @@ class Categoris extends React.Component {
           // cl_cd:item.cluster_cd
         });
       } else {
-        console.log("dyn false", this.props.dyn);
-        _navigate("categoris", {
+        console.log('dyn false', this.props.dyn);
+        _navigate('categoris', {
           items: this.props.items,
           gotoItems: this.props.goTo,
           // lottypes: takeLotType,
           routes: this.props.routes,
-          clusterCode: cl_cd
+          clusterCode: cl_cd,
         });
       }
     } else {
-      _navigate("categoris", {
-        items: this.props.items
+      _navigate('categoris', {
+        items: this.props.items,
       });
     }
   }
@@ -203,8 +201,7 @@ class Categoris extends React.Component {
             <Button
               transparent
               style={Style.actionBarBtn}
-              onPress={Actions.pop}
-            >
+              onPress={Actions.pop}>
               <Icon
                 active
                 name="arrow-left"
@@ -215,16 +212,17 @@ class Categoris extends React.Component {
           </View>
           <View style={Style.actionBarMiddle}>
             <Text style={Style.actionBarText}>
-              {"Choose Cluster / Tower".toUpperCase()}
+              {'Choose Cluster / Tower'.toUpperCase()}
             </Text>
           </View>
           <View style={Style.actionBarRight} />
         </Header>
 
-        <Content
+        {/* <Content
           style={Style.layoutInner}
           contentContainerStyle={Style.layoutContent}
-        >
+        > */}
+        <ScrollView>
           <ImageBackground style={Styles.homeBg}>
             <View style={Styles.section}>
               {this.state.tower.length == 0 ? (
@@ -234,24 +232,20 @@ class Categoris extends React.Component {
                   data={this.state.tower}
                   style={Styles.item}
                   keyExtractor={item => item.cluster_cd}
-                  renderItem={({ item, separators }) => (
+                  renderItem={({item, separators}) => (
                     <TouchableHighlight
                       underlayColor="transparent"
-                      onPress={() => this.goTo(item)}
-                    >
+                      onPress={() => this.goTo(item)}>
                       <View style={Styles.record}>
                         <Image
-                          source={{ uri: item.picture_url }}
+                          source={{uri: item.picture_url}}
                           style={Styles.itemImg}
                         />
                         <View style={Styles.itemInfo}>
                           <Text style={Styles.itemTitle}>{item.descs}</Text>
                         </View>
                         <View style={Styles.trash}>
-                          <Button
-                            transparent
-                            onPress={() =>this.goTo(item)}
-                          >
+                          <Button transparent onPress={() => this.goTo(item)}>
                             <Icon
                               name="arrow-right"
                               type="FontAwesome"
@@ -266,7 +260,8 @@ class Categoris extends React.Component {
               )}
             </View>
           </ImageBackground>
-        </Content>
+          {/* </Content> */}
+        </ScrollView>
       </Container>
     );
   }

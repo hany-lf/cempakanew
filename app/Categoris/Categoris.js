@@ -1,5 +1,5 @@
 //import liraries
-import React from "react";
+import React from 'react';
 import {
   StatusBar,
   ActivityIndicator,
@@ -14,8 +14,8 @@ import {
   Platform,
   SafeAreaView,
   View,
-  FlatList
-} from "react-native";
+  FlatList,
+} from 'react-native';
 import {
   Container,
   Header,
@@ -31,24 +31,22 @@ import {
   Item,
   Footer,
   FooterTab,
-  Badge
-} from "native-base";
+  Badge,
+} from 'native-base';
 
-import NavigationService from "@Service/Navigation";
+import NavigationService from '@Service/Navigation';
 
-import PROPERTIES from "./Properties";
+import PROPERTIES from './Properties';
 
-import { Actions } from "react-native-router-flux";
+import {Actions} from 'react-native-router-flux';
 
-import { Style, Colors } from "../Themes/";
-import Styles from "./Style";
-import { _storeData, _getData } from "@Component/StoreAsync";
-import { urlApi } from "@Config/services";
+import {Style, Colors} from '../Themes/';
+import Styles from './Style';
+import {_storeData, _getData} from '@Component/StoreAsync';
+import {urlApi} from '@Config/services';
 
 //const {width, height} = Dimensions.get('window')
-const { width: viewportWidth, height: viewportHeight } = Dimensions.get(
-  "window"
-);
+const {width: viewportWidth, height: viewportHeight} = Dimensions.get('window');
 let isMount = false;
 
 // create a component
@@ -60,11 +58,11 @@ class Categoris extends React.Component {
       hd: null,
 
       properties: [],
-      tower: []
+      tower: [],
     };
 
-    console.log("props", props);
-    console.log("props _getCLUSTER", props.clusterCode);
+    console.log('props', props);
+    console.log('props _getCLUSTER', props.clusterCode);
   }
 
   async componentDidMount() {
@@ -72,8 +70,8 @@ class Categoris extends React.Component {
 
     const data = {
       hd: new Headers({
-        Token: await _getData("@Token")
-      })
+        Token: await _getData('@Token'),
+      }),
     };
     this.setState(data, () => {
       this.getLotType();
@@ -86,40 +84,38 @@ class Categoris extends React.Component {
     console.log('itemproper', item);
     // console.log('item lot type', item);
     const clusterCode = this.props.clusterCode;
-    console.log("cluster code", clusterCode);
+    console.log('cluster code', clusterCode);
     {
       isMount
         ? fetch(
             urlApi +
-              "c_product_info/getLotType/" +
+              'c_product_info/getLotType/' +
               item.db_profile +
-              "/" +
+              '/' +
               item.entity_cd +
-              "/" +
+              '/' +
               item.project_no +
-              "/" +
+              '/' +
               clusterCode,
-              "/" +
-              item.property_cd,
-
+            '/' + item.property_cd,
 
             {
-              method: "GET",
-              headers: this.state.hd
-            }
+              method: 'GET',
+              headers: this.state.hd,
+            },
           )
             .then(response => response.json())
             .then(res => {
               if (!res.Error) {
                 const resData = res.Data;
-                this.setState({ properties: resData });
-                _storeData("@getLotType", resData);
+                this.setState({properties: resData});
+                _storeData('@getLotType', resData);
               } else {
-                this.setState({ isLoaded: !this.state.isLoaded }, () => {
+                this.setState({isLoaded: !this.state.isLoaded}, () => {
                   alert(res.Pesan);
                 });
               }
-              console.log("getLotType", res);
+              console.log('getLotType', res);
             })
             .catch(error => {
               console.log(error);
@@ -130,38 +126,38 @@ class Categoris extends React.Component {
 
   getTower = () => {
     const item = this.props.items;
-    console.log('itm',item);
+    console.log('itm', item);
     const clusterCode = this.props.clusterCode;
-    console.log("cluster code gettower", clusterCode);
+    console.log('cluster code gettower', clusterCode);
     {
       isMount
         ? fetch(
             urlApi +
-              "c_product_info/getTower/" +
+              'c_product_info/getTower/' +
               item.db_profile +
-              "/" +
+              '/' +
               item.entity_cd +
-              "/" +
+              '/' +
               item.project_no +
-              "/" +
+              '/' +
               clusterCode,
             {
-              method: "GET",
-              headers: this.state.hd
-            }
+              method: 'GET',
+              headers: this.state.hd,
+            },
           )
             .then(response => response.json())
             .then(res => {
               if (!res.Error) {
                 const resData = res.Data;
-                this.setState({ tower: resData });
-                _storeData("@getTowerz", resData);
+                this.setState({tower: resData});
+                _storeData('@getTowerz', resData);
               } else {
-                this.setState({ isLoaded: !this.state.isLoaded }, () => {
+                this.setState({isLoaded: !this.state.isLoaded}, () => {
                   alert(res.Pesan);
                 });
               }
-              console.log("getTower", res);
+              console.log('getTower', res);
             })
             .catch(error => {
               console.log(error);
@@ -171,8 +167,8 @@ class Categoris extends React.Component {
   };
 
   clickUnitgoris(item) {
-    console.log('item',item)
-    console.log('props item', this.props.items)
+    console.log('item', item);
+    console.log('props item', this.props.items);
     const properties = this.state.properties;
     // console.log('propertis', properties);
     // const lottype = properties[0].lot_type;
@@ -184,16 +180,16 @@ class Categoris extends React.Component {
     // console.log('propertycd', propertycd);
     // console.log("propsCode", propsCode);
     const clusterCode = this.props.clusterCode;
-   
+
     Actions.unitdetail({
       items: item,
       prevItems: this.props.items,
       clusterCode: clusterCode,
-      goToItem: this.props.gotoItems
+      goToItem: this.props.gotoItems,
       // lottype: lottype,
       // propsCode: propsCode
     });
-    this.setState({ click : true})
+    this.setState({click: true});
   }
 
   render() {
@@ -210,8 +206,7 @@ class Categoris extends React.Component {
             <Button
               transparent
               style={Style.actionBarBtn}
-              onPress={Actions.pop}
-            >
+              onPress={Actions.pop}>
               <Icon
                 active
                 name="arrow-left"
@@ -221,15 +216,14 @@ class Categoris extends React.Component {
             </Button>
           </View>
           <View style={Style.actionBarMiddle}>
-            <Text style={Style.actionBarText}>{"Property Type".toUpperCase()}</Text>
+            <Text style={Style.actionBarText}>
+              {'Property Type'.toUpperCase()}
+            </Text>
           </View>
           <View style={Style.actionBarRight}></View>
         </Header>
 
-        <Content
-          style={Style.layoutInner}
-          contentContainerStyle={Style.layoutContent}
-        >
+        <ScrollView>
           <ImageBackground style={Styles.homeBg}>
             {/* <Text>tres</Text> */}
             <View style={Styles.section}>
@@ -240,14 +234,13 @@ class Categoris extends React.Component {
                   data={this.state.tower}
                   style={Styles.item}
                   keyExtractor={item => item.rowID}
-                  renderItem={({ item, separators }) => (
+                  renderItem={({item, separators}) => (
                     <TouchableHighlight
                       underlayColor="transparent"
-                      onPress={() => this.clickUnitgoris(item)}
-                    >
+                      onPress={() => this.clickUnitgoris(item)}>
                       <View style={Styles.record}>
                         <Image
-                          source={{ uri: item.picture_url }}
+                          source={{uri: item.picture_url}}
                           style={Styles.itemImg}
                         />
                         <View style={Styles.itemInfo}>
@@ -256,8 +249,7 @@ class Categoris extends React.Component {
                         <View style={Styles.trash}>
                           <Button
                             transparent
-                            onPress={() => this.clickUnitgoris(item)}
-                          >
+                            onPress={() => this.clickUnitgoris(item)}>
                             <Icon
                               name="arrow-right"
                               type="FontAwesome"
@@ -272,7 +264,7 @@ class Categoris extends React.Component {
               )}
             </View>
           </ImageBackground>
-        </Content>
+        </ScrollView>
       </Container>
     );
   }

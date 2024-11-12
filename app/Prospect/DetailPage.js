@@ -3242,6 +3242,7 @@ class DetailPage extends Component {
         {this.state.detail.length == 0 ? (
           <ActivityIndicator />
         ) : (
+          // <Text>yes</Text>
           <View>
             <View
               style={{paddingVertical: 10}}
@@ -4152,9 +4153,10 @@ class DetailPage extends Component {
     // alert(this.state.individu);
     return (
       <Container style={Style.bgMain}>
-        <Content
+        {/* <Content
           style={Style.layoutInner}
-          contentContainerStyle={Style.layoutContent}>
+          contentContainerStyle={Style.layoutContent}> */}
+        <ScrollView>
           {/* content tab 1 */}
           {this.state.detail.length == 0 ? (
             <ActivityIndicator />
@@ -4248,7 +4250,8 @@ class DetailPage extends Component {
             </View>
           )}
           {/* </Content> */}
-        </Content>
+          {/* </Content> */}
+        </ScrollView>
 
         {/* </Content> */}
       </Container>

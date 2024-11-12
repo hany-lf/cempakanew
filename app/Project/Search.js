@@ -173,8 +173,7 @@ export default class Project extends React.Component {
           </View>
           <View style={Style.actionBarRight}></View>
         </Header>
-
-        <Content style={Style.layoutContent}>
+        <View>
           <ScrollView scrollEventThrottle={200} directionalLockEnabled={true}>
             <View style={Styles.sectionGrey}>
               {this.state.tower_dummy.length == 0 ? (
@@ -212,7 +211,7 @@ export default class Project extends React.Component {
               )}
             </View>
           </ScrollView>
-        </Content>
+        </View>
       </Container>
     );
   }

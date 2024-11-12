@@ -347,74 +347,74 @@ class ListProspect extends Component {
         </Header>
 
         {/* <View> */}
-        <Content style={[Style.layoutContent, {backgroundColor: '#f3f3f3'}]}>
-          <ScrollView scrollEventThrottle={200} directionalLockEnabled={true}>
-            <View>
-              <List style={{paddingVertical: 10}}>
-                {this.state.detail.map((data, key) => (
-                  //  <TouchableOpacity key={key} style={navStyles.newsContainer} onPress={()=>this.DetailProspect(data)}>
-                  <ListItem
-                    style={navStyles.newsContainer}
-                    onPress={() => this.DetailProspect(data)}
-                    key={key}>
-                    <View style={{alignSelf: 'flex-start'}}>
-                      <Text
-                        style={{
-                          // fontFamily: 'Montserrat-Regular',
-                          alignSelf: 'flex-start',
-                          color: '#333',
-                          marginBottom: 5,
-                          fontSize: 15,
-                        }}>
-                        {data.name}
-                      </Text>
-                      <Text
-                        style={{
-                          // fontFamily: 'Montserrat-Regular',
-                          alignSelf: 'flex-start',
-                          color: '#333',
-                          marginBottom: 5,
-                          fontSize: 15,
-                        }}>
-                        {data.handphone}
-                      </Text>
-                      <Text
-                        style={{
-                          // fontFamily: 'Montserrat-Regular',
-                          alignSelf: 'flex-start',
-                          color: '#333',
-                          marginBottom: 5,
-                          fontSize: 15,
-                        }}>
-                        {data.business_id}
-                      </Text>
-                      <Text
-                        style={{
-                          // fontFamily: 'Montserrat-Regular',
-                          alignSelf: 'flex-start',
-                          color: '#333',
-                          marginBottom: 5,
-                          fontSize: 15,
-                        }}>
-                        Follow Up Date : {data.entry_date}
-                      </Text>
-                    </View>
-                    <Right style={{position: 'absolute', right: 30}}>
-                      <Icon
-                        color="green"
-                        name="phone"
-                        style={{fontSize: 30, color: 'green'}}
-                        type="FontAwesome"
-                        onPress={() => this.callphone()}
-                      />
-                    </Right>
-                  </ListItem>
-                  // </TouchableOpacity>
-                ))}
-              </List>
-            </View>
-          </ScrollView>
-        </Content>
+        {/* <Content style={[Style.layoutContent, {backgroundColor: '#f3f3f3'}]}> */}
+        <ScrollView scrollEventThrottle={200} directionalLockEnabled={true}>
+          <View>
+            <List style={{paddingVertical: 10}}>
+              {this.state.detail.map((data, key) => (
+                //  <TouchableOpacity key={key} style={navStyles.newsContainer} onPress={()=>this.DetailProspect(data)}>
+                <ListItem
+                  style={navStyles.newsContainer}
+                  onPress={() => this.DetailProspect(data)}
+                  key={key}>
+                  <View style={{alignSelf: 'flex-start'}}>
+                    <Text
+                      style={{
+                        // fontFamily: 'Montserrat-Regular',
+                        alignSelf: 'flex-start',
+                        color: '#333',
+                        marginBottom: 5,
+                        fontSize: 15,
+                      }}>
+                      {data.name}
+                    </Text>
+                    <Text
+                      style={{
+                        // fontFamily: 'Montserrat-Regular',
+                        alignSelf: 'flex-start',
+                        color: '#333',
+                        marginBottom: 5,
+                        fontSize: 15,
+                      }}>
+                      {data.handphone}
+                    </Text>
+                    <Text
+                      style={{
+                        // fontFamily: 'Montserrat-Regular',
+                        alignSelf: 'flex-start',
+                        color: '#333',
+                        marginBottom: 5,
+                        fontSize: 15,
+                      }}>
+                      {data.business_id}
+                    </Text>
+                    <Text
+                      style={{
+                        // fontFamily: 'Montserrat-Regular',
+                        alignSelf: 'flex-start',
+                        color: '#333',
+                        marginBottom: 5,
+                        fontSize: 15,
+                      }}>
+                      Follow Up Date : {data.entry_date}
+                    </Text>
+                  </View>
+                  <Right style={{position: 'absolute', right: 30}}>
+                    <Icon
+                      color="green"
+                      name="phone"
+                      style={{fontSize: 30, color: 'green'}}
+                      type="FontAwesome"
+                      onPress={() => this.callphone()}
+                    />
+                  </Right>
+                </ListItem>
+                // </TouchableOpacity>
+              ))}
+            </List>
+          </View>
+        </ScrollView>
+        {/* </Content> */}
         {/* </View> */}
 
         {/* <Button

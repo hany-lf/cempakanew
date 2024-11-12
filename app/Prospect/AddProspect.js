@@ -10,6 +10,7 @@ import {
   Platform,
   ActivityIndicator,
   // Icon,
+  ScrollView,
 } from 'react-native';
 // import MaterialCommunityIcon from 'react-native-vector-icons/MaterialCommunityIcons';
 import {
@@ -756,9 +757,10 @@ class AddProspect extends Component {
           </View>
           <View style={Style.actionBarRight} />
         </Header>
-        <Content
+        {/* <Content
           style={Style.layoutInner}
-          contentContainerStyle={Style.layoutContent}>
+          contentContainerStyle={Style.layoutContent}> */}
+        <ScrollView>
           <View style={{flex: 1}}>
             <ProgressSteps>
               <ProgressStep
@@ -2260,7 +2262,7 @@ class AddProspect extends Component {
               )}
             </ProgressSteps>
           </View>
-        </Content>
+        </ScrollView>
       </Container>
     );
   }
